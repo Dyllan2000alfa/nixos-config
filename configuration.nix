@@ -72,13 +72,13 @@
       tree
       vscode
     ];
-  };
 
-  nixpkgs.config.allowUnfreePredicate = pkg:
-    builtins.elem (lib.getName pkg) [
-      # Add additional package names here
-      vscode
-    ];
+    nixpkgs.config.allowUnfreePredicate = pkg:
+      builtins.elem (lib.getName pkg) [
+        # Add additional package names here
+        "vscode"
+      ];
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
