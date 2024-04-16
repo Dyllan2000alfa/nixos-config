@@ -14,8 +14,8 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostId = "abcd1234";
-  networking.hostName = "NixOS"; # Define your hostname.
+  networking.hostId = "abcd1234"; # Define yout hostid
+  networking.hostName = "Dyllans-Desktop"; # Define your hostname.
   # Pick only one of the below networking options.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
@@ -40,7 +40,11 @@
   services.xserver.displayManager.sddm.enable = true;
   services.xserver.desktopManager.plasma5.enable = true;
 
-    # Enable OpenGL
+  # Configure keymap in X11
+  services.xserver.xkb.layout = "us";
+  # services.xserver.xkb.options = "eurosign:e,caps:escape";
+
+  # Enable OpenGL
   hardware.opengl = {
     enable = true;
     driSupport = true;
@@ -50,6 +54,7 @@
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = ["nvidia"];
 
+  # Enable nvidia driver
   hardware.nvidia = {
 
     # Modesetting is required.
@@ -82,10 +87,6 @@
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
-  # Configure keymap in X11
-  services.xserver.xkb.layout = "us";
-  # services.xserver.xkb.options = "eurosign:e,caps:escape";
-
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -104,13 +105,36 @@
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  #Enable KVM virtual machines
+  virtualisation.libvirtd.enable = true;
+  programs.virt-manager.enable = true;
+
+  # Enable common container config files in /etc/containers
+  virtualisation.containers.enable = true;
+  virtualisation = {
+    podman = {
+      enable = true;
+
+      # Create a `docker` alias for podman, to use it as a drop-in replacement
+      dockerCompat = true;
+
+      # Required for containers under podman-compose to be able to talk to each other.
+      defaultNetwork.settings.dns_enabled = true;
+    };
+  };
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.dyllant = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       tree
-      vscode
+      ckb-next
+      (vscode-with-extensions.override {
+        vscodeExtensions = with vscode-extensions; [
+          bbenoist.nix
+        ];
+      })
     ];
   };
 
@@ -118,9 +142,12 @@
     builtins.elem (lib.getName pkg) [
       # Add additional package names here
       "vscode"
+      "vscode-with-extensions"
       "nvidia-x11"
       "nvidia-settings"
       "nvidia-persistenced"
+      "corefonts"
+      "vista-fonts"
     ];
 
   # List packages installed in system profile. To search, run:
@@ -130,6 +157,16 @@
     wget
     layan-kde
     layan-gtk-theme
+    tela-icon-theme
+    libsForQt5.qtstyleplugin-kvantum
+    qt6Packages.qtstyleplugin-kvantum
+    corefonts
+    vistafonts
+    wineWowPackages.stable
+    winetricks
+    dive
+    podman-tui
+    podman-compose
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -141,6 +178,9 @@
  };
 
   # List services that you want to enable:
+
+  # Enable ckb-next
+  hardware.ckb-next.enable = true;
 
   # Enable flatpak
   services.flatpak.enable = true;
