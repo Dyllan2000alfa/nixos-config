@@ -70,13 +70,15 @@
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
       tree
+      vscode
     ];
-    nixpkgs.config.allowUnfreePredicate = pkg:
+  };
+
+  nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [
       # Add additional package names here
       vscode
     ];
-  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
