@@ -57,9 +57,4 @@ in
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
     package = pkgs.nvidia-patch.patch-nvenc (pkgs.nvidia-patch.patch-fbc package);
   };
-
-  # Install packages only needed on systems with a nvidia GPU
-  environment.systemPackages = with pkgs; [
-    nvidia-podman
-  ];
 }
