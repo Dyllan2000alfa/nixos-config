@@ -9,7 +9,7 @@
     [
       ../../modules/system.nix
       ../../modules/kde.nix
-      ../../modules/nvidia.nix
+      ../../modules/nvidia-vgpu.nix
       ../../modules/flatpak.nix
 
       # Include the results of the hardware scan.
