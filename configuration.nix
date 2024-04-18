@@ -4,12 +4,24 @@
 
 { config, lib, pkgs, ... }:
 
+let
+  home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-23.11.tar.gz";
+in
+
+let
+  # nvidia package to patch
+  package = config.boot.kernelPackages.nvidiaPackages.stable;
+in
+
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
-	
+
+  # Enable the Flakes feature and the accompanying new nix command-line tool
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -43,6 +55,8 @@
   # Configure keymap in X11
   services.xserver.xkb.layout = "us";
   # services.xserver.xkb.options = "eurosign:e,caps:escape";
+
+  fonts.fontDir.enable = true;
 
   # Enable OpenGL
   hardware.opengl = {
@@ -84,7 +98,7 @@
     nvidiaSettings = true;
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
-    package = config.boot.kernelPackages.nvidiaPackages.stable;
+    package = pkgs.nvidia-patch.patch-nvenc (pkgs.nvidia-patch.patch-fbc package);
   };
 
   # Enable CUPS to print documents.
@@ -123,31 +137,25 @@
     };
   };
 
+  home-manager.useUserPackages = true;
+  home-manager.useGlobalPkgs = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.dyllant = {
     isNormalUser = true;
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
-    packages = with pkgs; [
-      tree
-      ckb-next
-      (vscode-with-extensions.override {
-        vscodeExtensions = with vscode-extensions; [
-          bbenoist.nix
-        ];
-      })
-    ];
   };
 
   nixpkgs.config.allowUnfreePredicate = pkg:
     builtins.elem (lib.getName pkg) [
       # Add additional package names here
-      "vscode"
-      "vscode-with-extensions"
       "nvidia-x11"
       "nvidia-settings"
       "nvidia-persistenced"
       "corefonts"
       "vista-fonts"
+      "vscode"
+      "spotify"
     ];
 
   # List packages installed in system profile. To search, run:
@@ -167,6 +175,15 @@
     dive
     podman-tui
     podman-compose
+    looking-glass-client
+    appstream-glib
+    ostree
+    rnnoise-plugin
+    zsh
+    gnome.gnome-software
+    nvidia-vaapi-driver
+    nvidia-podman
+    powerdevil
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -177,20 +194,31 @@
    enableSSHSupport = true;
  };
 
-  # List services that you want to enable:
+  hardware.bluetooth.enable = true; # enables support for Bluetooth
+  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
+  hardware.ckb-next.enable = true; # enable ckb-next daemon
 
-  # Enable ckb-next
-  hardware.ckb-next.enable = true;
+  # List services that you want to enable:
 
   # Enable flatpak
   services.flatpak.enable = true;
 
+  # Enable avahi
+  services.avahi = {
+    enable = true;
+    nssmdns = true;
+    openFirewall = true;
+  };
+
   # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    openFirewall = true;
+  };
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 22 ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [ 57621 ];
+  # networking.firewall.allowedUDPPorts = [  ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
@@ -218,4 +246,3 @@
   system.stateVersion = "23.11"; # Did you read the comment?
 
 }
-
