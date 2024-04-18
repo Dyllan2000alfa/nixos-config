@@ -19,7 +19,6 @@
   boot.loader = {
     efi = {
       canTouchEfiVariables = true;
-      efiSysMountPoint = "/boot/EFI"; # ← use the same mount point here.
     };
     systemd-boot.enable = true;
   };
@@ -34,6 +33,10 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+
+  hardware.bluetooth.enable = true; # enables support for Bluetooth
+  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
+  hardware.ckb-next.enable = true; # enable ckb-next daemon
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
