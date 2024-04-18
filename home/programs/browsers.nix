@@ -5,6 +5,6 @@
     #Enable firefox
     firefox = {
       enable = true;
-    }
-  }
+    };
+  };
 }
