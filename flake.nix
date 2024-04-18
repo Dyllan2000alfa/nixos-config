@@ -32,7 +32,7 @@
             home-manager.useUserPackages = true;
 
             home-manager.extraSpecialArgs = inputs;
-            home-manager.users.ryan = import ./home;
+            home-manager.users.dyllant = import ./home;
           }
         ];
       };
@@ -49,7 +49,7 @@
             home-manager.useUserPackages = true;
 
             home-manager.extraSpecialArgs = inputs;
-            home-manager.users.ryan = import ./home;
+            home-manager.users.dyllant = import ./home;
           }
         ];
       };
