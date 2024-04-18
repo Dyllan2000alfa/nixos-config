@@ -23,6 +23,8 @@ in
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = ["nvidia"];
 
+  nixpkgs.overlays = [inputs.nvidia-patch.overlays.default];
+
   #Enable nvidia driver
   hardware.nvidia = {
     
