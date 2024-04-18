@@ -24,7 +24,7 @@
         system = "x86_64-linux";
 
         modules = [
-          ./hosts/dyllans-Desktop
+          ./hosts/Dyllans-Desktop
 
           home-manager.nixosModules.home-manager
           {
