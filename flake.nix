@@ -40,6 +40,9 @@
               package = config.boot.kernelPackages.nvidiaPackages.stable;
             in
             { 
+              # Load nvidia driver for Xorg and Wayland
+              services.xserver.videoDrivers = ["nvidia"];
+
               nixpkgs.overlays = [inputs.nvidia-patch.overlays.default];
               # Enable nvidia driver
               hardware.nvidia = {
@@ -73,8 +76,12 @@
                 # Optionally, you may need to select the appropriate driver version for your specific GPU.
                 package = pkgs.nvidia-patch.patch-nvenc (pkgs.nvidia-patch.patch-fbc package);
               };
-            })
 
+              environment.systemPackages = with pkgs; [
+                nvidia-vaapi-driver
+                nvidia-podman
+              ];
+            })
           ./configuration.nix          
         ];
       };

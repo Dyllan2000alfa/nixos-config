@@ -60,9 +60,6 @@ in
     driSupport32Bit = true;
   };
 
-  # Load nvidia driver for Xorg and Wayland
-  services.xserver.videoDrivers = ["nvidia"];
-
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -143,8 +140,6 @@ in
     rnnoise-plugin
     zsh
     gnome.gnome-software
-    nvidia-vaapi-driver
-    nvidia-podman
     powerdevil
     ffmpeg-full
   ];
