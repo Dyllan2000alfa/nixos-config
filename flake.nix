@@ -24,7 +24,6 @@
         system = "x86_64-linux";
         modules = [
           ./configuration.nix
-          (import ./overlays/nvidia-patch.nix)
 
           # make home-manager as a module of nixos
           # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`

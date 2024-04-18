@@ -8,10 +8,10 @@ let
   home-manager = builtins.fetchTarball "https://github.com/nix-community/home-manager/archive/release-23.11.tar.gz";
 in
 
-let
-  # nvidia package to patch
-  package = config.boot.kernelPackages.nvidiaPackages.stable;
-in
+# let
+#   # nvidia package to patch
+#   package = config.boot.kernelPackages.nvidiaPackages.stable;
+# in
 
 {
   imports =
@@ -98,7 +98,7 @@ in
     nvidiaSettings = true;
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
-    package = pkgs.nvidia-patch.patch-nvenc (pkgs.nvidia-patch.patch-fbc package);
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
 
   # Enable CUPS to print documents.
