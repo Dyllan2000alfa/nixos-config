@@ -3,8 +3,10 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
-    nvidia-patch.url = "github:icewind1991/nvidia-patch-nixos";  
-    nvidia-patch.inputs.nixpkgs.follows = "nixpkgs";
+    nvidia-patch = {
+        url = "github:icewind1991/nvidia-patch-nixos";  
+        inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager/release-23.11";
       # The `follows` keyword in inputs is used for inheritance.
@@ -22,7 +24,7 @@
         system = "x86_64-linux";
         modules = [
           ./configuration.nix
-          (import ./overlays)
+          (import ./overlays/nvidia-patch.nix)
 
           # make home-manager as a module of nixos
           # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
