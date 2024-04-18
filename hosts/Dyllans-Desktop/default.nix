@@ -10,6 +10,7 @@
       ../../modules/system.nix
       ../../modules/kde.nix
       ../../modules/nvidia.nix
+      ../../modules/flatpak.nix
 
       # Include the results of the hardware scan.
       ./hardware-configuration.nix

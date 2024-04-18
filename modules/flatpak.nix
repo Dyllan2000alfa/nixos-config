@@ -1,7 +1,7 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
-  # Give flatpak ccess to theme and fonts dir
+  # Give flatpak access to theme and fonts dir
   system.fsPackages = [ pkgs.bindfs ];
   fileSystems = let
     mkRoSymBind = path: {
@@ -34,6 +34,4 @@
     "/usr/local/share/fonts" = mkRoSymBind "${aggregatedFonts}/share/fonts";
     "/usr/share/themes" = mkRoSymBind "${aggregatedThemes}/share/themes";
   };
-
-  
 }
