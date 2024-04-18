@@ -1,6 +1,9 @@
 { config, pkgs, lib, ... }:
 
 {
+  # Enable flatpak apps
+  services.flatpak.enable = true;
+
   # Give flatpak access to theme and fonts dir
   system.fsPackages = [ pkgs.bindfs ];
   fileSystems = let
