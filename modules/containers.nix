@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 {  
   # Enable common container config files in /etc/containers
   virtualisation.containers.enable = true;
@@ -12,7 +12,7 @@
       # Required for containers under podman-compose to be able to talk to each other.
       defaultNetwork.settings.dns_enabled = true;
 
-      enableNvidia = mkIf (hardware.nvidia.modesetting.enable == true) [ true ];
+      enableNvidia = lib.mkIf (config.hardware.nvidia.modesetting.enable) true;
     };
   };
 }
