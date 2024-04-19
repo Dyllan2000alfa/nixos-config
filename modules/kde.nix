@@ -35,10 +35,18 @@
     };
   };
 
-  programs.kdeconnect = {
+  # Enable KDE Connect
+  programs.kdeconnect.enable = true;
+
+  networking.firewall = { 
     enable = true;
-    openFirewall = true;
-  };
+    allowedTCPPortRanges = [ 
+      { from = 1714; to = 1764; } # KDE Connect
+    ];  
+    allowedUDPPortRanges = [ 
+      { from = 1714; to = 1764; } # KDE Connect
+    ];  
+  };  
 
   environment.systemPackages = with pkgs; [
     libsForQt5.qtstyleplugin-kvantum
