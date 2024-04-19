@@ -5,11 +5,8 @@ let
   package = config.boot.kernelPackages.nvidiaPackages.production;
 in
 
-{  
-  imports = [ (builtins.fetchTarball {
-  url = "https://github.com/Yeshey/nixos-nvidia-vgpu_nixOS/archive/master.tar.gz";
-  sha256 = "a98a20a6fe2d9ceca2851dbc8cdd8c0e71730bda6cfb726853d80efa6dd0e33f";
-}) ];
+{
+  imports = [ (builtins.fetchTarball "https://github.com/Yeshey/nixos-nvidia-vgpu_nixOS/archive/master.tar.gz") ];
 
   # Enable opengl
   hardware.opengl = {
@@ -21,6 +18,8 @@ in
       libvdpau-va-gl
     ];
   };
+
+  boot.kernelPackages = pkgs.linuxPackages_5_15; # Requires this kernel to work
 
   # Set nvidia as libva driver
   environment.sessionVariables = { LIBVA_DRIVER_NAME = "nvidia"; };

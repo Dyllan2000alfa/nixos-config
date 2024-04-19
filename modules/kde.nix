@@ -35,6 +35,11 @@
     };
   };
 
+  programs.kdeconnect = {
+    enable = true;
+    openFirewall = true;
+  };
+
   environment.systemPackages = with pkgs; [
     libsForQt5.qtstyleplugin-kvantum
     qt6Packages.qtstyleplugin-kvantum
