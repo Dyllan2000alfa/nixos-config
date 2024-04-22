@@ -9,8 +9,10 @@
     [
       ../../modules/system.nix
       ../../modules/kde.nix
-      ../../modules/nvidia.nix
+      ../../modules/graphics/nvidia
       ../../modules/flatpak.nix
+      ../../modules/containers.nix
+      ../../modules/virtualization.nix
 
       # Include the results of the hardware scan.
       ./hardware-configuration.nix

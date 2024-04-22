@@ -12,6 +12,8 @@
     # misc
     ckb-next
     sunshine
+    gnome.zenity
+    openssl_1_1
   ];
 
   programs = {
