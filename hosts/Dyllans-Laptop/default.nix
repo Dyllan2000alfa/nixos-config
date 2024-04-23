@@ -13,7 +13,7 @@
       ../../modules/flatpak.nix
       ../../modules/containers.nix
       ../../modules/virtualization.nix
-
+      { lib.mkIf (config.hardware.nvidia.modesetting.enable) "../../modules/flatpak.nix" }
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];
