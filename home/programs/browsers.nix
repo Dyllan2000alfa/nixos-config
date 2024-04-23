@@ -1,7 +1,7 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ flake-inputs.flatpaks.homeManagerModules.nix-flatpak ];
+  imports = [ inputs.flatpaks.homeManagerModules.nix-flatpak ];
 
   programs = {
     #Enable firefox
