@@ -10,7 +10,6 @@
     unrar
 
     # misc
-    ckb-next
     gnome.zenity
     openssl_1_1
     ventoy-full
