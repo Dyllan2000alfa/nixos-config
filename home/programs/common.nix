@@ -15,6 +15,7 @@
     gnome.zenity
     openssl_1_1
     ventoy-full
+    gparted
   ];
 
   programs = {
