@@ -37,10 +37,6 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  boot.initrd.luks.devices = {
-    "luks-rpool-nvme-Sabrent_7FBC071408D900106738-part2".device = "/dev/disk/by-id/nvme-Sabrent_7FBC071408D900106738-part2";
-  };
-
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
