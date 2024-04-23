@@ -1,9 +1,10 @@
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports = [
     ./programs
     ./shell
+    inputs.flatpaks.homeManagerModules.nix-flatpak
   ];
 
   # Home Manager needs a bit of information about you and the
