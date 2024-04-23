@@ -18,6 +18,15 @@
     gparted
   ];
 
+  # Flatpak packages to be installed to the user profile
+  services.flatpak.packages = [
+    { appId = "io.gitlab.librewolf-community"; origin = "flathub";  }
+    { appId = "com.discordapp.Discord"; origin = "flathub";  }
+    { appId = "com.github.tchx84.Flatseal"; origin = "flathub";  }
+    { appId = "com.spotify.Client"; origin = "flathub";  }
+    { appId = "org.libreoffice.LibreOffice"; origin = "flathub";  }
+  ];
+
   programs = {
     # Install vscode, my IDE of choice with extensions
     vscode = {
