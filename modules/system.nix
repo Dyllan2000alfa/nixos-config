@@ -91,7 +91,7 @@
       settings = {
         devices = {
           "Desktop" = { id = "A5Z5KDG-SOBDA2J-7D73STH-WLGTXE3-GMEUGZG-5UJZVZY-JDJAE4H-CVGPEAI"; };
-          "Laptop" = { id = "DEVICE-ID-GOES-HERE"; };
+          "Laptop" = { id = "R6E4T4B-CLTDEN2-R4ZGDJC-3ZN7SP5-T52ZZEQ-65GFTYK-ZFF7DRC-L6ZFTA6"; };
         };
         folders = {
           "Documents" = {         # Name of folder in Syncthing, also the folder ID
