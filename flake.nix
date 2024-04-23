@@ -30,7 +30,7 @@
             home-manager.useUserPackages = true;
 
             home-manager.extraSpecialArgs.flake-inputs = inputs;
-            home-manager.users.dyllant = import ./home;
+            home-manager.users.dyllant = import ./home/dyllant;
           }
         ];
       };
@@ -48,7 +48,7 @@
             home-manager.useUserPackages = true;
 
             home-manager.extraSpecialArgs.flake-inputs = inputs;
-            home-manager.users.dyllant = import ./home;
+            home-manager.users.dyllant = import ./home/dyllant;
           }
         ];
       };
