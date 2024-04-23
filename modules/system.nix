@@ -58,8 +58,8 @@
   };
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 57621 ];
-  # networking.firewall.allowedUDPPorts = [  ];
+  networking.firewall.allowedTCPPorts = [ 57621 8384 22000 ];
+  networking.firewall.allowedUDPPorts = [ 22000 21027 ];
   
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
@@ -78,6 +78,59 @@
         PasswordAuthentication = false; # disable password login
       };
       openFirewall = true;
+    };
+
+    # Enable syncthing
+    syncthing = {
+      enable = true;
+      user = "dyllant";
+      dataDir = "/home/dyllant/";
+      configDir = "/home/dyllant/.config/syncthing";
+      overrideDevices = true;     # overrides any devices added or deleted through the WebUI
+      overrideFolders = true;     # overrides any folders added or deleted through the WebUI
+      settings = {
+        devices = {
+          "Desktop" = { id = "A5Z5KDG-SOBDA2J-7D73STH-WLGTXE3-GMEUGZG-5UJZVZY-JDJAE4H-CVGPEAI"; };
+          "Laptop" = { id = "DEVICE-ID-GOES-HERE"; };
+        };
+        folders = {
+          "Documents" = {         # Name of folder in Syncthing, also the folder ID
+            path = "/home/dyllant/Documents";    # Which folder to add to Syncthing
+            devices = [ "Desktop" "Laptop" ];      # Which devices to share the folder with
+            ignorePerms = false;  # By default, Syncthing doesn't sync file permissions. This line enables it for this folder.
+          };
+          "Downloads" = {
+            path = "/home/dyllant/Downloads";
+            devices = [ "Desktop" "Laptop" ];
+            ignorePerms = false;
+          };
+          "Music" = {
+            path = "/home/dyllant/Music";
+            devices = [ "Desktop" "Laptop" ];
+            ignorePerms = false;
+          };
+          "Pictures" = {
+            path = "/home/dyllant/Pictures";
+            devices = [ "Desktop" "Laptop" ];
+            ignorePerms = false;
+          };
+          "Public" = {
+            path = "/home/dyllant/Public";
+            devices = [ "Desktop" "Laptop" ];
+            ignorePerms = false;
+          };
+          "Templates" = {
+            path = "/home/dyllant/Templates";
+            devices = [ "Desktop" "Laptop" ];
+            ignorePerms = false;
+          };
+          "Videos" = {
+            path = "/home/dyllant/Videos";
+            devices = [ "Desktop" "Laptop" ];
+            ignorePerms = false;
+          };
+        };
+      };
     };
   };
 
