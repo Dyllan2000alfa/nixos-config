@@ -37,6 +37,7 @@
         obs-nvfbc
         input-overlay
         droidcam-obs
+        ventoy-full
       ];
     };
   };
