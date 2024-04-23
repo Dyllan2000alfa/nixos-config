@@ -1,4 +1,4 @@
-{ config, pkgs, flake-inputs, ... }:
+{ config, pkgs, ... }:
 
 {
   imports = [ flake-inputs.flatpaks.homeManagerModules.nix-flatpak ];
