@@ -54,9 +54,6 @@
     wineWowPackages.stable
     winetricks
     rnnoise-plugin
-    layan-kde
-    tela-icon-theme
-    layan-gtk-theme
     ffmpeg-full
   ];
 }
