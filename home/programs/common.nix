@@ -14,6 +14,7 @@
     sunshine
     gnome.zenity
     openssl_1_1
+    ventoy-full
   ];
 
   programs = {
@@ -37,7 +38,6 @@
         obs-nvfbc
         input-overlay
         droidcam-obs
-        ventoy-full
       ];
     };
   };
