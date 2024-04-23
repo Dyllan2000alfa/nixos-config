@@ -26,7 +26,7 @@
     systemd-boot.enable = true;
   };
 
-  networking.hostId = "c4odf3on";
+  networking.hostId = "df4d8daa";
   networking.hostName = "Dyllans-Laptop"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -36,6 +36,10 @@
 
   # Enable networking
   networking.networkmanager.enable = true;
+
+  boot.initrd.luks.devices = {
+    "luks-rpool-nvme-Sabrent_7FBC071408D900106738-part2".device = "/dev/disk/by-id/nvme-Sabrent_7FBC071408D900106738-part2";
+  };
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
