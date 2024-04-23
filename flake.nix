@@ -14,7 +14,7 @@
     };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, ... }: 
+  outputs = inputs@{ nixpkgs, home-manager, flatpaks, ... }: 
   {
     nixosConfigurations = {
       Dyllans-Desktop = nixpkgs.lib.nixosSystem {
