@@ -17,8 +17,6 @@
       ./hardware-configuration.nix
     ];
 
-  imports = lib.mkIf (config.hardware.nvidia.modesetting.enable) ../../modules/flatpak.nix;
-
   # Bootloader.
   boot.loader = {
     efi = {
