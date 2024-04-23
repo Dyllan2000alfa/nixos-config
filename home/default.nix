@@ -7,6 +7,11 @@
     flake-inputs.flatpaks.homeManagerModules.nix-flatpak
   ];
 
+  services.flatpak.update.auto = {
+    enable = true;
+    onCalendar = "daily"; # Default value
+  };
+
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
   home = {
