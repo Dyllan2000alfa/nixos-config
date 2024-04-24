@@ -5,7 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
     flatpaks.url = "github:gmodena/nix-flatpak/?ref=v0.4.1";
     nvidia-patch = {
-        url = "github:icewind1991/nvidia-patch-nixos";  
+        url = "github:icewind1991/nvidia-patch-nixos/";  
         inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
@@ -14,7 +14,7 @@
     };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, flatpaks, ... }: 
+  outputs = inputs@{ nixpkgs, home-manager, flatpaks, nvidia-vgpu, ... }: 
   {
     nixosConfigurations = {
       Dyllans-Desktop = nixpkgs.lib.nixosSystem {

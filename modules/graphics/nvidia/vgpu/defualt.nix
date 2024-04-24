@@ -6,8 +6,6 @@ let
 in
 
 {
-  imports = [ (builtins.fetchTarball "https://github.com/Yeshey/nixos-nvidia-vgpu_nixOS/archive/master.tar.gz") ];
-
   # Enable opengl
   hardware.opengl = {
     enable = true;
