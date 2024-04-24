@@ -6,10 +6,6 @@ let
 in
 
 {
-  imports = 
-    [ 
-      ./vgpu-driver
-    ];
 
   # Enable opengl
   hardware.opengl = {
