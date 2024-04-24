@@ -6,7 +6,7 @@ let
 in
 
 {
-  import = [ ./vgu-driver ]
+  imports = [ ./vgu-driver/default.nix ];
 
   # Enable opengl
   hardware.opengl = {

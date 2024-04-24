@@ -17,7 +17,7 @@ let
 
   cfg = config.hardware.nvidia.vgpu;
 
-  mdevctl = pkgs.callPackage ./mdevctl {};
+  mdevctl = pkgs.mdevctl;
   frida = (builtins.getFlake "github:Yeshey/frida-nix").packages.x86_64-linux.frida-tools;
   
   compiled-driver = pkgs.stdenv.mkDerivation rec{
@@ -25,11 +25,10 @@ let
       nativeBuildInputs = [ pkgs.p7zip pkgs.unzip pkgs.coreutils pkgs.bash pkgs.zstd];
         system = "x86_64-linux";
         src = pkgs.fetchFromGitHub {
-          owner = "letmeiiiin";
+          owner = "VGPU-Community-Drivers";
           repo = "vGPU-Unlock-patcher";
           # 535.129
-          rev = "9a8100c71c4bf97f4e0658d2824d18def0ac846d";
-          hash = "sha256-fSc08FbnzvkX3f8/Vh4PWeq/T9yo5Usys99aCrbj0Hg=";
+          rev = "535.129";
           fetchSubmodules = true;
           deepClone = true;
         };
@@ -38,7 +37,7 @@ let
           sha256 = "e6dca5626a2608c6bb2a046cfcb7c1af338b9e961a7dd90ac09bb8a126ff002e";
         };
         vgpu_driver_src = pkgs.fetchurl {
-          url = "https://github.com/justin-himself/NVIDIA-VGPU-Driver-Archive/releases/download/${grid-version}/NVIDIA-GRID-Linux-KVM-${driver-version}-${wdys-driver-version}.zip";
+          url = "https://nvidia.anime.army/${grid-version}/NVIDIA-GRID-Linux-KVM-${driver-version}-${wdys-driver-version}.zip";
           sha256 = "b458037fb652219464bc898efbd62096b2e298624c67f7f3db9823513d137c3a";
         };
         buildPhase = ''
@@ -51,7 +50,7 @@ let
           cp -a $src/* .
           cp -a $original_driver_src NVIDIA-Linux-x86_64-${driver-version}.run
           
-          bash ./patch.sh --repack --lk6-patches general-merge 
+          bash ./patch.sh --repack --force-nvidia-gpl-I-know-it-is-wrong --enable-nvidia-gpl-for-experimenting general-merge
           cp -a NVIDIA-Linux-x86_64-${driver-version}-merged-vgpu-kvm-patched.run $out
         '';
   };
