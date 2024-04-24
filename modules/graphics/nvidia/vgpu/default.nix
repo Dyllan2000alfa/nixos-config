@@ -6,6 +6,8 @@ let
 in
 
 {
+  import = [ ./vgu-driver ]
+
   # Enable opengl
   hardware.opengl = {
     enable = true;
@@ -16,8 +18,6 @@ in
       libvdpau-va-gl
     ];
   };
-
-  boot.kernelPackages = pkgs.linuxPackages_5_15; # Requires this kernel to work
 
   # Set nvidia as libva driver
   environment.sessionVariables = { LIBVA_DRIVER_NAME = "nvidia"; };
