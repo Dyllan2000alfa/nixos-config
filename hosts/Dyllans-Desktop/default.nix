@@ -9,7 +9,7 @@
     [
       ../../modules/system.nix
       ../../modules/kde.nix
-      ../../modules/graphics/nvidia
+      ../../modules/graphics/nvidia/vgpu
       ../../modules/flatpak.nix
       ../../modules/containers.nix
       ../../modules/virtualization.nix

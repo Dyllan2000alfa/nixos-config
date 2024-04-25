@@ -1,11 +1,7 @@
 { config, pkgs, inputs, ... }:
 
-let
-  #nvidia package to install
-  package = config.boot.kernelPackages.nvidiaPackages.production;
-in
-
 {
+  imports = [ ./driver.nix ];
 
   # Enable opengl
   hardware.opengl = {
@@ -24,11 +20,8 @@ in
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = ["nvidia"];
 
-  nixpkgs.overlays = [inputs.nvidia-patch.overlays.default];
-
   #Enable nvidia driver
   hardware.nvidia = {
-    
     vgpu = {
       enable = true; # Install NVIDIA KVM vGPU + GRID merged driver for consumer cards with vgpu unlocked.
       unlock.enable = true; # Activates systemd services to enable vGPU functionality on using DualCoder/vgpu_unlock project.
