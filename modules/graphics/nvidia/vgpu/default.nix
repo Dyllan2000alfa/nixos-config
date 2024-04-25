@@ -1,7 +1,10 @@
 { config, pkgs, inputs, ... }:
 
 {
-  imports = [ ./driver.nix ];
+  imports = [ (fetchTarball {
+  url = "https://github.com/Dyllan2000alfa/nixos-nvidia-vgpu/archive/master.tar.gz";
+  sha256 = "1br64amwf29yrnfchkgj6qy4gv490ls3kx3hrvdpiq8asklw0y9a";
+}) ];
 
   # Enable opengl
   hardware.opengl = {
@@ -25,11 +28,6 @@
     vgpu = {
       enable = true; # Install NVIDIA KVM vGPU + GRID merged driver for consumer cards with vgpu unlocked.
       unlock.enable = true; # Activates systemd services to enable vGPU functionality on using DualCoder/vgpu_unlock project.
-      fastapi-dls = { # For the license server for unrestricted use of the vgpu driver in guests
-        enable = false;
-        local_ipv4 = "localhost"; # Use your local IP or hostname if not working (Ex: 192.168.1.81)
-        timezone = "America/Chicago"; # Your timezone (needs to be the same as the tz in the VM)
-      };
     };
 
     # Modesetting is required.
