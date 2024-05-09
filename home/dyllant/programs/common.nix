@@ -22,7 +22,10 @@
     { appId = "com.discordapp.Discord"; origin = "flathub";  }
     { appId = "com.github.tchx84.Flatseal"; origin = "flathub";  }
     { appId = "com.spotify.Client"; origin = "flathub";  }
-    { appId = "org.libreoffice.LibreOffice"; origin = "flathub";  }
+    { appId = "org.polymc.PolyMC"; origin = "flathub";  }
+    { appId = "com.github.xournalpp.xournalpp"; origin = "flathub";  }
+    { appId = "com.github.wwmm.easyeffects"; origin = "flathub";  }
+    { appId = "com.github.iwalton3.jellyfin-media-player"; origin = "flathub";  }
   ];
 
   programs = {
@@ -32,7 +35,23 @@
       extensions = with pkgs.vscode-extensions; [
         dracula-theme.theme-dracula
         bbenoist.nix
+        ms-vscode-remote.remote-containers
+        ms-azuretools.vscode-docker
       ];
+      userSettings = {
+        "workbench.colorTheme" = "Default Dark Modern";
+        "editor.tabSize" = 2;
+        "editor.detectIndentation" = false;
+        "git.enableSmartCommit" = true;
+
+        # Podman settings for dev container extension
+        "dev.containers.dockerComposePath" = "podman-compose";
+        "dev.containers.dockerPath" = "podman";
+
+        # Podman settings for Docker extension (modified host path)
+        "docker.dockerPath" = "podman";
+        "docker.environment" = { "DOCKER_HOST" = "unix:///var/run/user/1000/podman/podman.sock"; } ;
+      };
     };
 
     # Install obs-studio with plugins

@@ -7,7 +7,7 @@
   users.users.dyllant = {
     isNormalUser = true;
     description = "Dyllan Tinoco";
-    extraGroups = [ "wheel" "networkmanager" "libvirtd" ];
+    extraGroups = [ "wheel" "networkmanager" "libvirtd" "i2c" "podman" ];
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHvfEm6EHx5a5J+WMxIpqaWYnqBDwXukKSwUmocfiYgg dyllant@Dyllans-Desktop"
     ];
@@ -142,7 +142,9 @@
     git
     sysstat
     lm_sensors # for `sensors` command
-    neofetch
+    dig
     powerdevil
+    ddcutil
+    talosctl
   ];
 }

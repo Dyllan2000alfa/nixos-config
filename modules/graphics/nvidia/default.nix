@@ -2,7 +2,7 @@
 
 let
   #nvidia package to install
-  package = config.boot.kernelPackages.nvidiaPackages.production;
+  package = config.boot.kernelPackages.nvidiaPackages.stable;
 in
 
 {

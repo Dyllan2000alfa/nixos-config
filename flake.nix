@@ -4,6 +4,10 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
     flatpaks.url = "github:gmodena/nix-flatpak/?ref=v0.4.1";
+    nixos-nvidia-vgpu = {
+      url = "github:Yeshey/nixos-nvidia-vgpu/535.129";
+      # inputs.nixpkgs.follows = "nixpkgs"; # doesn't work with latest nixpkgs rn
+    };
     nvidia-patch = {
         url = "github:icewind1991/nvidia-patch-nixos/";  
         inputs.nixpkgs.follows = "nixpkgs";
@@ -14,7 +18,14 @@
     };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, flatpaks, ... }: 
+  outputs = 
+  {
+    nixpkgs,
+    home-manager,
+    flatpaks,
+    nixos-nvidia-vgpu,
+    ...
+  }@inputs: 
   {
     nixosConfigurations = {
       Dyllans-Desktop = nixpkgs.lib.nixosSystem {
@@ -24,6 +35,7 @@
         modules = [
           ./hosts/Dyllans-Desktop
 
+          nixos-nvidia-vgpu.nixosModules.nvidia-vgpu
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;

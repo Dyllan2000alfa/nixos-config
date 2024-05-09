@@ -1,11 +1,6 @@
-{ config, pkgs, inputs, ... }:
+{ config, pkgs, inputs, nixos-nvidia-vgpu, ... }:
 
 {
-  imports = [ (fetchTarball {
-  url = "https://github.com/Dyllan2000alfa/nixos-nvidia-vgpu/archive/master.tar.gz";
-  sha256 = "1br64amwf29yrnfchkgj6qy4gv490ls3kx3hrvdpiq8asklw0y9a";
-}) ];
-
   # Enable opengl
   hardware.opengl = {
     enable = true;
@@ -23,11 +18,19 @@
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = ["nvidia"];
 
+  nixpkgs.overlays = [inputs.nvidia-patch.overlays.default];
+
   #Enable nvidia driver
   hardware.nvidia = {
     vgpu = {
-      enable = true; # Install NVIDIA KVM vGPU + GRID merged driver for consumer cards with vgpu unlocked.
-      unlock.enable = true; # Activates systemd services to enable vGPU functionality on using DualCoder/vgpu_unlock project.
+      enable = true; # Install NVIDIA KVM vGPU + GRID driver + Activates required systemd services
+      vgpu_driver_src.sha256 = "sha256-tFgDf7ZSIZRkvImO+9YglrLimGJMZ/fz25gjUT0TfDo="; # use if you're getting the `Unfortunately, we cannot download file...` error # find hash with `nix hash file foo.txt`
+      fastapi-dls = { # License server for unrestricted use of the vgpu driver in guests
+        enable = true;
+        #local_ipv4 = "192.168.1.109"; # Hostname is autodetected, use this setting to override
+        #timezone = "Europe/Lisbon"; # detected automatically (needs to be the same as the tz in the VM)
+        #docker-directory = "/mnt/dockers"; # default is "/opt/docker"
+      };
     };
 
     # Modesetting is required.

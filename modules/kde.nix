@@ -55,5 +55,7 @@
     winetricks
     rnnoise-plugin
     ffmpeg-full
+    kate
+    kcalc
   ];
 }

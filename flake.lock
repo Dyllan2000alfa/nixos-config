@@ -37,7 +37,55 @@
         "type": "github"
       }
     },
+    "nixos-nvidia-vgpu": {
+      "inputs": {
+        "nixpkgs": "nixpkgs",
+        "nixpkgs-nixos2311": "nixpkgs-nixos2311"
+      },
+      "locked": {
+        "lastModified": 1714530624,
+        "narHash": "sha256-lF/ZnWXVB1BaM2zEoXZDXlknQIlyROeRvyDU0/MMmxU=",
+        "owner": "Yeshey",
+        "repo": "nixos-nvidia-vgpu",
+        "rev": "51fc8ec882753fa6f37bf150faa4b327969807f1",
+        "type": "github"
+      },
+      "original": {
+        "owner": "Yeshey",
+        "ref": "535.129",
+        "repo": "nixos-nvidia-vgpu",
+        "type": "github"
+      }
+    },
     "nixpkgs": {
+      "locked": {
+        "lastModified": 1670856834,
+        "narHash": "sha256-GitzxDZo7385SBoMpHRA9NBAhBh/5TBK8ptpQFAoMYc=",
+        "type": "tarball",
+        "url": "https://github.com/NixOS/nixpkgs/archive/06278c77b5d162e62df170fec307e83f1812d94b.tar.gz"
+      },
+      "original": {
+        "type": "tarball",
+        "url": "https://github.com/NixOS/nixpkgs/archive/06278c77b5d162e62df170fec307e83f1812d94b.tar.gz"
+      }
+    },
+    "nixpkgs-nixos2311": {
+      "locked": {
+        "lastModified": 1715106579,
+        "narHash": "sha256-gZMgKEGiK6YrwGBiccZ1gemiUwjsZ1Zv49KYOgmX2fY=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "8be0d8a1ed4f96d99b09aa616e2afd47acc3da89",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-23.11",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_2": {
       "locked": {
         "lastModified": 1713344939,
         "narHash": "sha256-jpHkAt0sG2/J7ueKnG7VvLLkBYUMQbXQ2L8OBpVG53s=",
@@ -78,7 +126,8 @@
       "inputs": {
         "flatpaks": "flatpaks",
         "home-manager": "home-manager",
-        "nixpkgs": "nixpkgs",
+        "nixos-nvidia-vgpu": "nixos-nvidia-vgpu",
+        "nixpkgs": "nixpkgs_2",
         "nvidia-patch": "nvidia-patch"
       }
     },

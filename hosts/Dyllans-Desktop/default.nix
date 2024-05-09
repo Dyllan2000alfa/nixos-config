@@ -9,7 +9,7 @@
     [
       ../../modules/system.nix
       ../../modules/kde.nix
-      ../../modules/graphics/nvidia/vgpu
+      ../../modules/graphics/nvidia
       ../../modules/flatpak.nix
       ../../modules/containers.nix
       ../../modules/virtualization.nix
@@ -25,6 +25,18 @@
     };
     systemd-boot.enable = true;
   };
+
+  boot.kernelPackages = pkgs.linuxPackages_xanmod;
+
+  boot.extraModulePackages = with config.boot.kernelPackages; [ ddcci-driver ];
+
+  hardware.i2c.enable = true;
+
+  boot.kernelModules = ["i2c-dev"];
+  services.udev.extraRules = ''
+        KERNEL=="i2c-[0-9]*", GROUP="i2c", MODE="0660"
+  '';
+
 
   networking.hostId = "abcd1234";
   networking.hostName = "Dyllans-Desktop"; # Define your hostname.
@@ -48,5 +60,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
-
 }
