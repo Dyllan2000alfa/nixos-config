@@ -147,6 +147,5 @@
     powerdevil
     ddcutil
     talosctl
-    unstable.mdevctl
   ];
 }

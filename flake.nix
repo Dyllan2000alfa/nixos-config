@@ -27,7 +27,9 @@
     flatpaks,
     nixos-nvidia-vgpu,
     ...
-  }@inputs: 
+  }
+  
+  @inputs: 
   {
     nixosConfigurations = {
       Dyllans-Desktop = nixpkgs.lib.nixosSystem {
