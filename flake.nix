@@ -3,6 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
     flatpaks.url = "github:gmodena/nix-flatpak/?ref=v0.4.1";
     nixos-nvidia-vgpu = {
       url = "github:Yeshey/nixos-nvidia-vgpu/535.129";
@@ -21,6 +22,7 @@
   outputs = 
   {
     nixpkgs,
+    nixpkgs-unstable,
     home-manager,
     flatpaks,
     nixos-nvidia-vgpu,
@@ -31,7 +33,8 @@
       Dyllans-Desktop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
 
-        specialArgs = { inherit inputs; };
+        specialArgs = 
+        { inherit inputs; };
         modules = [
           ./hosts/Dyllans-Desktop
 

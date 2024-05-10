@@ -59,4 +59,8 @@
 	  # accessible via `nvidia-settings`.
     nvidiaSettings = true;
   };
+
+  environment.systemPackages = with pkgs; [
+    unstable.mdevctl
+  ];
 }

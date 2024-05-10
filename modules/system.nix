@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, nixpkgs-unstable, ... }:
 
 {
   # ============================= User related =============================
@@ -26,11 +26,12 @@
   };
 
   # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  nixpkgs.config.permittedInsecurePackages = [
+  nixpkgs.config = {
+    allowUnfree = true;
+    permittedInsecurePackages = [
     "openssl-1.1.1w"
-  ];
+    ];
+  };
 
   # Set your time zone.
   time.timeZone = "America/Chicago";
@@ -146,5 +147,6 @@
     powerdevil
     ddcutil
     talosctl
+    unstable.mdevctl
   ];
 }
