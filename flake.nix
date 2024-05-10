@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-23.11";
-    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-unstable.url = "nixpkgs/nixos-unstable"; 
     flatpaks.url = "github:gmodena/nix-flatpak/?ref=v0.4.1";
     nixos-nvidia-vgpu = {
       url = "github:Yeshey/nixos-nvidia-vgpu/535.129";
@@ -19,28 +19,31 @@
     };
   };
 
-  outputs = 
-  {
+  outputs = inputs@{
     nixpkgs,
-    nixpkgs-unstable,
     home-manager,
     flatpaks,
     nixos-nvidia-vgpu,
+    nixpkgs-unstable,
     ...
-  }
-  
-  @inputs: 
-  {
+  }: {
     nixosConfigurations = {
       Dyllans-Desktop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
 
-        specialArgs = 
-        { inherit inputs; };
+        specialArgs = { 
+          inherit inputs;
+
+          pkgs-unstable = import nixpkgs-unstable {
+            config.allowUnfree = true;
+          };
+        };
+
         modules = [
           ./hosts/Dyllans-Desktop
 
           nixos-nvidia-vgpu.nixosModules.nvidia-vgpu
+
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;

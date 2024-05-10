@@ -1,6 +1,7 @@
-{ config, pkgs, inputs, nixos-nvidia-vgpu, ... }:
+{ config, pkgs, pkgs-unstable, inputs, nixos-nvidia-vgpu, ... }:
 
 {
+
   # Enable opengl
   hardware.opengl = {
     enable = true;
@@ -60,7 +61,7 @@
     nvidiaSettings = true;
   };
 
-  environment.systemPackages = with pkgs; [
-    unstable.mdevctl
+  environment.systemPackages = with pkgs-unstable; [
+    pkgs.mdevctl
   ];
 }

@@ -1,4 +1,4 @@
-{ config, pkgs, lib, nixpkgs-unstable, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   # ============================= User related =============================
