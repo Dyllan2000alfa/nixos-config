@@ -32,11 +32,19 @@
     # Install vscode, my IDE of choice with extensions
     vscode = {
       enable = true;
+      package = pkgs.vscodium;
       extensions = with pkgs.vscode-extensions; [
         dracula-theme.theme-dracula
         bbenoist.nix
         ms-vscode-remote.remote-containers
         ms-azuretools.vscode-docker
+      ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+        {
+          name = "platformio-ide";
+          publisher = "platformio";
+          version = "3.3.3";
+          sha256 = "pcWKBqtpU7DVpiT7UF6Zi+YUKknyjtXFEf5nL9+xuSo=";
+        }
       ];
       userSettings = {
         "workbench.colorTheme" = "Default Dark Modern";
