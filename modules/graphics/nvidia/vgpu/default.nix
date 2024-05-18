@@ -25,12 +25,22 @@
   hardware.nvidia = {
     vgpu = {
       enable = true; # Install NVIDIA KVM vGPU + GRID driver + Activates required systemd services
-      vgpu_driver_src.sha256 = "sha256-tFgDf7ZSIZRkvImO+9YglrLimGJMZ/fz25gjUT0TfDo="; # use if you're getting the `Unfortunately, we cannot download file...` error # find hash with `nix hash file foo.txt`
+      vgpu_driver_src.sha256 = "sha256-tFgDf7ZSIZRkvImO+9YglrLimGJMZ/fz25gjUT0TfDo="; # use if you're getting the `Unfortunately, we cannot download file...` error # find hash with `nix hash file foo.txt`        
+      useMyDriver = {
+        enable = true;
+        name = "NVIDIA-Linux-x86_64-535.129.03-merged-vgpu-kvm-patched.run";
+        sha256 = "sha256-Us69ZyJi/Co4iwEm64vFVYgLgVSNaac5ww/YvPxcoqM=";
+        driver-version = "535.129.03";
+        vgpu-driver-version = "535.129.03";
+        # you can not specify getFromRemote and it will ask to add the file manually with `nix-store --add-fixed...`
+        getFromRemote = pkgs.fetchurl {
+          name = "NVIDIA-Linux-x86_64-535.129.03-merged-vgpu-kvm-patched.run"; # So there can be special characters in the link below: https://github.com/NixOS/nixpkgs/issues/6165#issuecomment-141536009
+          url = "https://drive.usercontent.google.com/download?id=17NN0zZcoj-uY2BELxY2YqGvf6KtZNXhG&export=download&authuser=0&confirm=t&uuid=b70e0e36-34df-4fde-a86b-4d41d21ce483&at=APZUnTUfGnSmFiqhIsCNKQjPLEk3%3A1714043345939";
+          sha256 = "sha256-Us69ZyJi/Co4iwEm64vFVYgLgVSNaac5ww/YvPxcoqM=";
+        };
+      };
       fastapi-dls = { # License server for unrestricted use of the vgpu driver in guests
         enable = true;
-        #local_ipv4 = "192.168.1.109"; # Hostname is autodetected, use this setting to override
-        #timezone = "Europe/Lisbon"; # detected automatically (needs to be the same as the tz in the VM)
-        #docker-directory = "/mnt/dockers"; # default is "/opt/docker"
       };
     };
 
@@ -60,8 +70,4 @@
 	  # accessible via `nvidia-settings`.
     nvidiaSettings = true;
   };
-
-  environment.systemPackages = with pkgs-unstable; [
-    pkgs.mdevctl
-  ];
 }

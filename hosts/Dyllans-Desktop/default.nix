@@ -9,6 +9,7 @@
     [
       ../../modules/system.nix
       ../../modules/kde.nix
+      ../../modules/pipewire.nix
       ../../modules/graphics/nvidia
       ../../modules/flatpak.nix
       ../../modules/containers.nix

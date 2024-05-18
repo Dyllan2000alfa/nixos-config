@@ -90,9 +90,4 @@
     style.package = pkgs.layan-kde;
     style.name = "Layan";
   };
-
-  # services.syncthing = {
-  #  enable = true;
-  #   tray.enable = true;
-  # };
 }
