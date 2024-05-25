@@ -14,6 +14,7 @@
     openssl_1_1
     ventoy-full
     gparted
+    betterdiscordctl
   ];
 
   # Flatpak packages to be installed to the user profile
@@ -27,6 +28,7 @@
     { appId = "com.github.wwmm.easyeffects"; origin = "flathub";  }
     { appId = "com.github.iwalton3.jellyfin-media-player"; origin = "flathub";  }
     { appId = "org.pipewire.Helvum"; origin = "flathub";  }
+    { appId = "com.moonlight_stream.Moonlight"; origin = "flathub";  }
   ];
 
   programs = {

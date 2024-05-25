@@ -62,7 +62,11 @@
   networking.firewall = {
     enable = true;
     allowedTCPPorts = [ 47984 47989 47990 48010 57621 8384 22000 ];
-    allowedUDPPortRanges = [ 22000 21027 { from = 47998; to = 48000; } { from = 8000; to = 8010; } ];
+    allowedUDPPorts = [ 22000 21027 ];
+    allowedUDPPortRanges = [ 
+      { from = 47998; to = 48000; } 
+      { from = 8000; to = 8010; } 
+    ];
   };
 
   # Configure services
