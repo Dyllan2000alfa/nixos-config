@@ -59,14 +59,15 @@
   };
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 57621 8384 22000 ];
-  networking.firewall.allowedUDPPorts = [ 22000 21027 ];
-  
-  # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
-
-  # rtkit is optional but recommended
-  security.rtkit.enable = true;
+  networking.firewall = {
+  enable = true;
+  allowedTCPPorts = [ 47984 47989 47990 48010 57621 8384 22000 ];
+  allowedUDPPortRanges = [
+    22000 21027
+    { from = 47998; to = 48000; }
+    { from = 8000; to = 8010; }
+  ];
+};
 
   # Configure services
   services = {
@@ -147,5 +148,9 @@
     powerdevil
     ddcutil
     talosctl
+    alsa-scarlett-gui
+    nix-index
+    qjackctl
+    sunshine
   ];
 }

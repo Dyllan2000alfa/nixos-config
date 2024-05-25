@@ -26,6 +26,7 @@
     { appId = "com.github.xournalpp.xournalpp"; origin = "flathub";  }
     { appId = "com.github.wwmm.easyeffects"; origin = "flathub";  }
     { appId = "com.github.iwalton3.jellyfin-media-player"; origin = "flathub";  }
+    { appId = "org.pipewire.Helvum"; origin = "flathub";  }
   ];
 
   programs = {
