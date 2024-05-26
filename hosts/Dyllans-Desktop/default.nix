@@ -14,6 +14,7 @@
       ../../modules/flatpak.nix
       ../../modules/containers.nix
       ../../modules/virtualization.nix
+      ../../modules/sunshine.nix
 
       # Include the results of the hardware scan.
       ./hardware-configuration.nix

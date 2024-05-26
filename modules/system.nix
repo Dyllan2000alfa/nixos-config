@@ -90,9 +90,6 @@
       openFirewall = true;
     };
 
-    avahi.publish.enable = true;
-    avahi.publish.userServices = true;
-
     # Enable syncthing
     syncthing = {
       enable = true;
@@ -160,6 +157,5 @@
     ddcutil
     talosctl
     nix-index
-    sunshine
   ];
 }
