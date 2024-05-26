@@ -7,7 +7,7 @@
   users.users.dyllant = {
     isNormalUser = true;
     description = "Dyllan Tinoco";
-    extraGroups = [ "wheel" "networkmanager" "libvirtd" "i2c" "podman" ];
+    extraGroups = [ "wheel" "networkmanager" "libvirtd" "i2c" "podman" "input" ];
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHvfEm6EHx5a5J+WMxIpqaWYnqBDwXukKSwUmocfiYgg dyllant@Dyllans-Desktop"
     ];
@@ -57,6 +57,14 @@
       vistafonts
     ];
   };
+
+  security.wrappers.sunshine = {
+    owner = "root";
+    group = "root";
+    capabilities = "cap_sys_admin+p";
+    source = "${pkgs.sunshine}/bin/sunshine";
+  };
+
 
   # Open ports in the firewall.
   networking.firewall = {
