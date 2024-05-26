@@ -90,6 +90,9 @@
       openFirewall = true;
     };
 
+    avahi.publish.enable = true;
+    avahi.publish.userServices = true;
+
     # Enable syncthing
     syncthing = {
       enable = true;
@@ -156,9 +159,7 @@
     powerdevil
     ddcutil
     talosctl
-    alsa-scarlett-gui
     nix-index
-    qjackctl
     sunshine
   ];
 }
