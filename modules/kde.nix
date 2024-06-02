@@ -4,7 +4,7 @@
   services = {
     xserver = {
       # Enable X Server
-      enable = false;
+      enable = true;
     };
 
     #Set sddm as the displayManager

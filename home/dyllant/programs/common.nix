@@ -84,13 +84,13 @@
     enable = true;
     iconTheme.package = pkgs.tela-icon-theme;
     iconTheme.name = "Tela-purple-dark";
-    theme.package = pkgs.layan-gtk-theme;
-    theme.name = "Layan-Dark";
+    #theme.package = pkgs.layan-gtk-theme;
+    theme.name = "Breeze";
   };
 
   qt = {
     enable = true;
-    style.package = pkgs.layan-kde;
-    style.name = "Layan";
+    #style.package = pkgs.layan-kde;
+    style.name = "Breeze";
   };
 }
