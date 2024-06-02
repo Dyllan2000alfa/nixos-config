@@ -38,10 +38,6 @@
         KERNEL=="i2c-[0-9]*", GROUP="i2c", MODE="0660"
   '';
 
-  boot.extraModprobeConfig = ''
-    options snd_usb_audio vid=0x1235 pid=0x8215 device_setup=1
-  '';
-
   networking.hostId = "abcd1234";
   networking.hostName = "Dyllans-Desktop"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
