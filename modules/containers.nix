@@ -5,6 +5,8 @@
     containers.enable = true;
 
     containers.storage.settings = {
+      cdi.dynamic.nvidia.enable = lib.mkIf (config.hardware.nvidia.modesetting.enable) true;
+
       storage = {
         driver = "zfs";
         runroot = "/run/containers/storage";
@@ -24,7 +26,6 @@
       # Required for containers under podman-compose to be able to talk to each other.
       defaultNetwork.settings.dns_enabled = true;
 
-      enableNvidia = lib.mkIf (config.hardware.nvidia.modesetting.enable) true;
       extraPackages = [ pkgs.zfs ]; # Required if the host is running ZFS
     };
   };

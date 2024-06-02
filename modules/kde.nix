@@ -4,19 +4,22 @@
   services = {
     xserver = {
       # Enable X Server
-      enable = true;
-
-      #Set sddm as the displayManager
-      displayManager.sddm.enable = true;
-
-      #Enable plasma5
-      desktopManager.plasma6.enable = true;
+      enable = false;
     };
+
+    #Set sddm as the displayManager
+    displayManager.sddm = {
+      enable = true;
+      wayland.enable = true;
+    };
+
+    #Enable plasma5
+    desktopManager.plasma6.enable = true;
 
     # Enable avahi
     avahi = {
       enable = true;
-      nssmdns = true;
+      nssmdns4 = true;
       openFirewall = true;
     };
   };
@@ -39,7 +42,6 @@
     qt6Packages.qtstyleplugin-kvantum
     wineWowPackages.stable
     winetricks
-    rnnoise-plugin
     ffmpeg-full
     kate
     kcalc

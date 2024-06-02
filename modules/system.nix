@@ -53,18 +53,10 @@
       noto-fonts
       noto-fonts-emoji
       noto-fonts-cjk
-      corefonts
+      #corefonts
       vistafonts
     ];
   };
-
-  security.wrappers.sunshine = {
-    owner = "root";
-    group = "root";
-    capabilities = "cap_sys_admin+p";
-    source = "${pkgs.sunshine}/bin/sunshine";
-  };
-
 
   # Open ports in the firewall.
   networking.firewall = {
@@ -154,7 +146,6 @@
     lm_sensors # for `sensors` command
     dig
     powerdevil
-    ddcutil
     talosctl
     nix-index
   ];

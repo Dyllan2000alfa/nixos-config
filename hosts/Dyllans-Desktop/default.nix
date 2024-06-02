@@ -29,8 +29,6 @@
 
   boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
 
-  boot.extraModulePackages = with config.boot.kernelPackages; [ ddcci-driver ];
-
   hardware.i2c.enable = true;
 
   boot.kernelModules = ["i2c-dev"];
