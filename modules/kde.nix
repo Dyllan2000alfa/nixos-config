@@ -10,7 +10,7 @@
       displayManager.sddm.enable = true;
 
       #Enable plasma5
-      desktopManager.plasma5.enable = true;
+      desktopManager.plasma6.enable = true;
     };
 
     # Enable avahi

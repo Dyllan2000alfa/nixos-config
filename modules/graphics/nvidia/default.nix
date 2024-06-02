@@ -2,7 +2,7 @@
 
 let
   #nvidia package to install
-  package = config.boot.kernelPackages.nvidiaPackages.stable;
+  package = config.boot.kernelPackages.nvidiaPackages.production;
 in
 
 {
@@ -55,9 +55,9 @@ in
     nvidiaSettings = true;
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
-    package = pkgs.nvidia-patch.patch-nvenc (pkgs.nvidia-patch.patch-fbc package);
+    package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
-
+  
   environment.systemPackages = with pkgs; [
     cudatoolkit
   ];

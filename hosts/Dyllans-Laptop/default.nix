@@ -10,6 +10,7 @@
       ../../modules/system.nix
       ../../modules/kde.nix
       ../../modules/graphics/intel.nix
+      ../../modules/pipewire.nix
       ../../modules/flatpak.nix
       ../../modules/containers.nix
       ../../modules/virtualization.nix
