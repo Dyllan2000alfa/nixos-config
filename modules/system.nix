@@ -148,5 +148,6 @@
     powerdevil
     talosctl
     nix-index
+    tela-icon-theme
   ];
 }

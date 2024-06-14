@@ -15,12 +15,13 @@
     ventoy-full
     gparted
     betterdiscordctl
+    discord
   ];
 
   # Flatpak packages to be installed to the user profile
   services.flatpak.packages = [
     { appId = "io.gitlab.librewolf-community"; origin = "flathub";  }
-    { appId = "com.discordapp.Discord"; origin = "flathub";  }
+    #{ appId = "com.discordapp.Discord"; origin = "flathub";  }
     { appId = "com.github.tchx84.Flatseal"; origin = "flathub";  }
     { appId = "com.spotify.Client"; origin = "flathub";  }
     { appId = "org.polymc.PolyMC"; origin = "flathub";  }
@@ -78,19 +79,5 @@
         droidcam-obs
       ];
     };
-  };
-
-  gtk = {
-    enable = true;
-    iconTheme.package = pkgs.tela-icon-theme;
-    iconTheme.name = "Tela-purple-dark";
-    #theme.package = pkgs.layan-gtk-theme;
-    theme.name = "Breeze";
-  };
-
-  qt = {
-    enable = true;
-    #style.package = pkgs.layan-kde;
-    style.name = "Breeze";
   };
 }
