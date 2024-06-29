@@ -20,6 +20,7 @@
     betterdiscordctl
     discord
     orca-slicer
+    jellyfin-media-player
   ];
 
   # Flatpak packages to be installed to the user profile
@@ -31,7 +32,6 @@
     { appId = "org.polymc.PolyMC"; origin = "flathub";  }
     { appId = "com.github.xournalpp.xournalpp"; origin = "flathub";  }
     { appId = "com.github.wwmm.easyeffects"; origin = "flathub";  }
-    { appId = "com.github.iwalton3.jellyfin-media-player"; origin = "flathub";  }
     { appId = "org.pipewire.Helvum"; origin = "flathub";  }
     { appId = "com.moonlight_stream.Moonlight"; origin = "flathub";  }
   ];
