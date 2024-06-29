@@ -9,6 +9,9 @@
     p7zip
     unrar
 
+    # dev
+    python3
+
     # misc
     gnome.zenity
     openssl_1_1
@@ -16,6 +19,7 @@
     gparted
     betterdiscordctl
     discord
+    orca-slicer
   ];
 
   # Flatpak packages to be installed to the user profile
@@ -42,6 +46,7 @@
         bbenoist.nix
         ms-vscode-remote.remote-containers
         ms-azuretools.vscode-docker
+        ms-vscode.cpptools
       ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
         {
           name = "platformio-ide";
