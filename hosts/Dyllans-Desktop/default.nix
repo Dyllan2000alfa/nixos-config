@@ -31,11 +31,6 @@
 
   hardware.i2c.enable = true;
 
-  boot.kernelModules = ["i2c-dev"];
-  services.udev.extraRules = ''
-        KERNEL=="i2c-[0-9]*", GROUP="i2c", MODE="0660"
-  '';
-
   networking.hostId = "abcd1234";
   networking.hostName = "Dyllans-Desktop"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.

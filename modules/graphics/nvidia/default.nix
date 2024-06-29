@@ -13,6 +13,7 @@ in
     driSupport32Bit = true;
     extraPackages = with pkgs; [
       nvidia-vaapi-driver
+      vaapiVdpau
       libvdpau-va-gl
     ];
   };
@@ -57,8 +58,4 @@ in
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
     package = pkgs.nvidia-patch.patch-nvenc (pkgs.nvidia-patch.patch-fbc package);
   };
-  
-  environment.systemPackages = with pkgs; [
-    cudatoolkit
-  ];
 }

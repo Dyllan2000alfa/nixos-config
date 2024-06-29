@@ -9,6 +9,7 @@
     driSupport32Bit = true;
     extraPackages = with pkgs; [
       nvidia-vaapi-driver
+      vaapiVdpau
       libvdpau-va-gl
     ];
   };
