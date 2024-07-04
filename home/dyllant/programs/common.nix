@@ -12,16 +12,19 @@
     # dev
     python3
 
+    # utilites
+    alsa-utils
+    ventoy-full
+    betterdiscordctl
+
+    # media
+    jellyfin-media-player
+    discord
+
     # misc
     gnome.zenity
     openssl_1_1
-    ventoy-full
-    gparted
-    betterdiscordctl
-    discord
     orca-slicer
-    jellyfin-media-player
-    alsa-utils
   ];
 
   # Flatpak packages to be installed to the user profile
