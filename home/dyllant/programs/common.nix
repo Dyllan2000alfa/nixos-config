@@ -16,6 +16,9 @@
     alsa-utils
     ventoy-full
     betterdiscordctl
+    talosctl
+    nix-index
+    alsa-scarlett-gui
 
     # media
     jellyfin-media-player
@@ -25,6 +28,7 @@
     gnome.zenity
     openssl_1_1
     orca-slicer
+    tela-icon-theme
   ];
 
   # Flatpak packages to be installed to the user profile

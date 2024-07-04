@@ -152,8 +152,5 @@
     lm_sensors # for `sensors` command
     dig
     powerdevil
-    talosctl
-    nix-index
-    tela-icon-theme
   ];
 }
