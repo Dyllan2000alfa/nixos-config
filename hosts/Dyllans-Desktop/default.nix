@@ -10,7 +10,7 @@
       ../../modules/system.nix
       ../../modules/kde.nix
       ../../modules/pipewire.nix
-      ../../modules/graphics/nvidia.nixc
+      ../../modules/graphics/nvidia.nix
       ../../modules/flatpak.nix
       ../../modules/containers.nix
       ../../modules/virtualization.nix
