@@ -21,6 +21,7 @@
     discord
     orca-slicer
     jellyfin-media-player
+    alsa-utils
   ];
 
   # Flatpak packages to be installed to the user profile
