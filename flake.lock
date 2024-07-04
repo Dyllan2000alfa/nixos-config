@@ -37,50 +37,18 @@
         "type": "github"
       }
     },
-    "nixos-nvidia-vgpu": {
-      "inputs": {
-        "nixpkgs": "nixpkgs",
-        "nixpkgs-nixos2311": "nixpkgs-nixos2311"
-      },
-      "locked": {
-        "lastModified": 1714530624,
-        "narHash": "sha256-lF/ZnWXVB1BaM2zEoXZDXlknQIlyROeRvyDU0/MMmxU=",
-        "owner": "Yeshey",
-        "repo": "nixos-nvidia-vgpu",
-        "rev": "51fc8ec882753fa6f37bf150faa4b327969807f1",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Yeshey",
-        "ref": "535.129",
-        "repo": "nixos-nvidia-vgpu",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1670856834,
-        "narHash": "sha256-GitzxDZo7385SBoMpHRA9NBAhBh/5TBK8ptpQFAoMYc=",
-        "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/06278c77b5d162e62df170fec307e83f1812d94b.tar.gz"
-      },
-      "original": {
-        "type": "tarball",
-        "url": "https://github.com/NixOS/nixpkgs/archive/06278c77b5d162e62df170fec307e83f1812d94b.tar.gz"
-      }
-    },
-    "nixpkgs-nixos2311": {
-      "locked": {
-        "lastModified": 1717159533,
-        "narHash": "sha256-oamiKNfr2MS6yH64rUn99mIZjc45nGJlj9eGth/3Xuw=",
-        "owner": "NixOS",
+        "lastModified": 1717144377,
+        "narHash": "sha256-F/TKWETwB5RaR8owkPPi+SPJh83AQsm6KrQAlJ8v/uA=",
+        "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "a62e6edd6d5e1fa0329b8653c801147986f8d446",
+        "rev": "805a384895c696f802a9bf5bf4720f37385df547",
         "type": "github"
       },
       "original": {
-        "owner": "NixOS",
-        "ref": "nixos-23.11",
+        "owner": "nixos",
+        "ref": "nixos-24.05",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -98,22 +66,6 @@
         "id": "nixpkgs",
         "ref": "nixos-unstable",
         "type": "indirect"
-      }
-    },
-    "nixpkgs_2": {
-      "locked": {
-        "lastModified": 1717144377,
-        "narHash": "sha256-F/TKWETwB5RaR8owkPPi+SPJh83AQsm6KrQAlJ8v/uA=",
-        "owner": "nixos",
-        "repo": "nixpkgs",
-        "rev": "805a384895c696f802a9bf5bf4720f37385df547",
-        "type": "github"
-      },
-      "original": {
-        "owner": "nixos",
-        "ref": "nixos-24.05",
-        "repo": "nixpkgs",
-        "type": "github"
       }
     },
     "nvidia-patch": {
@@ -141,8 +93,7 @@
       "inputs": {
         "flatpaks": "flatpaks",
         "home-manager": "home-manager",
-        "nixos-nvidia-vgpu": "nixos-nvidia-vgpu",
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": "nixpkgs",
         "nixpkgs-unstable": "nixpkgs-unstable",
         "nvidia-patch": "nvidia-patch"
       }
