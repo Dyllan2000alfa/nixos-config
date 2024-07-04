@@ -18,9 +18,6 @@ in
     ];
   };
 
-  # Set nvidia as libva driver
-  environment.sessionVariables = { LIBVA_DRIVER_NAME = "nvidia"; };
-
   # Load nvidia driver for Xorg and Wayland
   services.xserver.videoDrivers = ["nvidia"];
 
