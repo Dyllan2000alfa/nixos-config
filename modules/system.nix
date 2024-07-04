@@ -71,6 +71,12 @@
 
   # Configure services
   services = {
+    zfs = {
+      #Enable zfs scrubbing and trim
+      autoScrub.enable = true;
+      trim.enable = true;
+    };
+    
     # Enable the OpenSSH daemon.
     openssh = {
       enable = true;

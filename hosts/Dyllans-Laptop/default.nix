@@ -12,8 +12,6 @@
       ../../modules/graphics/intel.nix
       ../../modules/pipewire.nix
       ../../modules/flatpak.nix
-      ../../modules/containers.nix
-      ../../modules/virtualization.nix
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
     ];

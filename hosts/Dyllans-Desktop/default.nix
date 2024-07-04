@@ -28,6 +28,7 @@
   };
 
   boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+  boot.kernelParams = [ "zfs.zfs_arc_max=12884901888" ];
 
   hardware.i2c.enable = true;
 
