@@ -11,14 +11,24 @@
       security = user
       map to guest = bad user
       dns proxy = no
+      server min protocol = NT1
     '';
     shares = {
-    share = {
-      path = "/home/dyllant/Downloads/";
-      "browsable" = "yes";
-      "writable" = "no";
-      "guest ok" = "yes";
-      "read only" = "yes";
+      isos = {
+        path = "/mnt/isos";
+        "browsable" = "yes";
+        "writable" = "no";
+        "guest ok" = "yes";
+        "read only" = "yes";
+      };
     };
-  }
+  };
+
+  services.samba-wsdd = {
+    enable = true;
+    openFirewall = true;
+  };
+
+  networking.firewall.enable = true;
+  networking.firewall.allowPing = true;
 }
