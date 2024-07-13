@@ -23,6 +23,9 @@
     # media
     jellyfin-media-player
     discord
+    xwiimote
+    dolphin-emu
+    cemu
 
     # misc
     gnome.zenity
