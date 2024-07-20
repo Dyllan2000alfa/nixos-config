@@ -1,5 +1,9 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, lib, inputs, ... }:
 {
+  imports = [
+    inputs.nix-gaming.nixosModules.platformOptimizations
+  ];
+
   #Allow steam to install unfree packages
   nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
     "steam"
@@ -14,6 +18,11 @@
     dedicatedServer.openFirewall = true;
     localNetworkGameTransfers.openFirewall = true;
     gamescopeSession.enable = true;
+    platformOptimizations.enable = true;
   };
+
+  environment.systemPackages = [
+    inputs.nix-gaming.packages.${pkgs.system}.wine-discord-ipc-bridge
+  ];
 }
 
