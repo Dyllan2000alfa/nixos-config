@@ -1,7 +1,7 @@
 { pkgs, inputs, ... }:
 {
   imports = [
-    inputs.nix-gaming.nixosModules.platformOptimizations
+    inputs.nix-gaming.nixosModules.pipewireLowLatency
   ];
 
   # rtkit is optional but recommended
