@@ -16,6 +16,8 @@
     talosctl
     nix-index
     alsa-scarlett-gui
+    wineWowPackages.stable
+    winetricks
 
     # media
     jellyfin-media-player
@@ -30,6 +32,9 @@
     orca-slicer
     tela-icon-theme
     gamemode
+    libreoffice-qt
+    hunspell
+    hunspellDicts.en_US
   ];
 
   # Flatpak packages to be installed to the user profile
