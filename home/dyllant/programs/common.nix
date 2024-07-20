@@ -29,6 +29,7 @@
     openssl_1_1
     orca-slicer
     tela-icon-theme
+    gamemode
   ];
 
   # Flatpak packages to be installed to the user profile
