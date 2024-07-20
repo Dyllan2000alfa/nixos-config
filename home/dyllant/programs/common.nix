@@ -9,9 +9,6 @@
     p7zip
     unrar
 
-    # dev
-    python3
-
     # utilites
     alsa-utils
     ventoy-full
