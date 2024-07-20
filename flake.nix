@@ -6,6 +6,7 @@
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable"; 
     nix-gaming.url = "github:fufexan/nix-gaming";
     flatpaks.url = "github:gmodena/nix-flatpak/?ref=v0.4.1";
+    nixos-nvidia-vgpu.url = "github:Yeshey/nixos-nvidia-vgpu/535.129";
     nvidia-patch = {
         url = "github:icewind1991/nvidia-patch-nixos/";  
         inputs.nixpkgs.follows = "nixpkgs";
