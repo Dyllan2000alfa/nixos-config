@@ -40,8 +40,6 @@
   environment.systemPackages = with pkgs; [
     libsForQt5.qtstyleplugin-kvantum
     qt6Packages.qtstyleplugin-kvantum
-    wineWowPackages.stable
-    winetricks
     ffmpeg-full
     kate
     kcalc
