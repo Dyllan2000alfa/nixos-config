@@ -28,7 +28,8 @@
     systemd-boot.enable = true;
   };
 
-  boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+  #boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+  boot.kernelPackages = pkgs.linuxPackages_xanmod;
   boot.kernelParams = [ "zfs.zfs_arc_max=12884901888" ];
 
   hardware.i2c.enable = true;
