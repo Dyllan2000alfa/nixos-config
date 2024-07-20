@@ -25,6 +25,7 @@
     xwiimote
     dolphin-emu
     cemu
+    vlc
 
     # misc
     gnome.zenity
