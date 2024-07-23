@@ -10,7 +10,7 @@
       ../../modules/system.nix
       ../../modules/kde.nix
       ../../modules/pipewire.nix
-      ../../modules/graphics/nvidia-vgpu.nix
+      ../../modules/graphics/nvidia.nix
       ../../modules/gaming.nix
       ../../modules/flatpak.nix
       ../../modules/containers.nix
@@ -30,7 +30,7 @@
   };
 
   #boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
-  #boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
+  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
   boot.kernelParams = [ "zfs.zfs_arc_max=12884901888" ];
 
   hardware.i2c.enable = true;

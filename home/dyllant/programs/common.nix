@@ -22,9 +22,6 @@
     # media
     jellyfin-media-player
     discord
-    xwiimote
-    dolphin-emu
-    cemu
     vlc
 
     # misc
