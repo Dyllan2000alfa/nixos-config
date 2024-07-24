@@ -184,6 +184,6 @@
     lm_sensors # for `sensors` command
     dig
     powerdevil
-    polkit-kde-agent
+    libxfs
   ];
 }

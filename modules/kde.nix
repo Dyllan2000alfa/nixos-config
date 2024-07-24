@@ -43,5 +43,6 @@
     ffmpeg-full
     kate
     kcalc
+    polkit-kde-agent
   ];
 }

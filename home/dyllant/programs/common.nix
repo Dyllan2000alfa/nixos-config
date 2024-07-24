@@ -19,7 +19,6 @@
     wineWowPackages.stable
     winetricks
     gparted
-    libxfs
 
     # media
     jellyfin-media-player
