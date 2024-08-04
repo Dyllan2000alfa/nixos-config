@@ -5,7 +5,7 @@
     containers.enable = true;
 
     containers.storage.settings = {
-      cdi.dynamic.nvidia.enable = lib.mkIf (config.hardware.nvidia.modesetting.enable) true;
+      #cdi.dynamic.nvidia.enable = lib.mkIf (config.hardware.nvidia.modesetting.enable) true;
 
       storage = {
         driver = "zfs";

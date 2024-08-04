@@ -19,11 +19,13 @@
     wineWowPackages.stable
     winetricks
     gparted
+    r2modman
 
     # media
     jellyfin-media-player
     discord
     vlc
+    vesktop
 
     # misc
     gnome.zenity

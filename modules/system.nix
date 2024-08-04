@@ -109,6 +109,12 @@
       trim.enable = true;
     };
     
+    chrony = {
+      enable = true;
+      enableNTS = true;
+      servers = [ "10.1.0.1" ];
+    };
+
     # Enable the OpenSSH daemon.
     openssh = {
       enable = true;
@@ -118,6 +124,15 @@
         PasswordAuthentication = false; # disable password login
       };
       openFirewall = true;
+    };
+
+    minio = {
+      enable = false;
+      rootCredentialsFile = "/etc/nixos/minio-root-credentials";
+      dataDir = [
+        "/mnt/minio-1"
+        "/mnt/minio-2"
+      ];
     };
 
     # Enable syncthing
