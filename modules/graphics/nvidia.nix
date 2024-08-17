@@ -2,7 +2,7 @@
 
 let
   #nvidia package to install
-  package = config.boot.kernelPackages.nvidiaPackages.production;
+  package = config.boot.kernelPackages.nvidiaPackages.beta;
 in
 
 {
@@ -55,7 +55,15 @@ in
     nvidiaSettings = true;
 
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
-    package = pkgs.nvidia-patch.patch-nvenc (pkgs.nvidia-patch.patch-fbc package);
+    package = config.boot.kernelPackages.nvidiaPackages.mkDriver {
+      version = "555.58";
+
+      sha256_64bit = "sha256-bXvcXkg2kQZuCNKRZM5QoTaTjF4l2TtrsKUvyicj5ew=";
+      sha256_aarch64 = lib.fakeSha256;
+      openSha256 = lib.fakeSha256;
+      settingsSha256 = "sha256-vWnrXlBCb3K5uVkDFmJDVq51wrCoqgPF03lSjZOuU8M=";
+      persistencedSha256 = lib.fakeSha256;
+    };
   };
 
    environment.variables = {

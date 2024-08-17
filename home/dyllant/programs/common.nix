@@ -30,12 +30,12 @@
     # misc
     gnome.zenity
     openssl_1_1
-    orca-slicer
     tela-icon-theme
     gamemode
     libreoffice-qt
     hunspell
     hunspellDicts.en_US
+    prismlauncher
   ];
 
   # Flatpak packages to be installed to the user profile
@@ -44,7 +44,6 @@
     #{ appId = "com.discordapp.Discord"; origin = "flathub";  }
     { appId = "com.github.tchx84.Flatseal"; origin = "flathub";  }
     { appId = "com.spotify.Client"; origin = "flathub";  }
-    { appId = "org.polymc.PolyMC"; origin = "flathub";  }
     { appId = "com.github.xournalpp.xournalpp"; origin = "flathub";  }
     { appId = "com.github.wwmm.easyeffects"; origin = "flathub";  }
     { appId = "org.pipewire.Helvum"; origin = "flathub";  }

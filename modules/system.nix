@@ -74,7 +74,7 @@
   # Open ports in the firewall.
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [ 47984 47989 47990 48010 57621 8384 22000 ];
+    allowedTCPPorts = [ 47984 47989 47990 48010 57621 8384 22000 9000 9001 ];
     allowedUDPPorts = [ 22000 21027 ];
     allowedUDPPortRanges = [ 
       { from = 47998; to = 48000; } 
@@ -127,10 +127,9 @@
     };
 
     minio = {
-      enable = false;
+      enable = true;
       rootCredentialsFile = "/etc/nixos/minio-root-credentials";
       dataDir = [
-        "/mnt/minio-1"
         "/mnt/minio-2"
       ];
     };
