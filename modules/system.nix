@@ -71,6 +71,9 @@
     ];
   };
 
+  # Make time compatible with windows
+  time.hardwareClockInLocalTime = true;
+
   # Open ports in the firewall.
   networking.firewall = {
     enable = true;
@@ -123,6 +126,13 @@
         PermitRootLogin = "no"; # disable root login
         PasswordAuthentication = false; # disable password login
       };
+      openFirewall = true;
+    };
+
+    sunshine = {
+      enable = true;
+      autoStart = true;
+      capSysAdmin = false;
       openFirewall = true;
     };
 
