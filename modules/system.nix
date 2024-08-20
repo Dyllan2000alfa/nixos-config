@@ -132,7 +132,7 @@
     sunshine = {
       enable = true;
       autoStart = true;
-      capSysAdmin = false;
+      capSysAdmin = true;
       openFirewall = true;
     };
 
