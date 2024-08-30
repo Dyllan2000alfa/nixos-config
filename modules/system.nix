@@ -136,14 +136,6 @@
       openFirewall = true;
     };
 
-    minio = {
-      enable = true;
-      rootCredentialsFile = "/etc/nixos/minio-root-credentials";
-      dataDir = [
-        "/mnt/minio-2"
-      ];
-    };
-
     # Enable syncthing
     syncthing = {
       enable = true;

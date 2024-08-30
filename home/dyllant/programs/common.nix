@@ -20,6 +20,8 @@
     winetricks
     gparted
     r2modman
+    kubectl
+    kubernetes-helm
 
     # media
     jellyfin-media-player
