@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, ... }:
+{ config, pkgs, lib, inputs, options, ... }:
 
 {
   # ============================= User related =============================
@@ -66,13 +66,14 @@
       noto-fonts
       noto-fonts-emoji
       noto-fonts-cjk
-      #corefonts
+      corefonts
       vistafonts
     ];
   };
 
   # Make time compatible with windows
-  time.hardwareClockInLocalTime = true;
+  time.hardwareClockInLocalTime = false;
+  networking.timeServers = options.networking.timeServers.default ++ [ "10.1.0.1" ]; 
 
   # Open ports in the firewall.
   networking.firewall = {
@@ -110,12 +111,6 @@
       #Enable zfs scrubbing and trim
       autoScrub.enable = true;
       trim.enable = true;
-    };
-    
-    chrony = {
-      enable = true;
-      enableNTS = true;
-      servers = [ "10.1.0.1" ];
     };
 
     # Enable the OpenSSH daemon.
