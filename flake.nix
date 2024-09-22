@@ -43,7 +43,7 @@
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
-	    home-manager.backupFileExtension = "backup";
+	          home-manager.backupFileExtension = "backup";
 
             home-manager.extraSpecialArgs.flake-inputs = inputs;
             home-manager.users.dyllant = import ./home/dyllant;

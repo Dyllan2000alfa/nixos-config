@@ -1,7 +1,7 @@
 { config, pkgs, inputs, ... }:
 {
 
-    wayland.windowManager.hyprland.package = true;
+  wayland.windowManager.hyprland.enable = true;
 
   # Packages need for hypland
   home.packages = with pkgs; [
@@ -10,8 +10,6 @@
     hyprlock
     polkit-kde-agent
     xdg-desktop-portal-gtk
-    qt5-wayland
-    qt6-wayland
     mako
   ];
 
