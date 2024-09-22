@@ -1,11 +1,11 @@
-{ config, pkgs, flake-inputs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports = [
     ./programs
     ./shell
     ./hyprland.nix
-    flake-inputs.flatpaks.homeManagerModules.nix-flatpak
+    inputs.flatpaks.homeManagerModules.nix-flatpak
   ];
 
   services.flatpak.update.auto = {

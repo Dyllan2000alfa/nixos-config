@@ -63,7 +63,7 @@
             home-manager.useUserPackages = true;
 	          home-manager.backupFileExtension = "backup";
 
-            home-manager.extraSpecialArgs.flake-inputs = inputs;
+            home-manager.extraSpecialArgs.inputs = inputs;
             home-manager.users.dyllant = import ./home/dyllant;
           }
         ];

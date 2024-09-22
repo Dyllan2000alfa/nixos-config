@@ -1,12 +1,13 @@
 { config, pkgs, inputs, ... }:
 {
   wayland.windowManager.hyprland = {
+    
     # Enable hyprland
     enable = true;
 
     # Add plugins
     plugins = [ 
-      inputs.hy3.packages.x86_64-linux.hy3 
+      inputs.hy3.packages."${pkgs.system}".hy3 
     ];
 
     # Hyprland settings
