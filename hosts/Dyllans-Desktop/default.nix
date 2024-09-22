@@ -9,6 +9,7 @@
     [
       ../../modules/system.nix
       ../../modules/kde.nix
+      ../../modules/hyprland.nix
       ../../modules/pipewire.nix
       ../../modules/graphics/nvidia.nix
       ../../modules/gaming.nix

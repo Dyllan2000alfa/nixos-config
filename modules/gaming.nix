@@ -21,6 +21,9 @@
     platformOptimizations.enable = true;
   };
 
+  #Install gamemode
+  programs.gamemode.enable = true;
+
   environment.systemPackages = [
     inputs.nix-gaming.packages.${pkgs.system}.wine-discord-ipc-bridge
   ];

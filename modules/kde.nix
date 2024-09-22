@@ -13,7 +13,7 @@
       wayland.enable = true;
     };
 
-    #Enable plasma5
+    #Enable plasma6
     desktopManager.plasma6.enable = true;
 
     # Enable avahi
@@ -40,7 +40,6 @@
   environment.systemPackages = with pkgs; [
     libsForQt5.qtstyleplugin-kvantum
     qt6Packages.qtstyleplugin-kvantum
-    ffmpeg-full
     kate
     kcalc
     polkit-kde-agent
