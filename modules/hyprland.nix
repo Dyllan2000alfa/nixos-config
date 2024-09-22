@@ -7,10 +7,10 @@
     xwayland.enable = true;
   };
 
-  environment.systemPackages = with pkgs [
+  environment.systemPackages = with pkgs; [
     kitty # required for the default Hyprland config
   ];
 
   # Optional, hint electron apps to use wayland:
-  #environment.sessionVariables.NIXOS_OZONE_WL = "1";
+  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 }
