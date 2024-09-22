@@ -8,14 +8,13 @@
   imports =
     [
       ../../modules/system.nix
-      ../../modules/kde.nix
+      ../../modules/hyprland.nix
       ../../modules/pipewire.nix
       ../../modules/graphics/nvidia.nix
       ../../modules/gaming.nix
       ../../modules/flatpak.nix
       ../../modules/containers.nix
       ../../modules/virtualization.nix
-      ../../modules/samba.nix
 
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
@@ -29,9 +28,29 @@
     systemd-boot.enable = true;
   };
 
-  #boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
-  boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
+  boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
+  #boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
   boot.kernelParams = [ "zfs.zfs_arc_max=12884901888" ];
+
+  services = {
+    # Enable the OpenSSH daemon.
+    openssh = {
+      enable = true;
+      settings = {
+        X11Forwarding = true;
+        PermitRootLogin = "no"; # disable root login
+        PasswordAuthentication = false; # disable password login
+      };
+      openFirewall = true;
+    };
+
+    sunshine = {
+      enable = true;
+      autoStart = true;
+      capSysAdmin = true;
+      openFirewall = true;
+    };
+  };
 
   hardware.i2c.enable = true;
 

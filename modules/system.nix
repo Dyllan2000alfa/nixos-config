@@ -86,49 +86,12 @@
     ];
   };
 
-  security.polkit.enable = true;
-
-  security.polkit.extraConfig = ''
-    polkit.addRule(function(action, subject) {
-      if (
-        subject.isInGroup("users")
-          && (
-            action.id == "org.freedesktop.login1.reboot" ||
-            action.id == "org.freedesktop.login1.reboot-multiple-sessions" ||
-            action.id == "org.freedesktop.login1.power-off" ||
-            action.id == "org.freedesktop.login1.power-off-multiple-sessions"
-          )
-        )
-      {
-        return polkit.Result.YES;
-      }
-    });
-  '';
-
   # Configure services
   services = {
     zfs = {
       #Enable zfs scrubbing and trim
       autoScrub.enable = true;
       trim.enable = true;
-    };
-
-    # Enable the OpenSSH daemon.
-    openssh = {
-      enable = true;
-      settings = {
-        X11Forwarding = true;
-        PermitRootLogin = "no"; # disable root login
-        PasswordAuthentication = false; # disable password login
-      };
-      openFirewall = true;
-    };
-
-    sunshine = {
-      enable = true;
-      autoStart = true;
-      capSysAdmin = true;
-      openFirewall = true;
     };
 
     # Enable syncthing
@@ -195,6 +158,5 @@
     lm_sensors # for `sensors` command
     dig
     powerdevil
-    libxfs
   ];
 }
