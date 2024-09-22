@@ -1,7 +1,9 @@
 { config, pkgs, inputs, ... }:
 {
-
-  wayland.windowManager.hyprland.enable = true;
+  wayland.windowManager.hyprland = {
+    enable = true;
+    plugins = [ hy3.packages.x86_64-linux.hy3 ];
+  };
 
   # Packages need for hypland
   home.packages = with pkgs; [
@@ -14,6 +16,7 @@
   ];
 
   wayland.windowManager.hyprland.settings = {
+    # Configure monitors
     monitor = [
       "DP-1, 1440x900@75, 0x0, 1"
       "DP-2, 1920x1080@75, 1440x0,1"

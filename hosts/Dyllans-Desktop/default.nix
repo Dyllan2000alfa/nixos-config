@@ -8,7 +8,7 @@
   imports =
     [
       ../../modules/system.nix
-      ../../modules/hyprland.nix
+      ../../modules/kde.nix
       ../../modules/pipewire.nix
       ../../modules/graphics/nvidia.nix
       ../../modules/gaming.nix

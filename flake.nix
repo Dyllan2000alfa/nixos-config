@@ -3,17 +3,30 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
+
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable"; 
+
     nix-gaming.url = "github:fufexan/nix-gaming";
+
     flatpaks.url = "github:gmodena/nix-flatpak/?ref=v0.4.1";
+
     nixos-nvidia-vgpu.url = "github:Yeshey/nixos-nvidia-vgpu/535.129";
+
     nvidia-patch = {
         url = "github:icewind1991/nvidia-patch-nixos/";  
         inputs.nixpkgs.follows = "nixpkgs";
     };
+
     home-manager = {
       url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+    
+    hyprland.url="git+https://github.com/hyprwm/Hyprland?submodules=1";
+
+    hy3 = {
+      url = "github:outfoxxed/hy3";
+      inputs.hyprland.follows = "hyprland";
     };
   };
 
@@ -22,6 +35,8 @@
     home-manager,
     flatpaks,
     nixpkgs-unstable,
+    hyprland,
+    hy3,
     ...
   }: {
     nixosConfigurations = {

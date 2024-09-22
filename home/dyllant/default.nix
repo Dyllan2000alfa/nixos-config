@@ -4,7 +4,7 @@
   imports = [
     ./programs
     ./shell
-    ./hyprland.nix
+    #./hyprland.nix
     flake-inputs.flatpaks.homeManagerModules.nix-flatpak
   ];
 
