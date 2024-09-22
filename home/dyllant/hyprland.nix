@@ -6,7 +6,7 @@
 
     # Add plugins
     plugins = [ 
-      hy3.packages.x86_64-linux.hy3 
+      inputs.hy3.packages.x86_64-linux.hy3 
     ];
 
     # Hyprland settings
@@ -18,7 +18,7 @@
         "DP-2, 1920x1080@75, 1440x0,1"
         "DP-3, 1600x900@60, 1680x-1080, 1"
       ];
-      
+
     };
   };
 
