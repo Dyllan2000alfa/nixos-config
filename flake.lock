@@ -141,6 +141,7 @@
       "inputs": {
         "aquamarine": "aquamarine",
         "hyprcursor": "hyprcursor",
+        "hyprland-protocols": "hyprland-protocols",
         "hyprlang": "hyprlang",
         "hyprutils": "hyprutils",
         "hyprwayland-scanner": "hyprwayland-scanner",
@@ -149,11 +150,11 @@
         "xdph": "xdph"
       },
       "locked": {
-        "lastModified": 1726995313,
-        "narHash": "sha256-0M0+wAhAzY5VfEaw8N6P1PLCgcm5ZT4kUAZoCxs+6S8=",
+        "lastModified": 1727621787,
+        "narHash": "sha256-Nt+lxQJRfkO675/HkFcz80V47F2Vzx+scYNvJHdHxfc=",
         "owner": "hyprwm",
         "repo": "Hyprland",
-        "rev": "e5ff19ac0f2c8d53a0c847d06a17676e636d6447",
+        "rev": "6649255d54f45a7e2fedd9b4be85fe5d11229c04",
         "type": "github"
       },
       "original": {
@@ -162,37 +163,32 @@
         "type": "github"
       }
     },
-    "hyprland-plugins": {
+    "hyprland-protocols": {
       "inputs": {
-        "hyprland": [
-          "hyprland"
-        ],
         "nixpkgs": [
-          "hyprland-plugins",
           "hyprland",
           "nixpkgs"
         ],
         "systems": [
-          "hyprland-plugins",
           "hyprland",
           "systems"
         ]
       },
       "locked": {
-        "lastModified": 1723143591,
-        "narHash": "sha256-dPcWAeRJoG5CyWC32X3XX+Og0v/k1/S1N0T5dQWT32k=",
+        "lastModified": 1727451107,
+        "narHash": "sha256-qV9savtHwmZUa0eJE294WYJjKPGB2+bJhwByFShsVyo=",
         "owner": "hyprwm",
-        "repo": "hyprland-plugins",
-        "rev": "b73d7b901d8cb1172dd25c7b7159f0242c625a77",
+        "repo": "hyprland-protocols",
+        "rev": "6b3261ee13a6d2b99de79a31d352f6996e35bde3",
         "type": "github"
       },
       "original": {
         "owner": "hyprwm",
-        "repo": "hyprland-plugins",
+        "repo": "hyprland-protocols",
         "type": "github"
       }
     },
-    "hyprland-protocols": {
+    "hyprland-protocols_2": {
       "inputs": {
         "nixpkgs": [
           "hyprland",
@@ -451,7 +447,6 @@
         "home-manager": "home-manager",
         "hy3": "hy3",
         "hyprland": "hyprland",
-        "hyprland-plugins": "hyprland-plugins",
         "nix-gaming": "nix-gaming",
         "nixos-nvidia-vgpu": "nixos-nvidia-vgpu",
         "nixpkgs": "nixpkgs_4",
@@ -534,7 +529,7 @@
     },
     "xdph": {
       "inputs": {
-        "hyprland-protocols": "hyprland-protocols",
+        "hyprland-protocols": "hyprland-protocols_2",
         "hyprlang": [
           "hyprland",
           "hyprlang"

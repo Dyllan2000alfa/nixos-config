@@ -10,6 +10,9 @@
       inputs.hy3.packages."${pkgs.system}".hy3 
     ];
 
+    # Whether to enable hyprland-session.target on hyprland startup
+    systemd.enable = true;
+
     # Hyprland settings
     settings = {
 
@@ -29,7 +32,7 @@
     hyprpaper
     hyprlock
     polkit-kde-agent
-    xdg-desktop-portal-gtk
     mako
+    kitty
   ];
 }

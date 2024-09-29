@@ -16,6 +16,7 @@
       ../../modules/flatpak.nix
       ../../modules/containers.nix
       ../../modules/virtualization.nix
+      ../../cachix.nix
 
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
