@@ -5,16 +5,18 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [
-      ../../modules/system.nix
-      ../../modules/kde.nix
-      ../../modules/graphics/intel.nix
-      ../../modules/pipewire.nix
-      ../../modules/flatpak.nix
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    ../../modules
+
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
+
+  graphics.intel.enable = true;
+  audio.enable = true;
+  kde.enable = true;
+  flatpaks.enable = true;
+  syncthing.enable = true;
 
   # Bootloader.
   boot.loader = {

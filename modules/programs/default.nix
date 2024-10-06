@@ -7,6 +7,7 @@
     ./ckb-next.nix
     ./sunshine.nix
     ./ssh.nix
+    ./syncthing.nix
   ];
 
   # Set sub modules to off by default
@@ -17,5 +18,8 @@
     lib.mkDefault false;
 
   ssh.enable = 
+    lib.mkDefault false;
+
+  syncthing.enable = 
     lib.mkDefault false;
 }
