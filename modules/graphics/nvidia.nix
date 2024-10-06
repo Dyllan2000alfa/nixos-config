@@ -90,5 +90,6 @@ in
     # Required for firefox 98+, see:
     # https://github.com/elFarto/nvidia-vaapi-driver#firefox
     EGL_PLATFORM = "wayland";
+    NIXOS_OZONE_WL = "1";
   };
 }

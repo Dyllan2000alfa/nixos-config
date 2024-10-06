@@ -4,7 +4,7 @@
     substituters = ["https://hyprland.cachix.org"];
     trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
   };
-
+  
   programs.hyprland = {
     # Enable Hyprland
     enable = true;
@@ -17,8 +17,4 @@
 
     xwayland.enable = true;
   };
-  
-
-  # Optional, hint electron apps to use wayland:
-  environment.sessionVariables.NIXOS_OZONE_WL = "1";
 }

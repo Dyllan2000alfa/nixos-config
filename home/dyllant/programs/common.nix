@@ -13,6 +13,7 @@
     alsa-utils
     ventoy-full
     betterdiscordctl
+    vesktop
     talosctl
     nix-index
     alsa-scarlett-gui

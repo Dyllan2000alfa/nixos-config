@@ -16,7 +16,6 @@
       ../../modules/flatpak.nix
       ../../modules/containers.nix
       ../../modules/virtualization.nix
-      ../../cachix.nix
 
       # Include the results of the hardware scan.
       ./hardware-configuration.nix
@@ -33,6 +32,10 @@
   boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
   #boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
   boot.kernelParams = [ "zfs.zfs_arc_max=12884901888" ];
+
+  boot.extraModulePackages = [
+    config.boot.kernelPackages.v4l2loopback.out
+  ];
 
   services = {
     # Enable the OpenSSH daemon.

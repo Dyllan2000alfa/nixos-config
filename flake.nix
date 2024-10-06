@@ -22,10 +22,24 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     
-    hyprland.url="github:hyprwm/Hyprland";
+    hyprland = {
+      type = "git";
+      submodules = true;
+      url = "https://github.com/hyprwm/Hyprland";
+      ref = "refs/tags/v0.43.0";
+    };
+
+    hyprland-plugins = {
+      type = "git";
+      url = "https://github.com/hyprwm/hyprland-plugins";
+      ref = "refs/tags/v0.43.0";
+      inputs.hyprland.follows = "hyprland";
+    };
 
     hy3 = {
-      url = "github:outfoxxed/hy3";
+      type = "git";
+      url = "https://github.com/outfoxxed/hy3";
+      ref = "refs/tags/hl0.43.0";
       inputs.hyprland.follows = "hyprland";
     };
   };
@@ -36,7 +50,8 @@
     flatpaks,
     nixpkgs-unstable,
     ...
-  }: {
+  }: 
+  {
     nixosConfigurations = {
       Dyllans-Desktop = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
