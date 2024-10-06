@@ -1,11 +1,20 @@
-{ config, pkgs, ... }:
+{ pkgs, lib, config, ... }:
 
 {
-  # Enable KVM virtual machines
-  virtualisation.libvirtd.enable = true;
-  programs.virt-manager.enable = true;
+  # Allow module to be easily enabled and disabled
+  options = {
+    vms.enable =
+      lib.mkEnableOption "enables vms";
+  };
 
-  environment.systemPackages = with pkgs; [
-    mstflint
-  ];
+  config = lib.mkIf config.vms.enable {
+
+    # Enable KVM virtual machines
+    virtualisation.libvirtd.enable = true;
+    programs.virt-manager.enable = true;
+
+    environment.systemPackages = with pkgs; [
+      mstflint
+    ];
+  };
 }

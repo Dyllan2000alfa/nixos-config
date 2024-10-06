@@ -12,6 +12,6 @@
     ./pipewire.nix
     ./samba.nix
     ./system.nix
-    ./virtualization.nix
+    ./virtual-machines.nix
   ];
 }
