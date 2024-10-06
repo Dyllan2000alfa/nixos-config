@@ -13,7 +13,6 @@
     alsa-utils
     ventoy-full
     betterdiscordctl
-    vesktop
     talosctl
     nix-index
     alsa-scarlett-gui
@@ -27,6 +26,7 @@
     # media
     jellyfin-media-player
     discord
+    webcord
     vlc
 
     # misc

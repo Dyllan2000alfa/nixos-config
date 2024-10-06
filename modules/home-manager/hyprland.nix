@@ -21,6 +21,7 @@ in
     # Add plugins
     plugins = [ 
       inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
+      inputs.hy3.packages.${pkgs.system}.hy3
     ];
 
     # Whether to enable hyprland-session.target on hyprland startup
