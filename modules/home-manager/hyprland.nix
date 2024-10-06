@@ -19,9 +19,9 @@ in
     enable = true;
 
     # Add plugins
-    #plugins = [ 
-    #  inputs.hyprland-plugins.packages."${pkgs.system}".hyprbars 
-    #];
+    plugins = [ 
+      inputs.hyprland-plugins.packages."${pkgs.system}".hyprbars 
+    ];
 
     # Whether to enable hyprland-session.target on hyprland startup
     systemd.enable = true;
