@@ -20,7 +20,7 @@ in
 
     # Add plugins
     plugins = [ 
-      inputs.hyprland-plugins.packages."${pkgs.system}".hyprbars 
+      inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
     ];
 
     # Whether to enable hyprland-session.target on hyprland startup
@@ -34,9 +34,9 @@ in
 
       # Configure monitors
       monitor = [
-        "DP-1, 1440x900@60, 0x0, 1"
-        "DP-2, 1920x1080@75, 1440x0,1"
-        "DP-3, 1600x900@60, 1680x-1080, 1"
+        "DP-1, 1440x900@60, 0x1080, 1"
+        "DP-2, 1920x1080@75, 1440x900,1"
+        "DP-3, 1600x900@60, 1680x0, 1"
       ];
 
       # Configure keybinds
@@ -57,7 +57,6 @@ in
   home.packages = with pkgs; [
     waybar
     mpvpaper
-    hyprlock
     polkit-kde-agent
     mako
     libnotify
