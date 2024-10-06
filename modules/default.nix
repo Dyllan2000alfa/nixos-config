@@ -11,7 +11,26 @@
     ./gaming.nix
     ./pipewire.nix
     ./samba.nix
-    ./system.nix
     ./virtual-machines.nix
+    ./system.nix
   ];
+
+  # Set sub modules to off by default
+  podman.containers.enable =
+    lib.mkDefault false;
+
+  flatpaks.enable =
+    lib.mkDefault false;
+  
+  gaming.enable =
+    lib.mkDefault false;
+  
+  audio.enable = 
+    lib.mkDefault false;
+
+  samba.enable = 
+    lib.mkDefault false;
+  
+  vms.enable =
+    lib.mkDefault false;
 }

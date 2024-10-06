@@ -2,6 +2,10 @@
 
 {
 
+  imports = [
+    inputs.nix-gaming.nixosModules.pipewireLowLatency
+  ];
+
   # Allow module to be easily enabled and disabled
   options = {
     audio.enable =
@@ -9,10 +13,6 @@
   };
 
   config = lib.mkIf config.audio.enable {
-
-    imports = [
-      inputs.nix-gaming.nixosModules.pipewireLowLatency
-    ];
 
     # rtkit is optional but recommended
     security.rtkit.enable = true;

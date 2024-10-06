@@ -10,12 +10,12 @@
   ];
 
   # Set sub modules to off by default
-  amd.enable =
+  graphics.amd.enable =
     lib.mkDefault false;
 
-  intel.enable =
+  graphics.intel.enable =
     lib.mkDefault false;
   
-  nvidia.enable =
+  graphics.nvidia.enable =
     lib.mkDefault false;
 }

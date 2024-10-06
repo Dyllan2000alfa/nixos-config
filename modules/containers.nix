@@ -3,11 +3,11 @@
 {
   # Allow module to be easily enabled and disabled
   options = {
-    containers.enable =
+    podman.containers.enable =
       lib.mkEnableOption "enables containers";
   };
 
-  config = lib.mkIf config.containers.enable {
+  config = lib.mkIf config.podman.containers.enable {
 
     # Enable common container config files in /etc/containers
     virtualisation = {

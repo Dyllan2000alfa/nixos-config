@@ -18,7 +18,7 @@
   hyprland.enable = false;
   gaming.enable = true;
   flatpaks.enable = true;
-  containers.enable = true;
+  podman.containers.enable = true;
   vms.enable = true;
 
   # Bootloader.
