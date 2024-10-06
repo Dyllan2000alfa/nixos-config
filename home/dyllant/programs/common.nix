@@ -26,7 +26,6 @@
     # media
     jellyfin-media-player
     discord
-    webcord
     vlc
 
     # misc

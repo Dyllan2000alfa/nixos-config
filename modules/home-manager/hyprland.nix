@@ -19,9 +19,8 @@ in
     enable = true;
 
     # Add plugins
-    plugins = [ 
+    plugins = [
       inputs.hyprland-plugins.packages.${pkgs.system}.hyprbars
-      inputs.hy3.packages.${pkgs.system}.hy3
     ];
 
     # Whether to enable hyprland-session.target on hyprland startup
@@ -29,7 +28,7 @@ in
 
     # Hyprland settings
     settings = {
-      
+
       # Run start up script
       exec-once = ''${startupScript}/bin/start'';
 

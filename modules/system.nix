@@ -1,4 +1,4 @@
-{ config, pkgs, lib, inputs, options, ... }:
+{ pkgs, lib, config, inputs, options, ... }:
 
 {
   # ============================= User related =============================

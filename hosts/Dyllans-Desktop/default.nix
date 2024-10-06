@@ -2,24 +2,24 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ pkgs, lib, config, ... }:
 
 {
-  imports =
-    [
-      ../../modules/system.nix
-      ../../modules/display-managers/kde.nix
-      ../../modules/display-managers/hyprland.nix
-      ../../modules/pipewire.nix
-      ../../modules/graphics/nvidia.nix
-      ../../modules/gaming.nix
-      ../../modules/flatpak.nix
-      ../../modules/containers.nix
-      ../../modules/virtualization.nix
+  imports = [
+    ../../modules
 
-      # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
+
+  graphics.nvidia.enable = true;
+  audio.enable = true;
+  kde.enable = true;
+  hyprland.enable = false;
+  gaming.enable = true;
+  flatpaks.enable = true;
+  containers.enable = true;
+  vms.enable = true;
 
   # Bootloader.
   boot.loader = {
