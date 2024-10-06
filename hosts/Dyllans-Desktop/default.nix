@@ -20,6 +20,10 @@
   flatpaks.enable = true;
   podman.containers.enable = true;
   vms.enable = true;
+  sunshine.enable = true;
+  ckb-next.enable = true;
+  ssh.enable = true;
+  syncthing.enable = true;
 
   # Bootloader.
   boot.loader = {
@@ -37,28 +41,6 @@
     config.boot.kernelPackages.v4l2loopback.out
   ];
 
-  services = {
-    # Enable the OpenSSH daemon.
-    openssh = {
-      enable = true;
-      settings = {
-        X11Forwarding = true;
-        PermitRootLogin = "no"; # disable root login
-        PasswordAuthentication = false; # disable password login
-      };
-      openFirewall = true;
-    };
-
-    sunshine = {
-      enable = true;
-      autoStart = true;
-      capSysAdmin = true;
-      openFirewall = true;
-    };
-  };
-
-  hardware.i2c.enable = true;
-
   networking.hostId = "abcd1234";
   networking.hostName = "Dyllans-Desktop"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -72,7 +54,6 @@
 
   hardware.bluetooth.enable = true; # enables support for Bluetooth
   hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
-  hardware.ckb-next.enable = true; # enable ckb-next daemon
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

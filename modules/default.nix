@@ -6,6 +6,7 @@
   imports = [
     ./display-managers
     ./graphics
+    ./programs
     ./containers.nix
     ./flatpak.nix
     ./gaming.nix
