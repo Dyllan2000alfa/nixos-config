@@ -37,6 +37,7 @@
     hunspellDicts.en_US
     prismlauncher
     tailscale
+    vesktop
   ];
 
   # Flatpak packages to be installed to the user profile

@@ -3,7 +3,7 @@
 {
   imports = [
     ./programs
-    ../../modules/home-manager/hyprland.nix
+    #../../modules/home-manager/hyprland.nix
     inputs.flatpaks.homeManagerModules.nix-flatpak
   ];
 

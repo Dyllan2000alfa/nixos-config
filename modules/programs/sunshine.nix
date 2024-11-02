@@ -9,7 +9,11 @@
 
   config = lib.mkIf config.sunshine.enable {
 
+    
+
     services.sunshine = {
+      package = pkgs.sunshine.override { cudaSupport = true; };
+
       enable = true;
       autoStart = true;
       capSysAdmin = true;

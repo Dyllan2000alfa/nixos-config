@@ -35,7 +35,7 @@
 
   boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
   #boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
-  boot.kernelParams = [ "zfs.zfs_arc_max=12884901888" ];
+  boot.kernelParams = [ "zfs.zfs_arc_max=12884901888" "nvidia_drm.fbdev=1" ];
 
   boot.extraModulePackages = [
     config.boot.kernelPackages.v4l2loopback.out

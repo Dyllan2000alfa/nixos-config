@@ -17,12 +17,19 @@
         version = "3.3.3";
         sha256 = "d8kwQVoG/MOujmvMaX6Y0wl85L2PNdv2EnqTZKo8pGk=";
       }
+      {
+        name = "indent-one-space";
+        publisher = "usernamehw";
+        version = "1.0.0";
+        sha256 = "WbkhRm1vekpLWgq/AGKzWzsloJC79iSu/RKi//7Ve7Y=";
+      }
     ];
     userSettings = {
       "workbench.colorTheme" = "Default Dark Modern";
       "editor.tabSize" = 2;
       "editor.detectIndentation" = false;
       "git.enableSmartCommit" = true;
+      "notebook.multiCursor.enabled" = true;
 
       # Podman settings for dev container extension
       "dev.containers.dockerComposePath" = "podman-compose";
