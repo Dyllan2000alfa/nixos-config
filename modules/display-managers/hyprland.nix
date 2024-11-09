@@ -10,7 +10,7 @@
 
   # Main module config
   config = lib.mkIf config.hyprland.enable {
-    
+
     programs.hyprland = {
       # Enable Hyprland
       enable = true;

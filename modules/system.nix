@@ -29,6 +29,8 @@
   nix.settings = {
     # enable flakes globally
     experimental-features = ["nix-command" "flakes"];
+    substituters = ["https://hyprland.cachix.org"];
+    trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
   };
 
   # do garbage collection weekly to keep disk usage low
@@ -73,7 +75,7 @@
 
   # Make time compatible with windows
   time.hardwareClockInLocalTime = false;
-  networking.timeServers = options.networking.timeServers.default ++ [ "10.1.0.1" ]; 
+  networking.timeServers = [ "10.1.0.1" "time.cloudflare.com" ]; 
 
   # Open ports in the firewall.
   networking.firewall = {
