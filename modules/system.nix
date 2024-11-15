@@ -19,6 +19,7 @@
     flags = [
       "--update-input"
       "nixpkgs"
+      "--no-write-lock-file"
       "-L" # print build logs
     ];
     dates = "02:00";
@@ -74,7 +75,7 @@
   };
 
   # Make time compatible with windows
-  time.hardwareClockInLocalTime = false;
+  time.hardwareClockInLocalTime = true;
   networking.timeServers = [ "10.1.0.1" "time.cloudflare.com" ]; 
 
   # Open ports in the firewall.
