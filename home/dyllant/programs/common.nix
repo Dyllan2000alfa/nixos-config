@@ -27,6 +27,7 @@
     jellyfin-media-player
     discord
     vlc
+    tidal-hifi
 
     # misc
     gnome.zenity
