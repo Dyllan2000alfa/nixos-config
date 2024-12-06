@@ -15,7 +15,7 @@
   graphics.nvidia.enable = true;
   audio.enable = true;
   kde.enable = true;
-  hyprland.enable = false;
+  hyprland.enable = true;
   gaming.enable = true;
   flatpaks.enable = true;
   podman.containers.enable = true;
