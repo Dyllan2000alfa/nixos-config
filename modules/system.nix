@@ -108,6 +108,5 @@
     lm_sensors # for `sensors` command
     dig
     powerdevil
-    unstable.tidal-hifi
   ];
 }

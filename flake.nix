@@ -72,6 +72,12 @@
 	          home-manager.backupFileExtension = "backup";
 
             home-manager.extraSpecialArgs.inputs = inputs;
+            home-manager.extraSpecialArgs = {
+              unstable = import nixpkgs-unstable {
+                config.allowUnfree = true;
+                system = "x86_64-linux";
+              };
+            };
             home-manager.users.dyllant = import ./home/dyllant;
           }
         ];
