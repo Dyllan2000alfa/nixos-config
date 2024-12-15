@@ -1,4 +1,4 @@
-{ lib, pkgs, ... }:
+{ lib, pkgs, imports, ... }:
 
 {
   # Packages that should be installed to the user profile.
@@ -27,7 +27,6 @@
     jellyfin-media-player
     discord
     vlc
-    tidal-hifi
 
     # misc
     gnome.zenity

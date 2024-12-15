@@ -15,7 +15,7 @@
   graphics.nvidia.enable = true;
   audio.enable = true;
   kde.enable = true;
-  hyprland.enable = true;
+  hyprland.enable = false;
   gaming.enable = true;
   flatpaks.enable = true;
   podman.containers.enable = true;
@@ -33,8 +33,7 @@
     systemd-boot.enable = true;
   };
 
-  boot.kernelPackages = config.boot.zfs.package.latestCompatibleLinuxPackages;
-  #boot.kernelPackages = pkgs.linuxPackages_xanmod_latest;
+  boot.kernelPackages = pkgs.linuxPackages_xanmod;
   boot.kernelParams = [ "zfs.zfs_arc_max=12884901888" "nvidia_drm.fbdev=1" ];
 
   boot.extraModulePackages = [

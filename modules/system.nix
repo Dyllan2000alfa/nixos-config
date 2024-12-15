@@ -1,4 +1,4 @@
-{ pkgs, lib, config, inputs, options, ... }:
+{ pkgs, lib, config, inputs, options, unstable, ... }:
 
 {
   # ============================= User related =============================
@@ -68,7 +68,7 @@
       # Normal fonts
       noto-fonts
       noto-fonts-emoji
-      noto-fonts-cjk
+      noto-fonts-cjk-sans
       corefonts
       vistafonts
     ];
@@ -108,5 +108,6 @@
     lm_sensors # for `sensors` command
     dig
     powerdevil
+    unstable.tidal-hifi
   ];
 }
