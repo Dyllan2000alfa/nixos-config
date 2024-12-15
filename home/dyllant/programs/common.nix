@@ -30,7 +30,7 @@
     unstable.tidal-hifi
 
     # misc
-    gnome.zenity
+    zenity
     openssl_1_1
     tela-icon-theme
     libreoffice-qt
