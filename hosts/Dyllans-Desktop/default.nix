@@ -24,6 +24,7 @@
   ckb-next.enable = true;
   ssh.enable = true;
   syncthing.enable = true;
+  webdav-server.enable = true;
 
   # Bootloader.
   boot.loader = {
@@ -34,7 +35,7 @@
   };
 
   boot.kernelPackages = pkgs.linuxPackages_xanmod;
-  boot.kernelParams = [ "zfs.zfs_arc_max=12884901888" "nvidia_drm.fbdev=1" ];
+  boot.kernelParams = [ "zfs.zfs_arc_max=2147483648" "nvidia_drm.fbdev=1" ];
 
   boot.extraModulePackages = [
     config.boot.kernelPackages.v4l2loopback.out

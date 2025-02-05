@@ -8,6 +8,7 @@
     ./sunshine.nix
     ./ssh.nix
     ./syncthing.nix
+    ./webdav-server.nix
   ];
 
   # Set sub modules to off by default
@@ -21,5 +22,8 @@
     lib.mkDefault false;
 
   syncthing.enable = 
+    lib.mkDefault false;
+  
+  webdav-server.enable = 
     lib.mkDefault false;
 }
