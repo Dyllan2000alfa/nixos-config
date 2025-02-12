@@ -8,7 +8,7 @@
 
     nix-gaming.url = "github:fufexan/nix-gaming";
 
-    flatpaks.url = "github:gmodena/nix-flatpak/?ref=v0.4.1";
+    flatpaks.url = "github:gmodena/nix-flatpak/?ref=latest";
 
     nixos-nvidia-vgpu.url = "github:Yeshey/nixos-nvidia-vgpu/535.129";
 

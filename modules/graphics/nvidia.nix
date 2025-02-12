@@ -1,10 +1,5 @@
 { pkgs, lib, config, inputs, ... }:
 
-let
-  #nvidia package to install
-  package = config.boot.kernelPackages.nvidiaPackages.beta;
-in
-
 {
 
   options = {
