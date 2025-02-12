@@ -9,13 +9,8 @@
 
   config = lib.mkIf config.sunshine.enable {
 
-    environment.systemPackages = with pkgs; [
-      cudatoolkit
-      cuda_cudart
-    ];
-
     services.sunshine = {
-      package = pkgs.sunshine.override { cudaSupport = true; };
+      #package = pkgs.sunshine.override { cudaSupport = true; };
 
       enable = true;
       autoStart = true;
