@@ -15,6 +15,8 @@
 
     services.webdav-server-rs = {
       enable = true;
+      user = "dyllant";
+      group = "users";
       configFile = "/home/dyllant/Documents/Phone-Backup/webdav-server.toml";
     };
   };
