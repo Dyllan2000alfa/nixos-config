@@ -15,7 +15,7 @@
   graphics.nvidia.enable = true;
   audio.enable = true;
   kde.enable = true;
-  hyprland.enable = false;
+  hyprland.enable = true;
   gaming.enable = true;
   flatpaks.enable = true;
   podman.containers.enable = true;
@@ -24,7 +24,7 @@
   ckb-next.enable = true;
   ssh.enable = true;
   syncthing.enable = true;
-  webdav-server.enable = true;
+  webdav-server.enable = false;
 
   # Bootloader.
   boot.loader = {

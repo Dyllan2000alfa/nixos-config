@@ -6,6 +6,7 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.dyllant = {
     isNormalUser = true;
+    uid = 1000;
     description = "Dyllan Tinoco";
     extraGroups = [ "wheel" "networkmanager" "libvirtd" "i2c" "podman" "input" ];
     openssh.authorizedKeys.keys = [
