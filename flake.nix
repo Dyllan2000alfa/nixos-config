@@ -23,21 +23,12 @@
     };
     
     hyprland = {
-      type = "git";
-      submodules = true;
-      url = "https://github.com/hyprwm/Hyprland";
+      url = "github:hyprwm/Hyprland";
     };
 
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
-      inputs.hyprland.follows = "hyprland";
-    };
-
-    hy3 = {
-      url = "github:outfoxxed/hy3"; # where {version} is the hyprland release version
-      # or "github:outfoxxed/hy3" to follow the development branch.
-      # (you may encounter issues if you dont do the same for hyprland)
-      inputs.hyprland.follows = "hyprland";
+      
     };
   };
 
