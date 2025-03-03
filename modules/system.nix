@@ -82,11 +82,12 @@
   # Open ports in the firewall.
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [ 47984 47989 47990 48010 57621 8384 22000 9000 9001 ];
-    allowedUDPPorts = [ 22000 21027 ];
+    allowedTCPPorts = [ 47984 47989 47990 48010 57621 8384 22000 9000 9001 27015 27036 ];
+    allowedUDPPorts = [ 22000 21027 27015 ];
     allowedUDPPortRanges = [ 
       { from = 47998; to = 48000; } 
-      { from = 8000; to = 8010; } 
+      { from = 8000; to = 8010; }
+      { from = 27031; to = 27036; } 
     ];
   };
 
