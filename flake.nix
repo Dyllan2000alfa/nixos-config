@@ -10,7 +10,7 @@
 
     flatpaks.url = "github:gmodena/nix-flatpak/?ref=latest";
 
-    nixos-nvidia-vgpu.url = "github:Yeshey/nixos-nvidia-vgpu/535.129";
+    vgpu4nixos.url = "github:mrzenc/vgpu4nixos";
 
     nvidia-patch = {
         url = "github:icewind1991/nvidia-patch-nixos/";  
@@ -37,6 +37,7 @@
     home-manager,
     flatpaks,
     nixpkgs-unstable,
+    vgpu4nixos,
     ...
   }: 
   {

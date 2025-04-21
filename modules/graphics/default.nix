@@ -7,6 +7,7 @@
     ./amd.nix
     ./intel.nix
     ./nvidia.nix
+    ./nvidia-vgpu.nix
   ];
 
   # Set sub modules to off by default
@@ -18,4 +19,8 @@
   
   graphics.nvidia.enable =
     lib.mkDefault false;
+
+  graphics.nvidia.enable =
+    lib.mkDefault false;
+
 }
