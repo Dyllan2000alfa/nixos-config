@@ -25,7 +25,7 @@
 
     nixpkgs.overlays = [inputs.nvidia-patch.overlays.default];
 
-    vgpu4nixos.nixosModules.host
+    vgpu4nixos.nixosModules.host;
 
     #Enable nvidia driver
     hardware.nvidia = {
