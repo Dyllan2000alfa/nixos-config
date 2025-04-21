@@ -20,7 +20,7 @@
   graphics.nvidia.enable =
     lib.mkDefault false;
 
-  graphics.nvidia.enable =
+  graphics.nvidia-vgpu.enable =
     lib.mkDefault false;
 
 }
