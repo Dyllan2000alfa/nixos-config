@@ -15,6 +15,7 @@
 
     environment.systemPackages = with pkgs; [
       mstflint
+      looking-glass-client
     ];
   };
 }
