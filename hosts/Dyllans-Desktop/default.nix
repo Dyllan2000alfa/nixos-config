@@ -13,8 +13,8 @@
     ./hardware-configuration.nix
   ];
 
-  graphics.nvidia.enable = false;
-  graphics.nvidia-vgpu.enable = true;
+  graphics.nvidia.enable = true;
+  graphics.nvidia-vgpu.enable = false;
   audio.enable = true;
   kde.enable = true;
   hyprland.enable = false;
@@ -37,7 +37,7 @@
   };
 
   boot.kernelPackages = pkgs.linuxPackages;
-  boot.kernelParams = [ "zfs.zfs_arc_max=2147483648" "nvidia_drm.fbdev=1" "nvidia.vup_swrlwar=1" "kvmfr.static_size_mb=32" ];
+  boot.kernelParams = [ "zfs.zfs_arc_max=2147483648" "nvidia_drm.fbdev=1" ];
 
   boot.extraModulePackages = with config.boot.kernelPackages; [
     v4l2loopback.out
