@@ -8,7 +8,7 @@
   };
 
   config = lib.mkIf config.graphics.nvidia-vgpu.enable {
-
+	
     # Enable opengl
     hardware.graphics = {
       enable = true;
@@ -24,8 +24,6 @@
     services.xserver.videoDrivers = ["nvidia"];
 
     nixpkgs.overlays = [inputs.nvidia-patch.overlays.default];
-
-    vgpu4nixos.nixosModules.host;
 
     #Enable nvidia driver
     hardware.nvidia = {
@@ -60,13 +58,13 @@
 
       # VGPU Options
       vgpu.patcher = {
-        patcher.enable = true;
+        enable = true;
 
         options.doNotForceGPLLicense = true;
       };
 
       # Optionally, you may need to select the appropriate driver version for your specific GPU.
-      package = config.boot.kernelPackages.nvidiaPackages.vgpu_18_1;
+      package = config.boot.kernelPackages.nvidiaPackages.vgpu_17_3;
     };
 
     environment.variables = {

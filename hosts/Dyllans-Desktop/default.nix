@@ -2,17 +2,19 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ pkgs, lib, config, ... }:
+{ pkgs, lib, config, inputs, ... }:
 
 {
   imports = [
     ../../modules
+    inputs.vgpu4nixos.nixosModules.host
 
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
   ];
 
-  graphics.nvidia.enable = true;
+  graphics.nvidia.enable = false;
+  graphics.nvidia-vgpu.enable = true;
   audio.enable = true;
   kde.enable = true;
   hyprland.enable = false;
