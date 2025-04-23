@@ -36,7 +36,7 @@
     systemd-boot.enable = true;
   };
 
-  boot.kernelPackages = pkgs.linuxPackages_xanmod;
+  boot.kernelPackages = pkgs.linuxPackages;
   boot.kernelParams = [ "zfs.zfs_arc_max=2147483648" "nvidia_drm.fbdev=1" ];
 
   boot.extraModulePackages = [
