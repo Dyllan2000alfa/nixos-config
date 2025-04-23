@@ -67,6 +67,10 @@
       package = config.boot.kernelPackages.nvidiaPackages.vgpu_17_3;
     };
 
+    environment.systemPackages = with pkgs; [
+      mdevctl
+    ];
+
     environment.variables = {
       # Necessary to correctly enable va-api (video codec hardware
       # acceleration). If this isn't set, the libvdpau backend will be
