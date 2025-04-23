@@ -39,8 +39,9 @@
   boot.kernelPackages = pkgs.linuxPackages;
   boot.kernelParams = [ "zfs.zfs_arc_max=2147483648" "nvidia_drm.fbdev=1" "nvidia.vup_swrlwar=1" ];
 
-  boot.extraModulePackages = [
-    config.boot.kernelPackages.v4l2loopback.out
+  boot.extraModulePackages = with config.boot.kernelPackages; [
+    v4l2loopback.out
+    kvmfr
   ];
 
   networking.hostId = "abcd1234";
