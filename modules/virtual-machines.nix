@@ -18,11 +18,12 @@
       libvirtd.enable = true;
       kvmfr = {
         enable = true;
-
-        size = 128;
-        user = "dyllant";
-        group = "libvirtd";
-        mode = "0600";
+        shm = {
+          size = 128;
+          user = "dyllant";
+          group = "libvirtd";
+          mode = "0600";
+        };
       };
     };
     
