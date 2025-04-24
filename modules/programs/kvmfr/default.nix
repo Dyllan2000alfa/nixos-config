@@ -1,3 +1,4 @@
+### Source: https://gist.github.com/j-brn/716a03822d256bc5bf5d77b951c7915c
 { lib, pkgs, config, ... }:
 
 with lib;
@@ -44,8 +45,8 @@ in
       "kvmfr.static_size_mb=${toString cfg.shm.size}"
     ];
 
-    services.udev.extraRules = optionals cfg.shm.enable ''
-      SUBSYSTEM=="kvmfr", OWNER="${cfg.shm.user}", GROUP="${cfg.shm.group}", MODE="${cfg.shm.mode}"
-    '';
+    services.udev.extraRules = optionals cfg.shm.enable 
+      ''SUBSYSTEM=="kvmfr", OWNER="${cfg.shm.user}", GROUP="${cfg.shm.group}", MODE="${cfg.shm.mode}"''
+    ;
   };
 }

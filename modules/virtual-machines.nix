@@ -19,6 +19,7 @@
       kvmfr = {
         enable = true;
         shm = {
+          enable = true;
           size = 128;
           user = "dyllant";
           group = "libvirtd";

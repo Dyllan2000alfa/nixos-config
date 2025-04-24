@@ -1,3 +1,4 @@
+### Source: https://gist.github.com/j-brn/716a03822d256bc5bf5d77b951c7915c
 { stdenv, lib, fetchFromGitHub, kernel, kmod, looking-glass-client, ... }:
 
 stdenv.mkDerivation rec {
