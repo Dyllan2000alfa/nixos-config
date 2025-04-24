@@ -10,7 +10,18 @@
   config = lib.mkIf config.vms.enable {
 
     # Enable KVM virtual machines
-    virtualisation.libvirtd.enable = true;
+    virtualisation = {
+      libvirtd.enable = true;
+      kvmfr = {
+        enable = true;
+
+        size = 128;
+        user = "dyllant";
+        group = "libvirtd";
+        mode = "0600";
+      };
+    };
+    
     programs.virt-manager.enable = true;
 
     environment.systemPackages = with pkgs; [
