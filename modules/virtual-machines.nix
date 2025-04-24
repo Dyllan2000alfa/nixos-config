@@ -1,6 +1,10 @@
 { pkgs, lib, config, ... }:
 
 {
+  imports = [
+    ./programs/kvmfr
+  ];
+
   # Allow module to be easily enabled and disabled
   options = {
     vms.enable =
