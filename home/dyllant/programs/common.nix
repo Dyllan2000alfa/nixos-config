@@ -39,6 +39,8 @@
     prismlauncher
     tailscale
     vesktop
+    rpiboot
+    rpi-imager
   ];
 
   # Flatpak packages to be installed to the user profile
