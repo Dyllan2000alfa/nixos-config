@@ -48,9 +48,10 @@
     environment.systemPackages = with pkgs; [
       libsForQt5.qtstyleplugin-kvantum
       qt6Packages.qtstyleplugin-kvantum
-      kate
-      kcalc
-      polkit-kde-agent
+      kdePackages.kate
+      kdePackages.kcalc
+      kdePackages.polkit-kde-agent-1
+      kdePackages.powerdevil
     ];
   };
 }

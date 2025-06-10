@@ -11,17 +11,11 @@
 
     # utilites
     alsa-utils
-    ventoy-full
-    betterdiscordctl
     talosctl
     nix-index
-    alsa-scarlett-gui
     wineWowPackages.stable
     winetricks
-    gparted
     r2modman
-    kubectl
-    kubernetes-helm
 
     # media
     jellyfin-media-player
@@ -38,10 +32,10 @@
     hunspellDicts.en_US
     prismlauncher
     tailscale
-    vesktop
     rpiboot
     rpi-imager
     itch
+    orca-slicer
   ];
 
   # Flatpak packages to be installed to the user profile

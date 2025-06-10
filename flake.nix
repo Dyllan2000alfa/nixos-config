@@ -2,9 +2,11 @@
   description = "NixOS configuration of Dyllan Tinoco";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.05";
 
     nixpkgs-unstable.url = "nixpkgs/nixos-unstable"; 
+
+    nixos-facter-modules.url = "github:numtide/nixos-facter-modules";
 
     nix-gaming.url = "github:fufexan/nix-gaming";
 
@@ -12,13 +14,18 @@
 
     vgpu4nixos.url = "github:mrzenc/vgpu4nixos";
 
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     nvidia-patch = {
         url = "github:icewind1991/nvidia-patch-nixos/";  
         inputs.nixpkgs.follows = "nixpkgs";
     };
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
+      url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     
@@ -32,14 +39,17 @@
     };
   };
 
-  outputs = inputs@{
+  outputs = {
     nixpkgs,
+    disko,
+    nixos-facter-modules,
     home-manager,
     flatpaks,
     nixpkgs-unstable,
     vgpu4nixos,
     ...
-  }: 
+  }@inputs:
+   
   {
     nixosConfigurations = {
       Dyllans-Desktop = nixpkgs.lib.nixosSystem {
@@ -70,24 +80,6 @@
                 system = "x86_64-linux";
               };
             };
-            home-manager.users.dyllant = import ./home/dyllant;
-          }
-        ];
-      };
-
-      Dyllans-Laptop = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
-
-        specialArgs = { inherit inputs; };
-        modules = [
-          ./hosts/Dyllans-Laptop
-
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-
-            home-manager.extraSpecialArgs.flake-inputs = inputs;
             home-manager.users.dyllant = import ./home/dyllant;
           }
         ];

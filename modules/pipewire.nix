@@ -56,14 +56,6 @@
       };
     };
 
-    services.pipewire.extraConfig.client-rt."40-mix-lfe" = {
-      "stream.properties" = {
-        "channelmix.upmix"      = true;
-        "channelmix.upmix-method" = "psd";
-        "channelmix.lfe-cutoff" = 150;
-      };
-    };
-
     services.pipewire.extraConfig.pipewire."99-noise-supression" = {
       "context.modules" = [
         {   

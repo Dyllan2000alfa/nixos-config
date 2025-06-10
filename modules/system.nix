@@ -109,6 +109,9 @@
     sysstat
     lm_sensors # for `sensors` command
     dig
-    powerdevil
+    alejandra
+    nixd
   ];
+
+  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
 }
