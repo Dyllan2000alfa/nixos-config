@@ -108,7 +108,11 @@
       autoScrub.enable = true;
       trim.enable = true;
     };
-    openssh.enable = true;
+    openssh = {
+      enable = true;
+      settings.PermitRootLogin = "no";
+      allowSFTP = true;
+    };
   };
 
   # Open ports in the firewall.

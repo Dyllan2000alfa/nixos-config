@@ -63,7 +63,11 @@
   # List services that you want to enable:
 
   services = {
-    openssh.enable = true;
+    openssh = {
+      enable = true;
+      settings.PermitRootLogin = "no";
+      allowSFTP = true;
+    };
   };
 
   # Open ports in the firewall.
