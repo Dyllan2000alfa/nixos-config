@@ -22,6 +22,7 @@
   ];
 
   networking.hostName = "Dyllans-Desktop"; # Define your hostname.
+   networking.hostId = "abcd1234"; # Define your hostid for zfs.
 
   # Enable networking
   networking.networkmanager.enable = true;
