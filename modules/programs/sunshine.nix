@@ -1,6 +1,9 @@
-{ pkgs, lib, config, ... }:
-
 {
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   # Allow module to be easily enabled and disabled
   options = {
     sunshine.enable =
@@ -8,7 +11,6 @@
   };
 
   config = lib.mkIf config.sunshine.enable {
-
     services.sunshine = {
       #package = pkgs.sunshine.override { cudaSupport = true; };
 

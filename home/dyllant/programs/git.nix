@@ -1,8 +1,6 @@
-{ pkgs, ... }:
-
-{
+{pkgs, ...}: {
   #Install github cli tool
-  home.packages = [ pkgs.gh ];
+  home.packages = [pkgs.gh];
 
   # basic configuration of git, please change to your own
   programs.git = {

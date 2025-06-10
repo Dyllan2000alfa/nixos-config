@@ -1,23 +1,23 @@
-{ config, pkgs, inputs, ... }:
-
-let
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}: let
   startupScript = pkgs.pkgs.writeShellScriptBin "start" ''
     ${pkgs.networkmanagerapplet}/bin/nm-applet --indicator &
 
     # Start waybar
     ${pkgs.waybar}/bin/waybar &
-    
+
     # Start mako
     ${pkgs.mako}/bin/mako &
 
     # Start dock
     ${pkgs.nwg-dock-hyprland}/bin/nwg-dock-hyprland -d
   '';
-in
-{
-
+in {
   wayland.windowManager.hyprland = {
-    
     # Enable hyprland
     enable = true;
 
@@ -34,7 +34,6 @@ in
 
     # Hyprland settings
     settings = {
-
       # Run start up script
       exec-once = ''${startupScript}/bin/start'';
 

@@ -1,7 +1,9 @@
-{ pkgs, lib, config, ... }:
-
 {
-
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   # Import all submodules
   imports = [
     ./amd.nix
@@ -16,11 +18,10 @@
 
   graphics.intel.enable =
     lib.mkDefault false;
-  
+
   graphics.nvidia.enable =
     lib.mkDefault false;
 
   graphics.nvidia-vgpu.enable =
     lib.mkDefault false;
-
 }

@@ -1,9 +1,14 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   # Install flatpak librewolf
   services.flatpak.packages = [
-    { appId = "io.gitlab.librewolf-community"; origin = "flathub";  }
+    {
+      appId = "io.gitlab.librewolf-community";
+      origin = "flathub";
+    }
   ];
 
   # Install native librewolf
@@ -17,7 +22,7 @@
       "middlemouse.paste" = false;
       "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
       "network.dns.disableIPv6" = true;
-      "network.http.referer.XOriginPolicy"= false;
+      "network.http.referer.XOriginPolicy" = false;
       "privacy.resistFingerprinting" = false;
       "privacy.resistFingerprinting.letterboxing" = false;
       "privacy.resistFingerprinting.autoDeclineNoUserInputCanvasPrompts" = false;

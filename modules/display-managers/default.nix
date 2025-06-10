@@ -1,7 +1,9 @@
-{pkgs, lib, config, ...}:
-
 {
-
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   # Import all submodules
   imports = [
     ./hyprland.nix

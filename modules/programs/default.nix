@@ -1,7 +1,9 @@
-{ pkgs, lib, config, ... }:
-
 {
-
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   # Import all submodules
   imports = [
     ./ckb-next.nix
@@ -15,15 +17,15 @@
   ckb-next.enable =
     lib.mkDefault false;
 
-  sunshine.enable = 
+  sunshine.enable =
     lib.mkDefault false;
 
-  ssh.enable = 
+  ssh.enable =
     lib.mkDefault false;
 
-  syncthing.enable = 
+  syncthing.enable =
     lib.mkDefault false;
-  
-  webdav-server.enable = 
+
+  webdav-server.enable =
     lib.mkDefault false;
 }

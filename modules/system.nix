@@ -1,6 +1,12 @@
-{ pkgs, lib, config, inputs, options, unstable, ... }:
-
 {
+  pkgs,
+  lib,
+  config,
+  inputs,
+  options,
+  unstable,
+  ...
+}: {
   # ============================= User related =============================
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
@@ -8,7 +14,7 @@
     isNormalUser = true;
     uid = 1000;
     description = "Dyllan Tinoco";
-    extraGroups = [ "wheel" "networkmanager" "libvirtd" "i2c" "podman" "input" ];
+    extraGroups = ["wheel" "networkmanager" "libvirtd" "i2c" "podman" "input"];
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHvfEm6EHx5a5J+WMxIpqaWYnqBDwXukKSwUmocfiYgg dyllant@Dyllans-Desktop"
     ];
@@ -26,7 +32,6 @@
     dates = "02:00";
     randomizedDelaySec = "45min";
   };
-
 
   nix.settings = {
     # enable flakes globally
@@ -46,7 +51,7 @@
   nixpkgs.config = {
     allowUnfree = true;
     permittedInsecurePackages = [
-    "openssl-1.1.1w"
+      "openssl-1.1.1w"
     ];
   };
 
@@ -77,17 +82,26 @@
 
   # Make time compatible with windows
   time.hardwareClockInLocalTime = true;
-  networking.timeServers = [ "10.1.0.1" "time.cloudflare.com" ]; 
+  networking.timeServers = ["10.1.0.1" "time.cloudflare.com"];
 
   # Open ports in the firewall.
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [ 47984 47989 47990 48010 57621 8384 22000 9000 9001 27015 27036 25565 ];
-    allowedUDPPorts = [ 22000 21027 27015 ];
-    allowedUDPPortRanges = [ 
-      { from = 47998; to = 48000; } 
-      { from = 8000; to = 8010; }
-      { from = 27031; to = 27036; } 
+    allowedTCPPorts = [47984 47989 47990 48010 57621 8384 22000 9000 9001 27015 27036 25565];
+    allowedUDPPorts = [22000 21027 27015];
+    allowedUDPPortRanges = [
+      {
+        from = 47998;
+        to = 48000;
+      }
+      {
+        from = 8000;
+        to = 8010;
+      }
+      {
+        from = 27031;
+        to = 27036;
+      }
     ];
   };
 
@@ -113,5 +127,5 @@
     nixd
   ];
 
-  nix.nixPath = [ "nixpkgs=${inputs.nixpkgs}" ];
+  nix.nixPath = ["nixpkgs=${inputs.nixpkgs}"];
 }

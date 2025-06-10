@@ -1,6 +1,9 @@
-{ pkgs, lib, config, ... }:
-
 {
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   imports = [
     ./programs/kvmfr
   ];
@@ -12,7 +15,6 @@
   };
 
   config = lib.mkIf config.vms.enable {
-
     # Enable KVM virtual machines
     virtualisation = {
       libvirtd = {
@@ -39,7 +41,7 @@
         };
       };
     };
-    
+
     programs.virt-manager.enable = true;
 
     environment.systemPackages = with pkgs; [

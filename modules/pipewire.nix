@@ -1,7 +1,10 @@
-{ pkgs, lib, config, inputs, ... }:
-
 {
-
+  pkgs,
+  lib,
+  config,
+  inputs,
+  ...
+}: {
   imports = [
     inputs.nix-gaming.nixosModules.pipewireLowLatency
   ];
@@ -13,12 +16,11 @@
   };
 
   config = lib.mkIf config.audio.enable {
-
     # rtkit is optional but recommended
     security.rtkit.enable = true;
 
     services = {
-    # Enable pipewire audio
+      # Enable pipewire audio
       pipewire = {
         enable = true;
         alsa.enable = true;
@@ -42,7 +44,7 @@
 
     services.pipewire.extraConfig.pipewire-pulse."40-mix-lfe" = {
       "stream.properties" = {
-        "channelmix.upmix"      = true;
+        "channelmix.upmix" = true;
         "channelmix.upmix-method" = "psd";
         "channelmix.lfe-cutoff" = 150;
       };
@@ -50,7 +52,7 @@
 
     services.pipewire.extraConfig.client."40-mix-lfe" = {
       "stream.properties" = {
-        "channelmix.upmix"      = true;
+        "channelmix.upmix" = true;
         "channelmix.upmix-method" = "psd";
         "channelmix.lfe-cutoff" = 150;
       };
@@ -58,11 +60,11 @@
 
     services.pipewire.extraConfig.pipewire."99-noise-supression" = {
       "context.modules" = [
-        {   
+        {
           "name" = "libpipewire-module-filter-chain";
           "args" = {
-            "node.description" =  "Noise Canceling source";
-            "media.name" =  "Noise Canceling source";
+            "node.description" = "Noise Canceling source";
+            "media.name" = "Noise Canceling source";
             "filter.graph" = {
               "nodes" = [
                 {
@@ -75,21 +77,21 @@
                     "VAD Grace Period (ms)" = 200;
                     "Retroactive VAD Grace (ms)" = 0;
                   };
-               }
+                }
               ];
             };
             "capture.props" = {
-              "node.name" =  "capture.rnnoise_source";
+              "node.name" = "capture.rnnoise_source";
               "node.passive" = true;
               "audio.rate" = 48000;
             };
             "playback.props" = {
-              "node.name" =  "rnnoise_source";
+              "node.name" = "rnnoise_source";
               "media.class" = "Audio/Source";
               "audio.rate" = 48000;
             };
           };
-       }
+        }
       ];
     };
   };

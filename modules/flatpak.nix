@@ -1,7 +1,9 @@
-{ pkgs, lib, config, ... }:
-
 {
-
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   # Allow module to be easily enabled and disabled
   options = {
     flatpaks.enable =
@@ -9,37 +11,36 @@
   };
 
   config = lib.mkIf config.flatpaks.enable {
-
     # Enable flatpak apps
     services.flatpak.enable = true;
 
     # Give flatpak access to theme and fonts dir
-    system.fsPackages = [ pkgs.bindfs ];
+    system.fsPackages = [pkgs.bindfs];
     fileSystems = let
       mkRoSymBind = path: {
         device = path;
         fsType = "fuse.bindfs";
-        options = [ "ro" "resolve-symlinks" "x-gvfs-hide" ];
+        options = ["ro" "resolve-symlinks" "x-gvfs-hide"];
       };
       aggregatedIcons = pkgs.buildEnv {
         name = "system-icons";
         paths = with pkgs; [
-          libsForQt5.breeze-qt5  # for plasma
+          libsForQt5.breeze-qt5 # for plasma
           tela-icon-theme
         ];
-        pathsToLink = [ "/share/icons" ];
+        pathsToLink = ["/share/icons"];
       };
       aggregatedFonts = pkgs.buildEnv {
         name = "system-fonts";
         paths = config.fonts.packages;
-        pathsToLink = [ "/share/fonts" ];
+        pathsToLink = ["/share/fonts"];
       };
       aggregatedThemes = pkgs.buildEnv {
         name = "system-themes";
         paths = with pkgs; [
           layan-gtk-theme
         ];
-        pathsToLink = [ "/share/themes" ];
+        pathsToLink = ["/share/themes"];
       };
     in {
       "/usr/share/icons" = mkRoSymBind "${aggregatedIcons}/share/icons";

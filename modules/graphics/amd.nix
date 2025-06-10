@@ -1,6 +1,9 @@
-{ pkgs, lib, config, ... }:
-
 {
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   # Allow module to be easily enabled and disabled
   options = {
     graphics.amd.enable =
@@ -8,7 +11,6 @@
   };
 
   config = lib.mkIf config.graphics.amd.enable {
-
     # Enable opengl
     hardware.opengl = {
       enable = true;
@@ -20,17 +22,17 @@
         mesa-vdpau
         libvdpau-va-gl
       ];
-      extraPackages32 = with pkgs.pkgsi686Linux; [ 
-        intel-vaapi-driver 
+      extraPackages32 = with pkgs.pkgsi686Linux; [
+        intel-vaapi-driver
         amdvlk
       ];
     };
 
     # Make the kernel use the correct driver
-    boot.initrd.kernelModules = [ "amdgpu" ];
+    boot.initrd.kernelModules = ["amdgpu"];
 
     # Set radeonsi as libva driver
-    environment.sessionVariables = { LIBVA_DRIVER_NAME = "radeonsi"; };
+    environment.sessionVariables = {LIBVA_DRIVER_NAME = "radeonsi";};
 
     # Load amd driver for Xorg and Wayland
     services.xserver.videoDrivers = [" amdgpu "];

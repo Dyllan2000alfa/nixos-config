@@ -1,6 +1,10 @@
-{ pkgs, lib, config, inputs, ... }:
-
 {
+  pkgs,
+  lib,
+  config,
+  inputs,
+  ...
+}: {
   imports = [
     inputs.nix-gaming.nixosModules.platformOptimizations
   ];
@@ -12,17 +16,17 @@
   };
 
   config = lib.mkIf config.gaming.enable {
-
     #Allow steam to install unfree packages
-    nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-      "steam"
-      "steam-original"
-      "steam-run"
-    ];
+    nixpkgs.config.allowUnfreePredicate = pkg:
+      builtins.elem (lib.getName pkg) [
+        "steam"
+        "steam-original"
+        "steam-run"
+      ];
 
     # Install steam
     programs.steam = {
-      enable=true;
+      enable = true;
       remotePlay.openFirewall = true;
       dedicatedServer.openFirewall = true;
       localNetworkGameTransfers.openFirewall = true;
@@ -38,4 +42,3 @@
     ];
   };
 }
-

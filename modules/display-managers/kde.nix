@@ -1,6 +1,9 @@
-{ pkgs, lib, config, ... }:
-
 {
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   # Allow module to be easily enabled and disabled
   options = {
     kde.enable =
@@ -8,7 +11,6 @@
   };
 
   config = lib.mkIf config.kde.enable {
-
     services = {
       xserver = {
         # Enable X Server
@@ -35,15 +37,21 @@
     # Enable KDE Connect
     programs.kdeconnect.enable = true;
 
-    networking.firewall = { 
+    networking.firewall = {
       enable = true;
-      allowedTCPPortRanges = [ 
-        { from = 1714; to = 1764; } # KDE Connect
-      ];  
-      allowedUDPPortRanges = [ 
-        { from = 1714; to = 1764; } # KDE Connect
-      ];  
-    };  
+      allowedTCPPortRanges = [
+        {
+          from = 1714;
+          to = 1764;
+        } # KDE Connect
+      ];
+      allowedUDPPortRanges = [
+        {
+          from = 1714;
+          to = 1764;
+        } # KDE Connect
+      ];
+    };
 
     environment.systemPackages = with pkgs; [
       libsForQt5.qtstyleplugin-kvantum

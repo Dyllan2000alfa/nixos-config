@@ -1,7 +1,10 @@
-{ pkgs, lib, config, inputs, ... }:
-
-{ 
-
+{
+  pkgs,
+  lib,
+  config,
+  inputs,
+  ...
+}: {
   # Allow module to be easily enabled and disabled
   options = {
     hyprland.enable =
@@ -10,11 +13,10 @@
 
   # Main module config
   config = lib.mkIf config.hyprland.enable {
-
     programs.hyprland = {
       # Enable Hyprland
       enable = true;
-    
+
       # set the flake package
       package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
 

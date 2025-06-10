@@ -1,6 +1,9 @@
-{ pkgs, lib, config, ... }:
-
 {
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   # Allow module to be easily enabled and disabled
   options = {
     ckb-next.enable =
@@ -8,7 +11,6 @@
   };
 
   config = lib.mkIf config.ckb-next.enable {
-
     hardware.ckb-next.enable = true; # enable ckb-next daemon
     hardware.i2c.enable = true; # Enable i2c
   };

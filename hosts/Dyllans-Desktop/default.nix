@@ -1,10 +1,13 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-
-{ pkgs, lib, config, inputs, ... }:
-
 {
+  pkgs,
+  lib,
+  config,
+  inputs,
+  ...
+}: {
   imports = [
     ../../modules
     inputs.vgpu4nixos.nixosModules.host
@@ -37,7 +40,7 @@
   };
 
   boot.kernelPackages = pkgs.linuxPackages;
-  boot.kernelParams = [ "zfs.zfs_arc_max=2147483648" "nvidia_drm.fbdev=1" ];
+  boot.kernelParams = ["zfs.zfs_arc_max=2147483648" "nvidia_drm.fbdev=1"];
 
   boot.extraModulePackages = with config.boot.kernelPackages; [
     v4l2loopback.out

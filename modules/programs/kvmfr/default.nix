@@ -1,11 +1,13 @@
 ### Source: https://gist.github.com/j-brn/716a03822d256bc5bf5d77b951c7915c
-{ lib, pkgs, config, ... }:
-
-with lib;
-let
-  cfg = config.virtualisation.kvmfr;
-in
 {
+  lib,
+  pkgs,
+  config,
+  ...
+}:
+with lib; let
+  cfg = config.virtualisation.kvmfr;
+in {
   options.virtualisation.kvmfr = {
     enable = mkEnableOption "Kvmfr";
 
@@ -37,16 +39,16 @@ in
 
   config = mkIf cfg.enable {
     boot.extraModulePackages = with config.boot.kernelPackages; [
-      (pkgs.callPackage ./kvmfr-package.nix { inherit kernel;})
+      (pkgs.callPackage ./kvmfr-package.nix {inherit kernel;})
     ];
-    boot.initrd.kernelModules = [ "kvmfr" ];
+    boot.initrd.kernelModules = ["kvmfr"];
 
     boot.kernelParams = optionals cfg.shm.enable [
       "kvmfr.static_size_mb=${toString cfg.shm.size}"
     ];
 
-    services.udev.extraRules = optionals cfg.shm.enable 
-      ''SUBSYSTEM=="kvmfr", OWNER="${cfg.shm.user}", GROUP="${cfg.shm.group}", MODE="${cfg.shm.mode}"''
-    ;
+    services.udev.extraRules =
+      optionals cfg.shm.enable
+      ''SUBSYSTEM=="kvmfr", OWNER="${cfg.shm.user}", GROUP="${cfg.shm.group}", MODE="${cfg.shm.mode}"'';
   };
 }

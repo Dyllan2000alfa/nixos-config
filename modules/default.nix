@@ -1,7 +1,9 @@
-{ pkgs, lib, config, ... }:
-
 {
-
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   # Import all submodules
   imports = [
     ./display-managers
@@ -22,16 +24,16 @@
 
   flatpaks.enable =
     lib.mkDefault false;
-  
+
   gaming.enable =
     lib.mkDefault false;
-  
-  audio.enable = 
+
+  audio.enable =
     lib.mkDefault false;
 
-  samba.enable = 
+  samba.enable =
     lib.mkDefault false;
-  
+
   vms.enable =
     lib.mkDefault false;
 }

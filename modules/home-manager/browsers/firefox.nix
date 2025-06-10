@@ -1,7 +1,9 @@
-{ config, pkgs, ... }:
-
 {
- programs = {
+  config,
+  pkgs,
+  ...
+}: {
+  programs = {
     #Enable firefox
     firefox = {
       enable = true;

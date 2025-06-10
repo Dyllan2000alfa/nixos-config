@@ -1,6 +1,9 @@
-{ pkgs, lib, config, ... }:
-
 {
+  pkgs,
+  lib,
+  config,
+  ...
+}: {
   # Allow module to be easily enabled and disabled
   options = {
     samba.enable =
@@ -8,7 +11,6 @@
   };
 
   config = lib.mkIf config.samba.enable {
-  
     services.samba = {
       enable = true;
       securityType = "user";
