@@ -13,6 +13,19 @@
 
   # Main module config
   config = lib.mkIf config.hyprland.enable {
+    services = {
+      xserver = {
+        # Enable X Server
+        enable = true;
+      };
+
+      #Set sddm as the displayManager
+      displayManager.sddm = {
+        enable = true;
+        wayland.enable = true;
+      };
+    };
+
     programs.hyprland = {
       # Enable Hyprland
       enable = true;
