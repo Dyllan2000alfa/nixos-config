@@ -2,7 +2,6 @@
   lib,
   pkgs,
   imports,
-  unstable,
   ...
 }: {
   # Packages that should be installed to the user profile.
@@ -25,7 +24,7 @@
     jellyfin-media-player
     discord
     vlc
-    unstable.tidal-hifi
+    tidal-hifi
 
     # misc
     zenity

@@ -1,13 +1,12 @@
 {
-  inputs,
+  pkgs,
+  lib,
+  config,
   ...
 }: {
   imports = [
-    ./configuration.nix
     ../../modules
-    inputs.vgpu4nixos.nixosModules.host
-
-    # Include the results of the hardware scan.
+    ./configuration.nix
     ./hardware-configuration.nix
   ];
 
