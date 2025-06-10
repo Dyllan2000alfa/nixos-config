@@ -90,7 +90,7 @@
         "dyllant@TestVM" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages."x86_64-linux";
           extraSpecialArgs = {inherit inputs outputs;};
-          modules = [./home/dyllant];
+          modules = [./home/dyllant-test];
         };
       };
     };

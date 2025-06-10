@@ -2,9 +2,12 @@
   pkgs,
   lib,
   config,
+  inputs,
   ...
 }: {
   imports = [
+    inputs.vgpu4nixos.nixosModules.host
+
     ../../modules
     ./configuration.nix
     ./hardware-configuration.nix
@@ -12,9 +15,9 @@
 
   graphics.nvidia.enable = false;
   graphics.nvidia-vgpu.enable = false;
-  audio.enable = false;
+  audio.enable = true;
   kde.enable = false;
-  hyprland.enable = false;
+  hyprland.enable = true;
   gaming.enable = false;
   flatpaks.enable = false;
   podman.containers.enable = false;
