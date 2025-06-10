@@ -56,57 +56,12 @@
             "nixpkgs" = {
               "expr" = [
                 "import <nixpkgs> {}"
-                "(builtins.getFlake \"github:Dyllan2000alfa/nixos-config\").nixosCOnfigurations.inputs.nixpkgs {}"
+                "(builtins.getFlake \"github:Dyllan2000alfa/nixos-config\").inputs.nixpkgs {}"
               ];
             };
-            "nixpkgs-unstable" = {
+            "nixos" = {
               "expr" = [
-                "(builtins.getFlake \"github:Dyllan2000alfa/nixos-config\").nixosCOnfigurations.inputs.nixpkgs-unstable {}"
-              ];
-            };
-            "nixos-facter-modules" = {
-              "expr" = [
-                "(builtins.getFlake \"github:Dyllan2000alfa/nixos-config\").nixosCOnfigurations.inputs.nixos-facter-modules {}"
-              ];
-            };
-            "nix-gaming" = {
-              "expr" = [
-                "(builtins.getFlake \"github:Dyllan2000alfa/nixos-config\").nixosCOnfigurations.inputs.nix-gaming {}"
-              ];
-            };
-            "flatpaks" = {
-              "expr" = [
-                "(builtins.getFlake \"github:Dyllan2000alfa/nixos-config\").nixosCOnfigurations.inputs.flatpaks {}"
-              ];
-            };
-            "vgpu4nixos" = {
-              "expr" = [
-                "(builtins.getFlake \"github:Dyllan2000alfa/nixos-config\").nixosCOnfigurations.inputs.vgpu4nixos {}"
-              ];
-            };
-            "disko" = {
-              "expr" = [
-                "(builtins.getFlake \"github:Dyllan2000alfa/nixos-config\").nixosCOnfigurations.inputs.disko {}"
-              ];
-            };
-            "nvidia-patch" = {
-              "expr" = [
-                "(builtins.getFlake \"github:Dyllan2000alfa/nixos-config\").nixosCOnfigurations.inputs.nvidia-patch {}"
-              ];
-            };
-            "home-manager" = {
-              "expr" = [
-                "(builtins.getFlake \"github:Dyllan2000alfa/nixos-config\").nixosCOnfigurations.inputs.home-manager {}"
-              ];
-            };
-            "hyprland" = {
-              "expr" = [
-                "(builtins.getFlake \"github:Dyllan2000alfa/nixos-config\").nixosCOnfigurations.inputs.hyprland {}"
-              ];
-            };
-            "hyprland-plugins" = {
-              "expr" = [
-                "(builtins.getFlake \"github:Dyllan2000alfa/nixos-config\").nixosCOnfigurations.inputs.hyprland-plugins {}"
+                "(builtins.getFlake \"github:Dyllan2000alfa/nixos-config\").nixosConfigurations.Dyllans-Desktop.options {}"
               ];
             };
           };
