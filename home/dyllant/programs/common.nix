@@ -41,6 +41,7 @@
     vesktop
     rpiboot
     rpi-imager
+    itch
   ];
 
   # Flatpak packages to be installed to the user profile
