@@ -44,6 +44,7 @@
       "docker.environment" = {"DOCKER_HOST" = "unix:///var/run/user/1000/podman/podman.sock";};
 
       #Nix Settings
+      "nix.formatterPath" = "alejandra";
       "nix.enableLanguageServer" = true;
       "nix.serverPath" = "nixd";
       "nix.serverSettings" = {
