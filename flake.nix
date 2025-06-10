@@ -43,7 +43,7 @@
   outputs = {
     self,
     nixpkgs,
-    nixpkgs-unstable,
+    nixpkgs-stable,
     home-manager,
     disko,
     nixos-facter-modules,
@@ -64,14 +64,7 @@
     overlays = import ./overlays {inherit inputs;};
     nixosConfigurations = {
       Dyllans-Desktop = nixpkgs.lib.nixosSystem {
-        specialArgs = {
-          inherit inputs outputs;
-
-          unstable = import nixpkgs-unstable {
-            config.allowUnfree = true;
-            system = "x86_64-linux";
-          };
-        };
+        specialArgs = {inherit inputs outputs;};
 
         modules = [
           ./hosts/Dyllans-Desktop
