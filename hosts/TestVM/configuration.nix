@@ -10,7 +10,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   boot.initrd.luks.devices."luks-42753d20-5d62-4263-9cf2-2706a9bad3da".device = "/dev/disk/by-uuid/42753d20-5d62-4263-9cf2-2706a9bad3da";
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "TestVM"; # Define your hostname.
 
   # Enable networking
   networking.networkmanager.enable = true;
