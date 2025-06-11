@@ -34,5 +34,12 @@
   };
 
   # Let Home Manager install and manage itself.
+  nixpkgs.config = {
+    # Disable if you don't want unfree packages
+    allowUnfree = true;
+    permittedInsecurePackages = [
+      "openssl-1.1.1w"
+    ];
+  };
   programs.home-manager.enable = true;
 }
