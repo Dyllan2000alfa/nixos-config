@@ -10,8 +10,8 @@
     # Start waybar
     ${pkgs.waybar}/bin/waybar &
 
-    # Start hyprpapr
-    ${pkgs.hyprpapr}/bin/hyprpapr &
+    # Start hyprpaper
+    ${pkgs.hyprpaper}/bin/hyprpaper &
 
     # Start hypridle
     ${pkgs.hypridle}/bin/hypridle &
@@ -66,7 +66,7 @@ in {
 
       # Configure monitors
       monitor = [
-        "preferred, auto, auto"
+        "preferred, 1920x1080, 1"
       ];
 
       input = {
