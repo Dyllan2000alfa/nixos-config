@@ -1,10 +1,12 @@
-{ config, pkgs, ... }:
-
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # Bootloader.
   boot.loader = {
@@ -22,7 +24,7 @@
   ];
 
   networking.hostName = "Dyllans-Desktop"; # Define your hostname.
-   networking.hostId = "abcd1234"; # Define your hostid for zfs.
+  networking.hostId = "abcd1234"; # Define your hostid for zfs.
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -36,7 +38,6 @@
 
   # Make time compatible with windows
   time.hardwareClockInLocalTime = true;
-  
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";

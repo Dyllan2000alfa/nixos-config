@@ -1,9 +1,7 @@
 {
   pkgs,
   lib,
-  config,
   inputs,
-  options,
   ...
 }: {
   system.autoUpgrade = {
