@@ -79,30 +79,6 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
-  # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.dyllant = {
-    isNormalUser = true;
-    uid = 1000;
-    description = "Dyllan Tinoco";
-    extraGroups = [
-      "wheel" 
-      "networkmanager" 
-      "libvirtd"
-      "flatpak"
-      "audio"
-      "video"
-      "plugdev"
-      "input"
-      "kvm"
-      "qemu-libvirtd"
-      "i2c" 
-      "podman" 
-    ];
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHvfEm6EHx5a5J+WMxIpqaWYnqBDwXukKSwUmocfiYgg dyllant@Dyllans-Desktop"
-    ];
-  };
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 

@@ -9,6 +9,7 @@
     inputs.vgpu4nixos.nixosModules.host
 
     ../../modules
+    ../common
     ./configuration.nix
     ./hardware-configuration.nix
   ];

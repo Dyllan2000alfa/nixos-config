@@ -15,7 +15,6 @@
     ./pipewire.nix
     ./samba.nix
     ./virtual-machines.nix
-    ./system.nix
   ];
 
   # Set sub modules to off by default
