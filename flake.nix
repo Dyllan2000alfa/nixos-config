@@ -65,20 +65,7 @@
     nixosConfigurations = {
       Dyllans-Desktop = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
-
-        modules = [
-          ./hosts/Dyllans-Desktop
-
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "backup";
-
-            home-manager.extraSpecialArgs.inputs = inputs;
-            home-manager.users.dyllant = import ./home/dyllant;
-          }
-        ];
+        modules = [./hosts/Dyllans-Desktop];
       };
 
       TestVM = nixpkgs.lib.nixosSystem {
@@ -90,7 +77,12 @@
         "dyllant@TestVM" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages."x86_64-linux";
           extraSpecialArgs = {inherit inputs outputs;};
-          modules = [./home/dyllant-test];
+          modules = [./home/dyllant/TestVM.nix];
+        };
+        "dyllant@Dyllans-Desktop" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages."x86_64-linux";
+          extraSpecialArgs = {inherit inputs outputs;};
+          modules = [./home/dyllant/Dyllans-Desktop.nix];
         };
       };
     };

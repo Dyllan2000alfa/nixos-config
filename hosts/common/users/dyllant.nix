@@ -9,8 +9,8 @@
     uid = 1000;
     description = "Dyllan Tinoco";
     extraGroups = [
-      "wheel" 
-      "networkmanager" 
+      "wheel"
+      "networkmanager"
       "libvirtd"
       "flatpak"
       "audio"
@@ -19,8 +19,8 @@
       "input"
       "kvm"
       "qemu-libvirtd"
-      "i2c" 
-      "podman" 
+      "i2c"
+      "podman"
     ];
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHvfEm6EHx5a5J+WMxIpqaWYnqBDwXukKSwUmocfiYgg dyllant@Dyllans-Desktop"
