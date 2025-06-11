@@ -40,6 +40,8 @@
     itch
     orca-slicer
     python3
+    alejandra
+    nixd
   ];
 
   # Flatpak packages to be installed to the user profile

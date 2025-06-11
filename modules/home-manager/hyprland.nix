@@ -70,10 +70,10 @@ in {
       # Configure keybinds
       bind = [
         # Terminal
-        "CONTROL_ALT, T, exec, kitty"
+        "CONTROL_ALT, T, exec, kitty -e fish -c 'neofetch: exec fish'"
 
         # Rofi
-        "SUPER, r, exec, rofi -show drun -show-icons"
+        "SUPER, D, exec, rofi --show drun --allow-images"
 
         # Logout
         "SUPER, l, exec, hyprctl dispatch exit"
@@ -116,11 +116,11 @@ in {
 
   # Packages need for hypland
   home.packages = with pkgs; [
-    mpvpaper
-    polkit-kde-agent
-    mako
-    libnotify
     kitty
+    wofi
+    fish
+    hyprpaper
+    mako
     rofi-wayland
     networkmanagerapplet
     pavucontrol

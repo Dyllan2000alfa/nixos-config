@@ -63,6 +63,8 @@
     nixPath = ["nixpkgs=${inputs.nixpkgs}"];
   };
 
+  users.defaultUserShell = pkgs.fish;
+
   environment.systemPackages = with pkgs; [
     wget
     curl
@@ -70,7 +72,6 @@
     sysstat
     lm_sensors # for `sensors` command
     dig
-    alejandra
-    nixd
+    fish
   ];
 }
