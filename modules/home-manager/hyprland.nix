@@ -10,8 +10,11 @@
     # Start waybar
     ${pkgs.waybar}/bin/waybar &
 
-    # Start mako
-    ${pkgs.mako}/bin/mako &
+    # Start hyprpapr
+    ${pkgs.hyprpapr}/bin/hyprpapr &
+
+    # Start hypridle
+    ${pkgs.hypridle}/bin/hypridle &
 
     # Start dock
     ${pkgs.nwg-dock-hyprland}/bin/nwg-dock-hyprland -d
@@ -37,6 +40,11 @@ in {
       # Run start up script
       exec-once = ''${startupScript}/bin/start'';
 
+      env = [
+        "XCURSOR_SIZE,24"
+        "HYPRCURSOR_SIZE,24"
+      ];
+
       plugin = {
         hyprbars = {
           bar_height = 30;
@@ -58,12 +66,16 @@ in {
 
       # Configure monitors
       monitor = [
-        "DP-3, 1440x900@60, 0x1080, 1"
-        "DP-2, 1920x1080@75, 1440x900,1"
-        "DP-1, 1600x900@60, 1680x0, 1"
+        "preferred, auto, auto"
       ];
 
       input = {
+        kb_layout = "us";
+        follow_mouse = "1";
+        sensitivity = "0";
+        touchpad = {
+          natural_scroll = false;
+        };
         numlock_by_default = true;
       };
 
@@ -73,20 +85,36 @@ in {
         "CONTROL_ALT, T, exec, kitty -e fish -c 'neofetch: exec fish'"
 
         # Rofi
-        "SUPER, D, exec, rofi --show drun --allow-images"
+        "SUPER, D, exec, wofi --show drun --allow-images"
 
         # Logout
         "SUPER, l, exec, hyprctl dispatch exit"
+      ];
 
+      bindl = [
         # Media controls
-        ", XF86AudioPlay, exec, playerctl play-pause" # Pause/Play
         ", XF86AudioNext, exec, playerctl next" # Next
+        ", XF86AudioPause, exec, playerctl play-pause" # Pause/Play
+        ", XF86AudioPlay, exec, playerctl play-pause" # Pause/Play
         ", XF86AudioPrev, exec, playerctl previous" # previous
 
         # Volume controls
-        ", XF86AudioRaiseVolume, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ 0 && wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 1%+"
-        ", XF86AudioLowerVolume, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ 0 && wpctl set-volume -l 1.4 @DEFAULT_AUDIO_SINK@ 1%-"
+        ", XF86AudioRaiseVolume, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 1%+"
+        ", XF86AudioLowerVolume, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 1%-"
         ", XF86AudioMute, exec, wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"
+        ", XF86AudioMicMute, exec, wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"
+        ", XF86MonBrightnessUp, exec, brightnessctl -e4 -n2 set 5%+"
+        ", XF86MonBrightnessDown, exec, brightnessctl -e4 -n2 set 5%-"
+      ];
+
+      windowrule = [
+        # Example windowrule
+        "float,class:^(kitty)$,title:^(kitty)$"
+        # Ignore maximize requests from apps. You'll probably like this.
+        "suppressevent maximize, class:.*"
+
+        # Fix some dragging issues with XWayland
+        "nofocus,class:^$,title:^$,xwayland:1,floating:1,fullscreen:0,pinned:0"
       ];
     };
   };
@@ -98,9 +126,6 @@ in {
         layer = "top";
         position = "top";
         height = 30;
-        output = [
-          "DP-2"
-        ];
 
         modules-left = ["hyprland/window"];
         modules-center = ["clock"];
@@ -120,10 +145,8 @@ in {
     wofi
     fish
     hyprpaper
-    mako
-    rofi-wayland
-    networkmanagerapplet
-    pavucontrol
+    hypridle
+    playerctl
     nwg-dock-hyprland
   ];
 }
