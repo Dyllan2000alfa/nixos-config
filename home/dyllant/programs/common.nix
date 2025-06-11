@@ -39,6 +39,7 @@
     rpi-imager
     itch
     orca-slicer
+    python3
   ];
 
   # Flatpak packages to be installed to the user profile
