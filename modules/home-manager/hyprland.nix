@@ -51,11 +51,11 @@ in {
           bar_precedence_over_border = true;
           bar_title_enabled = false;
 
-          #hyprbars-button = [
-          #  "rgb(ff5d5b), 12, , hyprctl dispatch killactive"
-          #  "rgb(ffbb39), 12, , hyprctl dispatch fullscreen 2"
-          #  "rgb(00cd4e), 12, , hyprctl dispatch togglefloating"
-          #];
+          hyprbars-button = [
+            "rgb(ff5d5b), 12, ${pkgs.tela-icon-theme}/share/icons/Tela-purple-dark/24/actions/window-close.svg, hyprctl dispatch killactive"
+            "rgb(ffbb39), 12, ${pkgs.tela-icon-theme}/share/icons/Tela-purple-dark/24/actions/window-fullscreen.svg, hyprctl dispatch fullscreen 2"
+            "rgb(00cd4e), 12, ${pkgs.tela-icon-theme}/share/icons/Tela-purple-dark/24/actions/window-minimize.svg, hyprctl dispatch togglefloating"
+          ];
         };
       };
 
