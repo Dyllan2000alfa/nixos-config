@@ -10,12 +10,6 @@
     # Start waybar
     ${pkgs.waybar}/bin/waybar &
 
-    # Start hyprpaper
-    ${pkgs.hyprpaper}/bin/hyprpaper &
-
-    # Start hypridle
-    ${pkgs.hypridle}/bin/hypridle &
-
     # Start dock
     ${pkgs.nwg-dock-hyprland}/bin/nwg-dock-hyprland -d
   '';
@@ -57,11 +51,11 @@ in {
           bar_precedence_over_border = true;
           bar_title_enabled = false;
 
-          hyprbars-button = [
-            "rgb(ff5d5b), 12, ${pkgs.tela-icon-theme}/share/icons/Tela-purple-dark/24/actions/window-close.svg, hyprctl dispatch killactive"
-            "rgb(ffbb39), 12, ${pkgs.tela-icon-theme}/share/icons/Tela-purple-dark/24/actions/window-fullscreen.svg, hyprctl dispatch fullscreen 2"
-            "rgb(00cd4e), 12, ${pkgs.tela-icon-theme}/share/icons/Tela-purple-dark/24/actions/window-minimize.svg, hyprctl dispatch togglefloating"
-          ];
+          #hyprbars-button = [
+          #  "rgb(ff5d5b), 12, , hyprctl dispatch killactive"
+          #  "rgb(ffbb39), 12, , hyprctl dispatch fullscreen 2"
+          #  "rgb(00cd4e), 12, , hyprctl dispatch togglefloating"
+          #];
         };
       };
 
@@ -120,23 +114,37 @@ in {
     };
   };
 
-  programs.waybar = {
-    enable = true;
-    settings = {
-      mainBar = {
-        layer = "top";
-        position = "top";
-        height = 30;
+  services = {
+    hyprpaper = {
+      enable = true;
+    };
+    hypridle = {
+      enable = true;
+    };
+  };
 
-        modules-left = ["hyprland/window"];
-        modules-center = ["clock"];
-        modules-right = ["tray" "wireplumber" "cpu"];
+  programs = {
+    waybar = {
+      enable = true;
+      settings = {
+        mainBar = {
+          layer = "top";
+          position = "top";
+          height = 30;
 
-        tray = {
-          icon-size = 21;
-          spacing = 10;
+          modules-left = ["hyprland/window"];
+          modules-center = ["clock"];
+          modules-right = ["tray" "wireplumber" "cpu"];
+
+          tray = {
+            icon-size = 21;
+            spacing = 10;
+          };
         };
       };
+    };
+    hyprlock = {
+      enable = true;
     };
   };
 
@@ -145,8 +153,6 @@ in {
     kitty
     wofi
     fish
-    hyprpaper
-    hypridle
     playerctl
     nwg-dock-hyprland
     neofetch

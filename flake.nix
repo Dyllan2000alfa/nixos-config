@@ -31,12 +31,11 @@
 
     hyprland = {
       url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.hyprland.follows = "hyprland";
     };
   };
 
