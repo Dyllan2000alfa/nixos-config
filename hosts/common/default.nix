@@ -63,6 +63,7 @@
     nixPath = ["nixpkgs=${inputs.nixpkgs}"];
   };
 
+  programs.fish.enable = true;
   users.defaultUserShell = pkgs.fish;
 
   environment.systemPackages = with pkgs; [
@@ -72,6 +73,5 @@
     sysstat
     lm_sensors # for `sensors` command
     dig
-    fish
   ];
 }
