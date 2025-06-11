@@ -66,7 +66,7 @@ in {
 
       # Configure monitors
       monitor = [
-        "preferred, 1920x1080, 1"
+        "preferred, 1920x1080, 0x0, 1"
       ];
 
       input = {
