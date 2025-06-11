@@ -148,5 +148,7 @@ in {
     hypridle
     playerctl
     nwg-dock-hyprland
+    neofetch
+    tela-icon-theme
   ];
 }
