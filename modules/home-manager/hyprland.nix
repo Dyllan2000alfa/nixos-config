@@ -47,6 +47,7 @@ in {
 
       plugin = {
         hyprbars = {
+          enable = true;
           bar_height = 30;
           bar_color = "rgb(1e1e1e)";
           bar_text_size = 8;
@@ -82,7 +83,7 @@ in {
       # Configure keybinds
       bind = [
         # Terminal
-        "CONTROL_ALT, T, exec, kitty -e fish -c 'neofetch: exec fish'"
+        "CONTROL_ALT, T, exec, kitty -e fish -c 'neofetch; exec fish'"
 
         # Rofi
         "SUPER, D, exec, wofi --show drun --allow-images"
