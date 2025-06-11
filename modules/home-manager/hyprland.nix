@@ -79,7 +79,7 @@ in {
         # Terminal
         "CONTROL_ALT, T, exec, kitty -e fish -c 'neofetch; exec fish'"
 
-        # Rofi
+        # Wofi
         "SUPER, D, exec, wofi --show drun --allow-images"
 
         # Logout
