@@ -20,7 +20,7 @@
   # paths it should manage.
   home = {
     username = "dyllant";
-    home.homeDirectory = lib.mkDefault "/home/${config.home.username}";
+    homeDirectory = lib.mkDefault "/home/${config.home.username}";
 
     # This value determines the Home Manager release that your
     # configuration is compatible with. This helps avoid breakage
