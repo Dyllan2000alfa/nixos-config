@@ -27,6 +27,8 @@
     ];
     packages = [inputs.home-manager.packages.${pkgs.system}.default];
   };
-  home-manager.users.dyllant =
-    import ../../../home/dyllant/${config.networking.hostName}.nix;
+  home-manager = {
+    useGlobalPkgs = true;
+    users.dyllant = import ../../../home/dyllant/${config.networking.hostName}.nix;
+  };
 }
