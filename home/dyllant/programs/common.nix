@@ -42,6 +42,7 @@
     python3
     alejandra
     nixd
+    neofetch
   ];
 
   # Flatpak packages to be installed to the user profile
