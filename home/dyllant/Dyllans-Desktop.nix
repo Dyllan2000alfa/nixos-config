@@ -9,11 +9,24 @@
     ./programs
     #../../modules/home-manager/hyprland.nix
     inputs.flatpaks.homeManagerModules.nix-flatpak
+    inputs.idrac-6.homeManagerModule
+    inputs.sops-nix.homeManagerModules.sops
   ];
 
   services.flatpak.update.auto = {
     enable = true;
     onCalendar = "daily"; # Default value
+  };
+
+  sops = {
+    defaultSopsFile = ./nixos-config/secrets/secrets.yaml;
+    defaultSopsFormat = "yaml";
+
+    age.keyFile = "/home/dyllant/.config/sops/age/keys.txt";
+
+    secrets."idrac/host" = { };
+    secrets."idrac/user" = { };
+    secrets."idrac/secret" = { };
   };
 
   # Home Manager needs a bit of information about you and the
@@ -42,4 +55,16 @@
     ];
   };
   programs.home-manager.enable = true;
+  programs.idrac-6 = {
+    enable = true;
+    hosts = [
+      {
+        host = "${config.sops.placeholder."idrac/host"}";
+        port = "5900";
+        user = "${config.sops.placeholder."idrac/user"}";
+        secret = "${config.sops.placeholder."idrac/secret"}";
+      }
+    ];
+  };
+
 }
