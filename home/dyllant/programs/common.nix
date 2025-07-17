@@ -33,7 +33,7 @@
     libreoffice-qt
     hunspell
     hunspellDicts.en_US
-    prismlauncher
+    #prismlauncher
     tailscale
     rpiboot
     rpi-imager

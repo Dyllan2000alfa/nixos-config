@@ -14,6 +14,8 @@
 
     vgpu4nixos.url = "github:mrzenc/vgpu4nixos";
 
+    nvf.url = "github:notashelf/nvf";
+
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -57,6 +59,7 @@
     home-manager,
     disko,
     nixos-facter-modules,
+    nvf,
     ...
   } @ inputs: let
     inherit (self) outputs;
