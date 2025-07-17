@@ -19,7 +19,7 @@
           name = "platformio-ide";
           publisher = "platformio";
           version = "3.3.4";
-          sha256 = "cVYnFhdeClHhuVaTWRU2IDIA1mFq1iLveZUIhEhMSck=";
+          sha256 = "qfNz4IYjCmCMFLtAkbGTW5xnsVT8iDnFWjrgkmr2Slk=";
         }
         {
           name = "indent-one-space";

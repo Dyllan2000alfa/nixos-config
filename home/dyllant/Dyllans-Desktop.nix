@@ -19,14 +19,8 @@
   };
 
   sops = {
-    defaultSopsFile = ./nixos-config/secrets/secrets.yaml;
-    defaultSopsFormat = "yaml";
-
     age.keyFile = "/home/dyllant/.config/sops/age/keys.txt";
-
-    secrets."idrac/host" = { };
-    secrets."idrac/user" = { };
-    secrets."idrac/secret" = { };
+    defaultSopsFile = ./secrets/secrets.yaml;
   };
 
   # Home Manager needs a bit of information about you and the
@@ -59,10 +53,10 @@
     enable = true;
     hosts = [
       {
-        host = "${config.sops.placeholder."idrac/host"}";
+        host = "10.1.0.19";
         port = "5900";
-        user = "${config.sops.placeholder."idrac/user"}";
-        secret = "${config.sops.placeholder."idrac/secret"}";
+        user = "admin";
+        secret = "host1";
       }
     ];
   };
