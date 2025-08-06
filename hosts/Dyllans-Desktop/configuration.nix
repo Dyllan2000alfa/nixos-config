@@ -106,7 +106,7 @@
 
     tailscale = {
       enable = true;
-      useRoutingFeatures = true;
+      useRoutingFeatures = "client";
     };
   };
 
