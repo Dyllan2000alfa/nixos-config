@@ -43,6 +43,8 @@
     alejandra
     nixd
     neofetch
+    mono
+    protontricks
   ];
 
   # Flatpak packages to be installed to the user profile

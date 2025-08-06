@@ -1,7 +1,8 @@
 {config, ...}: {
   imports = [
     ./home.nix 
-    ../common 
+    ../common
+    ../features/cli
     ../../modules/home-manager/hyprland.nix
   ];
 

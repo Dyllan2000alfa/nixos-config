@@ -103,13 +103,18 @@
       settings.PermitRootLogin = "no";
       allowSFTP = true;
     };
+
+    tailscale = {
+      enable = true;
+      useRoutingFeatures = true;
+    };
   };
 
   # Open ports in the firewall.
   networking.firewall = {
     enable = true;
     allowedTCPPorts = [47984 47989 47990 48010 57621 8384 22000 9000 9001 27015 27036 25565];
-    allowedUDPPorts = [22000 21027 27015];
+    allowedUDPPorts = [22000 21027 27015 11000];
     allowedUDPPortRanges = [
       {
         from = 47998;
