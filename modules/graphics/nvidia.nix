@@ -63,7 +63,7 @@
       nvidiaSettings = true;
 
       # Optionally, you may need to select the appropriate driver version for your specific GPU.
-      package = pkgs.nvidia-patch.patch-nvenc (pkgs.nvidia-patch.patch-fbc package);
+      package = config.boot.kernelPackages.nvidiaPackages.latest;
     };
 
     environment.variables = {

@@ -38,13 +38,14 @@
     rpiboot
     rpi-imager
     itch
-    orca-slicer
     python3
     alejandra
     nixd
     neofetch
     mono
     protontricks
+    protonvpn-gui
+    qbittorrent
   ];
 
   # Flatpak packages to be installed to the user profile

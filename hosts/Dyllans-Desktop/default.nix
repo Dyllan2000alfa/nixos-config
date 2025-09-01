@@ -31,4 +31,5 @@
   ssh.enable = true;
   syncthing.enable = true;
   webdav-server.enable = false;
+  samba.enable = true;
 }
