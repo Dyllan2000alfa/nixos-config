@@ -21,7 +21,7 @@
     r2modman
 
     # media
-    jellyfin-media-player
+    #jellyfin-media-player
     discord
     vlc
     tidal-hifi
@@ -46,6 +46,7 @@
     protontricks
     protonvpn-gui
     qbittorrent
+    freetype
   ];
 
   # Flatpak packages to be installed to the user profile
