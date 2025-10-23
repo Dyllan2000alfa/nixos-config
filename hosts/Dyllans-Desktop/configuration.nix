@@ -34,7 +34,7 @@
 
   # Set your time zone.
   time.timeZone = "America/Chicago";
-  networking.timeServers = ["10.1.0.1" "time.cloudflare.com"];
+  networking.timeServers = ["time.cloudflare.com"];
 
   # Make time compatible with windows
   time.hardwareClockInLocalTime = true;
@@ -113,7 +113,7 @@
   # Open ports in the firewall.
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [47984 47989 47990 48010 57621 8384 22000 9000 9001 27015 27036 25565];
+    allowedTCPPorts = [47984 47989 47990 48010 57621 8384 22000 9000 9001 27015 27036 25565 8080];
     allowedUDPPorts = [22000 21027 27015 11000];
     allowedUDPPortRanges = [
       {

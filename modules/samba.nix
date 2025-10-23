@@ -1,5 +1,4 @@
 {
-  pkgs,
   lib,
   config,
   ...
@@ -15,16 +14,29 @@
       enable = true;
       securityType = "user";
       openFirewall = true;
-      shares = {
-        isos = {
-          path = "/mnt/isos";
+      settings = {
+        global = {
+          "workgroup" = "WORKGROUP";
+          "server string" = "smbnix";
+          "netbios name" = "smbnix";
+          "security" = "user";
+          #"use sendfile" = "yes";
+          #"max protocol" = "smb2";
+          # note: localhost is the ipv6 localhost ::1
+          "hosts allow" = "192.168.0. 127.0.0.1 localhost";
+          "hosts deny" = "0.0.0.0/0";
+          "guest account" = "nobody";
+          "map to guest" = "bad user";
+        };
+        "isos" = {
+          "path" = "/mnt/isos";
           "browsable" = "yes";
           "writable" = "no";
           "guest ok" = "yes";
           "read only" = "yes";
         };
-        media = {
-          path = "/mnt/media";
+        "media" = {
+          "path" = "/mnt/media";
           "browsable" = "yes";
           "writable" = "no";
           "guest ok" = "yes";

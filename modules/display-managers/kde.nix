@@ -60,6 +60,7 @@
       kdePackages.kcalc
       kdePackages.polkit-kde-agent-1
       kdePackages.powerdevil
+      freetype
     ];
   };
 }

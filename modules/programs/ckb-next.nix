@@ -11,7 +11,12 @@
   };
 
   config = lib.mkIf config.ckb-next.enable {
-    hardware.ckb-next.enable = true; # enable ckb-next daemon
+    hardware.ckb-next = {
+      enable = true; # enable ckb-next daemon
+      package = pkgs.ckb-next.overrideAttrs (old: {
+        cmakeFlags = (old.cmakeFlags or [ ]) ++ [ "-DUSE_DBUS_MENU=0" ];
+      });
+    };
     hardware.i2c.enable = true; # Enable i2c
   };
 }
