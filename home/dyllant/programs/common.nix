@@ -36,7 +36,6 @@
     #prismlauncher
     tailscale
     rpiboot
-    rpi-imager
     itch
     python3
     alejandra
