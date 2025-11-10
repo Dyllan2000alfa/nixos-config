@@ -29,7 +29,7 @@
   sunshine.enable = true;
   ckb-next.enable = true;
   ssh.enable = true;
-  syncthing.enable = true;
+  syncthing.enable = false;
   webdav-server.enable = false;
   samba.enable = true;
 }

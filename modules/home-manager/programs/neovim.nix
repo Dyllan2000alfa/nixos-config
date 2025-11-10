@@ -1,38 +1,37 @@
 {
-  config,
-  lib,
   pkgs,
-  inputs,
+  lib,
+  config,
   ...
 }: {
-  imports = [
-    inputs.nvf.homeManagerModules.default
-  ];
-
   programs.nvf = {
     enable = true;
+    enableManpages = true;
+
+    # Your settings need to go into the settings attribute set
+    # most settings are documented in the appendix
     settings = {
       vim = {
         viAlias = false;
         vimAlias = true;
-
-        statusline.lualine.enable = true;
-        telescope.enable = true;
-        autocomplete.nvim-cmp.enable = true;
-
         theme = {
           enable = true;
           name = "gruvbox";
           style = "dark";
         };
 
+        statusline.lualine.enable = true;
+        telescope.enable = true;
+        autocomplete.nvim-cmp.enable = true;
+
+        lsp.enable = true;
+
         languages = {
-          enableLSP = true;
           enableTreesitter = true;
 
-          nix = {
-            enable = true;
-          };
+          nix.enable = true;
+          python.enable = true;
+          clang.enable = true;
         };
       };
     };

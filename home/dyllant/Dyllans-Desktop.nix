@@ -51,7 +51,7 @@
   };
   programs.home-manager.enable = true;
   programs.idrac-6 = {
-    enable = true;
+    enable = false;
     hosts = [
       {
         host = "10.1.0.19";
