@@ -169,22 +169,9 @@
   # Open ports in the firewall.
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [47984 47989 47990 48010 57621 8384 22000 9000 9001 27015 27036 25565 8080 8096 53 80 443 8083 7200];
-    allowedUDPPorts = [22000 21027 27015 11000 53 67];
-    allowedUDPPortRanges = [
-      {
-        from = 47998;
-        to = 48000;
-      }
-      {
-        from = 8000;
-        to = 8010;
-      }
-      {
-        from = 27031;
-        to = 27036;
-      }
-    ];
+    allowedTCPPorts = [8080 8096 53 80 443 8083 7200];
+    allowedUDPPorts = [];
+    allowedUDPPortRanges = [];
   };
 
   # This value determines the NixOS release from which the default
