@@ -16,26 +16,18 @@
     alsa-utils
     talosctl
     nix-index
-    wineWow64Packages.stable
-    winetricks
-    r2modman
 
     # media
-    #jellyfin-media-player
     discord
-    vlc
     tidal-hifi
 
     # misc
-    zenity
-    openssl_1_1
     tela-icon-theme
     libreoffice-qt
     hunspell
     hunspellDicts.en_US
     tailscale
     rpiboot
-    itch
     python3
     alejandra
     nixd
@@ -43,7 +35,6 @@
     mono
     protontricks
     proton-vpn
-    qbittorrent
     freetype
     prismlauncher
     intiface-central
@@ -62,19 +53,7 @@
       origin = "flathub";
     }
     {
-      appId = "com.spotify.Client";
-      origin = "flathub";
-    }
-    {
       appId = "com.github.xournalpp.xournalpp";
-      origin = "flathub";
-    }
-    {
-      appId = "com.github.wwmm.easyeffects";
-      origin = "flathub";
-    }
-    {
-      appId = "org.pipewire.Helvum";
       origin = "flathub";
     }
     {
