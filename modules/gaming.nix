@@ -38,7 +38,7 @@
     programs.gamemode.enable = true;
 
     environment.systemPackages = [
-      inputs.nix-gaming.packages.${pkgs.system}.wine-discord-ipc-bridge
+      inputs.nix-gaming.packages.${pkgs.stdenv.hostPlatform.system}.wine-discord-ipc-bridge
     ];
   };
 }

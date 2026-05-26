@@ -30,11 +30,11 @@
         ];
         pathsToLink = ["/share/icons"];
       };
-      aggregatedFonts = pkgs.buildEnv {
-        name = "system-fonts";
-        paths = config.fonts.packages;
-        pathsToLink = ["/share/fonts"];
-      };
+      #aggregatedFonts = pkgs.buildEnv {
+      #  name = "system-fonts";
+      #  paths = config.fonts.packages;
+      #  pathsToLink = ["/share/fonts"];
+      #};
       aggregatedThemes = pkgs.buildEnv {
         name = "system-themes";
         paths = with pkgs; [
@@ -44,7 +44,7 @@
       };
     in {
       "/usr/share/icons" = mkRoSymBind "${aggregatedIcons}/share/icons";
-      "/usr/local/share/fonts" = mkRoSymBind "${aggregatedFonts}/share/fonts";
+      #"/usr/local/share/fonts" = mkRoSymBind "${aggregatedFonts}/share/fonts";
       "/usr/share/themes" = mkRoSymBind "${aggregatedThemes}/share/themes";
     };
   };

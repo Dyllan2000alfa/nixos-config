@@ -21,11 +21,12 @@
       "qemu-libvirtd"
       "i2c"
       "podman"
+      "dialout"
     ];
     openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHvfEm6EHx5a5J+WMxIpqaWYnqBDwXukKSwUmocfiYgg dyllant@Dyllans-Desktop"
     ];
-    packages = [inputs.home-manager.packages.${pkgs.system}.default];
+    packages = [inputs.home-manager.packages.${pkgs.stdenv.hostPlatform.system}.default];
   };
   home-manager = {
     users.dyllant = import ../../../home/dyllant/${config.networking.hostName}.nix;

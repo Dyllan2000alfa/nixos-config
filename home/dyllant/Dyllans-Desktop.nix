@@ -49,6 +49,7 @@
       "openssl-1.1.1w"
     ];
   };
+
   programs.home-manager.enable = true;
   programs.idrac-6 = {
     enable = false;

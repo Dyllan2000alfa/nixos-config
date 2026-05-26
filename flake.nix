@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "nixpkgs/nixos-unstable";
 
-    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.05";
+    nixpkgs-stable.url = "github:nixos/nixpkgs/nixos-25.11";
 
     nixos-facter-modules.url = "github:numtide/nixos-facter-modules";
 
@@ -12,9 +12,9 @@
 
     flatpaks.url = "github:gmodena/nix-flatpak/?ref=latest";
 
-    vgpu4nixos.url = "github:mrzenc/vgpu4nixos";
-
     nvf.url = "github:notashelf/nvf";
+
+    nix-minecraft.url = "github:Infinidoge/nix-minecraft";
 
     disko = {
       url = "github:nix-community/disko";
@@ -90,7 +90,7 @@
         "dyllant@TestVM" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages."x86_64-linux";
           extraSpecialArgs = {inherit inputs outputs;};
-          modules = [./home/dyllant/TestVM.nix];
+          modules = [./home/dyllant/TestVM.nix]; 
         };
         "dyllant@Dyllans-Desktop" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages."x86_64-linux";

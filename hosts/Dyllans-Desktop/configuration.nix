@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  lib,
   ...
 }: {
   imports = [
@@ -17,11 +18,34 @@
   };
 
   boot.kernelPackages = pkgs.linuxPackages;
-  boot.kernelParams = ["zfs.zfs_arc_max=2147483648" "nvidia_drm.fbdev=1"];
+  boot.kernelParams = ["zfs.zfs_arc_max=2147483648" "nvidia_drm.fbdev=1" "amd_iommu=on"];
 
   boot.extraModulePackages = with config.boot.kernelPackages; [
     v4l2loopback.out
   ];
+  
+  boot.zfs.extraPools = [ "Server" ];
+  boot.zfs.forceImportRoot = false;
+
+  boot.extraModprobeConfig = ''
+    # Keep Bluetooth coexistence disabled for better BT audio stability
+    options iwlwifi bt_coex_active=0
+
+    # Enable software crypto (helps BT coexistence sometimes)
+    options iwlwifi swcrypto=1
+
+    # Disable power saving on Wi-Fi module to reduce radio state changes that might disrupt BT
+    options iwlwifi power_save=0
+
+    # Disable Unscheduled Automatic Power Save Delivery (U-APSD) to improve BT audio stability
+    options iwlwifi uapsd_disable=1
+
+    # Disable D0i3 power state to avoid problematic power transitions
+    options iwlwifi d0i3_disable=1
+
+    # Set power scheme for performance (iwlmvm)
+    options iwlmvm power_scheme=1
+  '';
 
   networking.hostName = "Dyllans-Desktop"; # Define your hostname.
   networking.hostId = "abcd1234"; # Define your hostid for zfs.
@@ -29,8 +53,35 @@
   # Enable networking
   networking.networkmanager.enable = true;
 
-  hardware.bluetooth.enable = true; # enables support for Bluetooth
-  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
+  networking.extraHosts = ''
+    127.0.0.1 games.tinoco.casa      # Example
+    127.0.0.1 pihole     # Example
+    
+    ....
+
+    '';
+
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+    settings = {
+      General = {
+        # Shows battery charge of connected devices on supported
+        # Bluetooth adapters. Defaults to 'false'.
+        Experimental = true;
+        # When enabled other devices can connect faster to us, however
+        # the tradeoff is increased power consumption. Defaults to
+        # 'false'.
+        FastConnectable = true;
+      };
+      Policy = {
+        # Enable all controllers when they are found. This includes
+        # adapters present on start as well as adapters that are plugged
+        # in later on. Defaults to 'true'.
+        AutoEnable = true;
+      };
+    };
+  };
 
   # Set your time zone.
   time.timeZone = "America/Chicago";
@@ -92,6 +143,9 @@
 
   # List services that you want to enable:
 
+  programs.appimage.enable = true;
+  programs.appimage.binfmt = true;
+
   services = {
     zfs = {
       #Enable zfs scrubbing and trim
@@ -108,13 +162,15 @@
       enable = true;
       useRoutingFeatures = "client";
     };
+
+    ratbagd.enable = false;
   };
 
   # Open ports in the firewall.
   networking.firewall = {
     enable = true;
-    allowedTCPPorts = [47984 47989 47990 48010 57621 8384 22000 9000 9001 27015 27036 25565 8080];
-    allowedUDPPorts = [22000 21027 27015 11000];
+    allowedTCPPorts = [47984 47989 47990 48010 57621 8384 22000 9000 9001 27015 27036 25565 8080 8096 53 80 443 8083 7200];
+    allowedUDPPorts = [22000 21027 27015 11000 53 67];
     allowedUDPPortRanges = [
       {
         from = 47998;

@@ -16,7 +16,7 @@
     alsa-utils
     talosctl
     nix-index
-    wineWowPackages.stable
+    wineWow64Packages.stable
     winetricks
     r2modman
 
@@ -33,19 +33,22 @@
     libreoffice-qt
     hunspell
     hunspellDicts.en_US
-    #prismlauncher
     tailscale
     rpiboot
     itch
     python3
     alejandra
     nixd
-    neofetch
+    fastfetch
     mono
     protontricks
-    protonvpn-gui
+    proton-vpn
     qbittorrent
     freetype
+    prismlauncher
+    intiface-central
+    flashgbx
+    ciscoPacketTracer9
   ];
 
   # Flatpak packages to be installed to the user profile

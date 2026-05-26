@@ -9,7 +9,7 @@
   ...
 }: {
   imports = [
-    inputs.vgpu4nixos.nixosModules.host
+    inputs.nix-minecraft.nixosModules.minecraft-servers
 
     ../../modules
     ../common
@@ -17,8 +17,9 @@
     ./hardware-configuration.nix
   ];
 
+  nixpkgs.overlays = [ inputs.nix-minecraft.overlay ];
+
   graphics.nvidia.enable = true;
-  graphics.nvidia-vgpu.enable = false;
   audio.enable = true;
   kde.enable = true;
   hyprland.enable = false;

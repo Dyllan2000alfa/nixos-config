@@ -41,9 +41,24 @@
       };
     };
 
+    systemd.services.podman-autostart = {
+      enable = true;
+      after = [ "podman.service" ];
+      wantedBy = [ "multi-user.target" ];
+      description = "Automatically start containers with --restart=always tag";
+      serviceConfig = {
+        Type = "idle";
+        User = "root";
+        ExecStartPre = ''${pkgs.coreutils}/bin/sleep 1'';
+        ExecStart = ''/run/current-system/sw/bin/podman start --all --filter restart-policy=always'';
+      };
+    };
+
     environment.systemPackages = with pkgs; [
       docker-compose
       podman-compose
+      dive
+      podman-tui
     ];
   };
 }
