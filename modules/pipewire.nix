@@ -27,6 +27,9 @@
         alsa.support32Bit = true;
         pulse.enable = true;
         jack.enable = true;
+        extraLadspaPackages = with pkgs; [
+          rnnoise-plugin
+        ];
 
         lowLatency = {
           # enable this module
@@ -37,10 +40,6 @@
         };
       };
     };
-
-    environment.systemPackages = with pkgs; [
-      rnnoise-plugin
-    ];
 
     services.pipewire.extraConfig.pipewire-pulse."40-mix-lfe" = {
       "stream.properties" = {
@@ -70,10 +69,10 @@
                 {
                   "type" = "ladspa";
                   "name" = "rnnoise";
-                  "plugin" = "/run/current-system/sw/lib/ladspa/librnnoise_ladspa.so";
+                  "plugin" = "librnnoise_ladspa";
                   "label" = "noise_suppressor_mono";
                   "control" = {
-                    "VAD Threshold (%)" = 50.0;
+                    "VAD Threshold (%)" = 0.0;
                     "VAD Grace Period (ms)" = 200;
                     "Retroactive VAD Grace (ms)" = 0;
                   };

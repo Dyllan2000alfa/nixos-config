@@ -16,6 +16,8 @@
     alsa-utils
     talosctl
     nix-index
+    wineWow64Packages.stable
+    winetricks
 
     # media
     discord
