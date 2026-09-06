@@ -32,6 +32,8 @@
 
     nixpkgs.overlays = [inputs.nvidia-patch.overlays.default];
 
+    hardware.nvidia-container-toolkit.enable = true;
+
     #Enable nvidia driver
     hardware.nvidia = {
       forceFullCompositionPipeline = true;

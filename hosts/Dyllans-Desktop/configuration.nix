@@ -18,7 +18,7 @@
   };
 
   boot.kernelPackages = pkgs.linuxPackages;
-  boot.kernelParams = ["zfs.zfs_arc_max=2147483648" "nvidia_drm.fbdev=1" "amd_iommu=on"];
+  boot.kernelParams = ["zfs.zfs_arc_max=2147483648" "nvidia_drm.fbdev=1" "amd_iommu=on" "nohibernate"];
 
   boot.extraModulePackages = with config.boot.kernelPackages; [
     v4l2loopback.out
@@ -136,21 +136,26 @@
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
 
   # List services that you want to enable:
 
-  programs.appimage.enable = true;
-  programs.appimage.binfmt = true;
+  programs = {
+    appimage = {
+      enable = true;
+      binfmt = true;
+    };
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
+  };
 
   services = {
     zfs = {
       #Enable zfs scrubbing and trim
       autoScrub.enable = true;
       trim.enable = true;
+      autoSnapshot.enable = false;
     };
     openssh = {
       enable = true;
@@ -163,7 +168,7 @@
       useRoutingFeatures = "client";
     };
 
-    ratbagd.enable = false;
+    ratbagd.enable = true;
   };
 
   # Open ports in the firewall.

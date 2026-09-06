@@ -42,6 +42,9 @@
     intiface-central
     flashgbx
     ciscoPacketTracer9
+    piper
+    orca-slicer
+    rpi-imager
   ];
 
   # Flatpak packages to be installed to the user profile

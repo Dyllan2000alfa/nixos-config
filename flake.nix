@@ -16,6 +16,8 @@
 
     nix-minecraft.url = "github:Infinidoge/nix-minecraft";
 
+    robotnix.url = "github:nix-community/robotnix";
+
     disko = {
       url = "github:nix-community/disko";
       inputs.nixpkgs.follows = "nixpkgs";

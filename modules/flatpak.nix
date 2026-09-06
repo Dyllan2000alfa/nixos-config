@@ -38,7 +38,7 @@
       aggregatedThemes = pkgs.buildEnv {
         name = "system-themes";
         paths = with pkgs; [
-          layan-gtk-theme
+          #layan-gtk-theme
         ];
         pathsToLink = ["/share/themes"];
       };
