@@ -28,7 +28,7 @@
         }
       ];
     profiles.default.userSettings = {
-      "workbench.colorTheme" = "Default Dark Modern";
+      "workbench.colorTheme" = "Dark Modern";
       "editor.tabSize" = 2;
       "editor.detectIndentation" = false;
       "git.enableSmartCommit" = true;

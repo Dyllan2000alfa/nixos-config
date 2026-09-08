@@ -5,6 +5,7 @@
   ...
 }: let 
   zpoolName = "vm-rpool"; # Change to desired pool name
+  swapSize = 11; # Change to your desired swap size in Gib
 in {
   disko.devices = {
     disk = {
@@ -21,11 +22,11 @@ in {
                 type = "filesystem";
                 format = "vfat";
                 mountpoint = "/boot";
-                mountOptions = [ "umask=0077" ];
+                mountOptions = [ "nofail" ];
               };
             };
             encryptedSwap = {
-              size = "11G";
+              size = "${swapSize}G";
               content = {
                 type = "swap";
                 randomEncryption = true;
@@ -51,32 +52,53 @@ in {
           compression = "zstd";
           acltype = "posixacl";
           xattr = "sa";
-          "com.sun:auto-snapshot" = "true";
+          "com.sun:auto-snapshot" = "false";
         };
         options.ashift = "12";
 
         datasets = {
-          "root" = {
+          "roots" = {
             type = "zfs_fs";
-            mountpoint = "/";
-            postCreateHook = "zfs list -t snapshot -H -o name | grep -E '^vm-rpool/local/root@blank$' || zfs snapshot vm-rpool/local/root@blank";
-            options = {
-              encryption = "aes-256-gcm";
-              keyformat = "passphrase";
-              keylocation = "prompt";
-              "com.sun:auto-snapshot" = "false";
-            };
+            mountpoint = "none";
           };
-          "root/nix" = {
+          "roots/nixos" = {
+            type = "zfs_fs";
+            options.mountpoint = "none";
+          };
+          "roots/nixos/empty" = {
+            type = "zfs_fs";
+            options.mountpoint = "legacy";
+            mountpoint = "/";
+            postCreateHook = "zfs snapshot ${zpoolName}/nixos/empty@start";
+          };
+          "roots/nixos/var" = {
+            type = "zfs_fs";
+            options.mountpoint = "none";
+          };
+          "roots/nixos/var/log" = {
+            type = "zfs_fs";
+            options.mountpoint = "legacy";
+            mountpoint = "/var/log";
+            options."com.sun:auto-snapshot" = "true";
+          };
+          "roots/nixos/var/lib" = {
+            type = "zfs_fs";
+            options.mountpoint = "legacy";
+            mountpoint = "/var/lib";
+            options."com.sun:auto-snapshot" = "true";
+          };
+          "roots/nixos/nix" = {
             type = "zfs_fs";
             mountpoint = "/nix";
             options."com.sun:auto-snapshot" = "false";
           };
-          "root/persist" = {
+          "roots/nixos/config" = {
             type = "zfs_fs";
-            mountpoint = "/persist";
-            options."com.sun:auto-snapshot" = "false";
+            options.mountpoint = "legacy";
+            mountpoint = "/etc/nixos";
+            options."com.sun:auto-snapshot" = "true";
           };
+
           "local/home" = {
             type = "zfs_fs";
             mountpoint = "/home";
