@@ -10,21 +10,57 @@
   ];
 
   # Bootloader.
-  boot.loader = {
-    efi = {
-      canTouchEfiVariables = true;
+  boot = {
+
+    # Enable systemd boot loader
+    loader = {
+      efi = {
+        canTouchEfiVariables = true;
+      };
+      systemd-boot.enable = true;
     };
-    systemd-boot.enable = true;
+
+    # Define service for ephemeral root
+    initrd.systemd = {
+      enable = true;
+      services.initrd-rollback-root = {
+        after = [ "zfs-import-rpool.service" ];
+        wantedBy = [ "initrd.target" ];
+        before = [
+          "sysroot.mount"
+        ];
+        path = [ pkgs.zfs ];
+        description = "Rollback root fs";
+        unitConfig.DefaultDependencies = "no";
+        serviceConfig.Type = "oneshot";
+        script = "zfs rollback -r rpool/nixos/empty@start";
+      };
+    };
+
+    kernelPackages = pkgs.linuxPackages;
+    
+    zfs.forceImportRoot = false;
   };
 
-  boot.kernelPackages = pkgs.linuxPackages;
-  
-  boot.zfs.forceImportRoot = false;
+  networking = {
+    useDHCP = false;
+    networkmanager.enable = true;
+    
+    # Define system hostname and id
+    hostName = "TestVM";
+    hostId = "2a1a97c4";
+    
+    # Manually set a time server if needed
+    #timeServers = ["time.cloudflare.com"];
 
-  networking.hostName = "TestVM"; # Define your hostname.
-
-  # Enable networking
-  networking.networkmanager.enable = true;
+    #Enable firewall and specify allowed ports
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [];
+      allowedUDPPorts = [];
+      allowedUDPPortRanges = [];
+    };
+  };
 
   hardware.bluetooth = {
     enable = false;
@@ -48,32 +84,28 @@
     };
   };
 
-  # Set your time zone.
-  time.timeZone = "America/Chicago";
-  networking.timeServers = ["time.cloudflare.com"];
+  time = {
+    # Set time zone for system
+    timeZone = "America/Chicago";
 
-  # Make time compatible with windows if desired for duel booting
-  time.hardwareClockInLocalTime = false;
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "en_US.UTF-8";
-    LC_IDENTIFICATION = "en_US.UTF-8";
-    LC_MEASUREMENT = "en_US.UTF-8";
-    LC_MONETARY = "en_US.UTF-8";
-    LC_NAME = "en_US.UTF-8";
-    LC_NUMERIC = "en_US.UTF-8";
-    LC_PAPER = "en_US.UTF-8";
-    LC_TELEPHONE = "en_US.UTF-8";
-    LC_TIME = "en_US.UTF-8";
+    # Make system clock compatible with windows for dual booting
+    hardwareClockInLocalTime = false;
   };
 
-  # Configure keymap in X11
-  services.xserver.xkb = {
-    layout = "us";
-    variant = "";
+  # Select internationalisation properties.
+  i18n = {
+    defaultLocale = "en_US.UTF-8";
+    extraLocaleSettings = {
+      LC_ADDRESS = "en_US.UTF-8";
+      LC_IDENTIFICATION = "en_US.UTF-8";
+      LC_MEASUREMENT = "en_US.UTF-8";
+      LC_MONETARY = "en_US.UTF-8";
+      LC_NAME = "en_US.UTF-8";
+      LC_NUMERIC = "en_US.UTF-8";
+      LC_PAPER = "en_US.UTF-8";
+      LC_TELEPHONE = "en_US.UTF-8";
+      LC_TIME = "en_US.UTF-8";
+    };
   };
 
   # Configure fonts
@@ -92,13 +124,8 @@
     ];
   };
 
-  # Enable CUPS to print documents.
-  services.printing.enable = true;
-
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
-  # List services that you want to enable:
 
   programs = {
     appimage = {
@@ -111,31 +138,29 @@
     };
   };
 
+  # List services that you want to enable:
+
   services = {
+    #Enable zfs scrubbing, trim and snapshot if desired
     zfs = {
-      #Enable zfs scrubbing and trim
       autoScrub.enable = true;
       trim.enable = true;
-      autoSnapshot.enable = false;
+      autoSnapshot.enable = true;
     };
-    openssh = {
-      enable = true;
-      settings.PermitRootLogin = "no";
-      allowSFTP = true;
+
+    # Configure keymap in X11
+    xserver.xkb = {
+      layout = "us";
+      variant = "";
     };
+
+    # Enable CUPS to print documents.
+    printing.enable = true;
 
     tailscale = {
       enable = true;
       useRoutingFeatures = "client";
     };
-  };
-
-  # Open ports in the firewall.
-  networking.firewall = {
-    enable = true;
-    allowedTCPPorts = [];
-    allowedUDPPorts = [];
-    allowedUDPPortRanges = [];
   };
 
   # This value determines the NixOS release from which the default

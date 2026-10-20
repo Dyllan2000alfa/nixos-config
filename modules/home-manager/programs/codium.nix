@@ -8,7 +8,6 @@
     profiles.default.extensions = with pkgs.vscode-extensions;
       [
         dracula-theme.theme-dracula
-        ms-vscode-remote.vscode-remote-extensionpack
         ms-azuretools.vscode-docker
         ms-vscode.cpptools
         jnoortheen.nix-ide
