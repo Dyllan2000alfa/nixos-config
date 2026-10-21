@@ -20,9 +20,9 @@
   boot.kernelPackages = pkgs.linuxPackages;
   boot.kernelParams = ["zfs.zfs_arc_max=2147483648" "nvidia_drm.fbdev=1" "amd_iommu=on" "nohibernate"];
 
-  boot.extraModulePackages = with config.boot.kernelPackages; [
-    v4l2loopback.out
-  ];
+  #boot.extraModulePackages = with config.boot.kernelPackages; [
+  #  v4l2loopback.out
+  #];
   
   boot.zfs.extraPools = [ "Server" ];
   boot.zfs.forceImportRoot = false;

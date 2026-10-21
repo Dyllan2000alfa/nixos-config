@@ -41,7 +41,7 @@
     prismlauncher
     intiface-central
     flashgbx
-    ciscoPacketTracer9
+    #ciscoPacketTracer9
     piper
     orca-slicer
     rpi-imager

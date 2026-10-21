@@ -40,6 +40,26 @@
     kernelPackages = pkgs.linuxPackages;
     
     zfs.forceImportRoot = false;
+
+    extraModprobeConfig = ''
+      # Keep Bluetooth coexistence disabled for better BT audio stability
+      options iwlwifi bt_coex_active=0
+
+      # Enable software crypto (helps BT coexistence sometimes)
+      options iwlwifi swcrypto=1
+
+      # Disable power saving on Wi-Fi module to reduce radio state changes that might disrupt BT
+      options iwlwifi power_save=0
+
+      # Disable Unscheduled Automatic Power Save Delivery (U-APSD) to improve BT audio stability
+      options iwlwifi uapsd_disable=1
+
+      # Disable D0i3 power state to avoid problematic power transitions
+      options iwlwifi d0i3_disable=1
+
+      # Set power scheme for performance (iwlmvm)
+      options iwlmvm power_scheme=1
+    '';
   };
 
   networking = {
@@ -47,8 +67,8 @@
     networkmanager.enable = true;
     
     # Define system hostname and id
-    hostName = "TestVM";
-    hostId = "2a1a97c4";
+    hostName = "Audreys-Laptop";
+    hostId = "6d802d90";
     
     # Manually set a time server if needed
     #timeServers = ["time.cloudflare.com"];
@@ -63,7 +83,7 @@
   };
 
   hardware.bluetooth = {
-    enable = false;
+    enable = true;
     powerOnBoot = true;
     settings = {
       General = {
@@ -73,7 +93,7 @@
         # When enabled other devices can connect faster to us, however
         # the tradeoff is increased power consumption. Defaults to
         # 'false'.
-        FastConnectable = true;
+        FastConnectable = false;
       };
       Policy = {
         # Enable all controllers when they are found. This includes
@@ -125,7 +145,7 @@
   };
 
   # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.allowUnfree = false;
 
   programs = {
     appimage = {

@@ -36,7 +36,7 @@
       };
 
       kvmfr = {
-        enable = true;
+        enable = false;
         shm = {
           enable = true;
           size = 128;

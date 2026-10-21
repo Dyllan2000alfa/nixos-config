@@ -15,14 +15,14 @@
     ./hardware-configuration.nix
   ];
 
-  graphics.nvidia.enable = true;
+  graphics.intel.enable = true;
   audio.enable = true;
   kde.enable = true;
   hyprland.enable = false;
   gaming.enable = false;
   flatpaks.enable = false;
   podman.containers.enable = false;
-  vms.enable = false;
+  vms.enable = true;
   sunshine.enable = false;
   ckb-next.enable = false;
   ssh.enable = true;

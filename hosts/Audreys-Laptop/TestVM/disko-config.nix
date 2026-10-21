@@ -4,8 +4,8 @@
   config,
   ...
 }: let 
-  zpoolName = "vm-rpool"; # Change to desired pool name
-  swapSize = 11; # Change to your desired swap size in Gib
+  zpoolName = "laptop-rpool"; # Change to desired pool name
+  swapSize = 38; # Change to your desired swap size in Gib
 in {
   disko.devices = {
     disk = {
