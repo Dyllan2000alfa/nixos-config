@@ -83,16 +83,16 @@
         modules = [./hosts/Dyllans-Desktop];
       };
 
-      TestVM = nixpkgs.lib.nixosSystem {
+      Audreys-Laptop = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
-        modules = [./hosts/TestVM];
+        modules = [./hosts/Audreys-Laptop];
       };
 
       homeConfigurations = {
-        "dyllant@TestVM" = home-manager.lib.homeManagerConfiguration {
+        "dyllant@Audreys-Laptop" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages."x86_64-linux";
           extraSpecialArgs = {inherit inputs outputs;};
-          modules = [./home/dyllant/TestVM.nix]; 
+          modules = [./home/dyllant/Audreys-Laptop.nix]; 
         };
         "dyllant@Dyllans-Desktop" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages."x86_64-linux";
