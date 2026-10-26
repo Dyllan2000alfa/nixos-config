@@ -1,11 +1,6 @@
-{ 
-  pkgs,
-  lib,
-  config,
-  ...
-}: let 
+let 
   zpoolName = "laptop-rpool"; # Change to desired pool name
-  swapSize = 38; # Change to your desired swap size in Gib
+  swapSize = "38"; # Change to your desired swap size in Gib
 in {
   disko.devices = {
     disk = {
@@ -37,7 +32,7 @@ in {
               size = "100%";
               content = {
                 type = "zfs";
-                zpool = zpoolName; 
+                pool = zpoolName; 
               };
             };
           };
@@ -59,7 +54,7 @@ in {
         datasets = {
           "roots" = {
             type = "zfs_fs";
-            mountpoint = "none";
+            options.mountpoint = "none";
           };
           "roots/nixos" = {
             type = "zfs_fs";
@@ -69,7 +64,7 @@ in {
             type = "zfs_fs";
             options.mountpoint = "legacy";
             mountpoint = "/";
-            postCreateHook = "zfs snapshot ${zpoolName}/nixos/empty@start";
+            postCreateHook = "zfs snapshot ${zpoolName}/roots/nixos/empty@start";
           };
           "roots/nixos/var" = {
             type = "zfs_fs";

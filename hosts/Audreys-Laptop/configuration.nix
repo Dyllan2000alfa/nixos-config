@@ -9,6 +9,45 @@
     ./hardware-configuration.nix
   ];
 
+  # Define ZFS filesystems
+  fileSystems = {
+    "/" = lib.mkForce {
+      device = "laptop-rpool/roots/nixos/empty";
+      fsType = "zfs";
+    };
+
+    "/nix" = {
+      device = "laptop-rpool/roots/nixos/nix";
+      fsType = "zfs";
+      neededForBoot = true;
+    };
+
+    "/etc/nixos" = {
+      device = "laptop-rpool/roots/nixos/config";
+      fsType = "zfs";
+      neededForBoot = true;
+    };
+
+    "/var/log" = {
+      device = "laptop-rpool/roots/nixos/var/log";
+      fsType = "zfs";
+      neededForBoot = true;
+    };
+
+    "/var/lib" = {
+      device = "laptop-rpool/roots/nixos/var/lib";
+      fsType = "zfs";
+      neededForBoot = true;
+    };
+
+    # Dont think I need this, but leaving it in case I do
+    #"/boot" = {
+    #  device = "/dev/disk/by-uuid/A5F5-E8F3";
+    #  fsType = "vfat";
+    #  options = ["fmask=0077" "dmask=0077"];
+    #};
+  };
+
   # Bootloader.
   boot = {
 
