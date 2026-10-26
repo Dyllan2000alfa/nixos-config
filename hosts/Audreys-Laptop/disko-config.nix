@@ -6,7 +6,7 @@ in {
     disk = {
       main = {
         type = "disk";
-        device = "/dev/disk/by-diskseq/1"; # Change to desired disk if you dont want it to grab the first disk
+        device = "/dev/disk/by-id/nvme-Sabrent_7FBC071408D900106738"; # Change to desired disk if you dont want it to grab the first disk
         content = {
           type = "gpt";
           partitions = {
