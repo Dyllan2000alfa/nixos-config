@@ -61,7 +61,7 @@
 
     # Define service for ephemeral root
     initrd.systemd = {
-      enable = true;
+      #enable = true;
       services.initrd-rollback-root = {
         after = [ "zfs-import-rpool.service" ];
         wantedBy = [ "initrd.target" ];
