@@ -20,12 +20,12 @@ in {
                 mountOptions = [ "nofail" ];
               };
             };
-            encryptedSwap = {
+            plainSwap = {
               size = "${swapSize}G";
               content = {
                 type = "swap";
-                randomEncryption = true;
-                priority = 100; # prefer to encrypt as long as we have space for it
+                discardPolicy = "both";
+                resumeDevice = true; # resume from hiberation from this device
               };
             };
             zfs = {
