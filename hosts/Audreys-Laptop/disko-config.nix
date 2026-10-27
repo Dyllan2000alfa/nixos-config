@@ -84,6 +84,7 @@ in {
           };
           "roots/nixos/nix" = {
             type = "zfs_fs";
+            options.mountpoint = "legacy";
             mountpoint = "/nix";
             options."com.sun:auto-snapshot" = "false";
           };
