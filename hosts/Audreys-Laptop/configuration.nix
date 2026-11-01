@@ -10,8 +10,8 @@
   ];
 
   # Define ZFS filesystems
-  fileSystems = {
-    /*"/" = lib.mkForce {
+  /*fileSystems = {
+    "/" = lib.mkForce {
       device = "laptop-rpool/roots/nixos/empty";
       fsType = "zfs";
     };
