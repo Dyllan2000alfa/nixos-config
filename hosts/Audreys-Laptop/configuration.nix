@@ -11,7 +11,7 @@
 
   # Define ZFS filesystems
   fileSystems = {
-    "/" = lib.mkForce {
+    /*"/" = lib.mkForce {
       device = "laptop-rpool/roots/nixos/empty";
       fsType = "zfs";
     };
@@ -46,7 +46,7 @@
     #  fsType = "vfat";
     #  options = ["fmask=0077" "dmask=0077"];
     #};
-  };
+  };*/
 
   # Bootloader.
   boot = {
@@ -72,7 +72,7 @@
         description = "Rollback root fs";
         unitConfig.DefaultDependencies = "no";
         serviceConfig.Type = "oneshot";
-        script = "zfs rollback -r rpool/nixos/empty@start";
+        script = "zfs rollback -r laptop-rpool/roots/nixos/empty@start";
       };
     };
 
