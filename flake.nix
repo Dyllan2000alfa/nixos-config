@@ -29,7 +29,7 @@
     };
 
     intel-sriov = {
-      url = "https://github.com/strongtz/i915-sriov-dkms";
+      url = "github:strongtz/i915-sriov-dkms";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
