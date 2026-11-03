@@ -41,6 +41,8 @@
     
     zfs.forceImportRoot = false;
 
+    extraModulePackages = [ pkgs.i915-sriov ];
+
     extraModprobeConfig = ''
       # Keep Bluetooth coexistence disabled for better BT audio stability
       options iwlwifi bt_coex_active=0
