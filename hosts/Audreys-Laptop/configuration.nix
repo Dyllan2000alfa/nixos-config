@@ -42,7 +42,7 @@
     
     zfs.forceImportRoot = false;
 
-    extraModulePackages = [ inputs.intel-sriov.i915-sriov ];
+    extraModulePackages = [ inputs.intel-sriov.pkgs.i915-sriov ];
 
     extraModprobeConfig = ''
       # Keep Bluetooth coexistence disabled for better BT audio stability
