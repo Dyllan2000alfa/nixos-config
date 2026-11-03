@@ -28,7 +28,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    intel-sriov = {
+    i915-sriov = {
       url = "github:strongtz/i915-sriov-dkms";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -67,6 +67,7 @@
     disko,
     nixos-facter-modules,
     nvf,
+    i915-sriov,
     ...
   } @ inputs: let
     inherit (self) outputs;
@@ -90,7 +91,10 @@
 
       Audreys-Laptop = nixpkgs.lib.nixosSystem {
         specialArgs = {inherit inputs outputs;};
-        modules = [./hosts/Audreys-Laptop];
+        modules = [
+          ./hosts/Audreys-Laptop
+          i915-sriov.nixosModules.default
+        ];
       };
 
       homeConfigurations = {
