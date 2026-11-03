@@ -10,8 +10,6 @@
     ./hardware-configuration.nix
   ];
 
-  nixpkgs.overlays = [inputs.intel-sriov];
-
   # Bootloader.
   boot = {
 
@@ -44,7 +42,7 @@
     
     zfs.forceImportRoot = false;
 
-    extraModulePackages = [ pkgs.i915-sriov ];
+    extraModulePackages = [ inputs.intel-sriov.i915-sriov ];
 
     extraModprobeConfig = ''
       # Keep Bluetooth coexistence disabled for better BT audio stability
