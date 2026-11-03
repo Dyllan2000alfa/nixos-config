@@ -8,6 +8,9 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+  ];
+
+  overlays = [
     inputs.intel-sriov
   ];
 
