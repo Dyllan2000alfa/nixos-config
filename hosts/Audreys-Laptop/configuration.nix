@@ -10,9 +10,7 @@
     ./hardware-configuration.nix
   ];
 
-  overlays = [
-    inputs.intel-sriov
-  ];
+  nixpkgs.overlays = [inputs.intel-sriov.overlays.default];
 
   # Bootloader.
   boot = {
