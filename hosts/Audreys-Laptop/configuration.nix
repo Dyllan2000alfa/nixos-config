@@ -10,9 +10,18 @@
     ./hardware-configuration.nix
   ];
 
-  systemd.tmpfiles.rules = [
-    "w /sys/devices/pci0000:00/0000:00:02.0/sriov_numvfs -    -    -    -   7"
-  ];
+  systemd.services.set-vfnum = {
+    script = ''
+      echo 7 > /sys/devices/pci0000:00/0000:00:02.0/sriov_numvfs
+    '';
+
+    # This service runs once and finishes,
+    # instead of the default long-live services
+    type = "oneshot";
+
+    # "Enable" the service
+    wantedBy = [ "multi-user.target" ];
+  };
 
   # Bootloader.
   boot = {
