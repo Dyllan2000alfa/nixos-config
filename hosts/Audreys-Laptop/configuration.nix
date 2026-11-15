@@ -38,7 +38,7 @@
       };
     };
 
-    kernelParams = ["intel_iommu=on i915.xelp_enable_ccs=1 i915.enable_guc=3 i915.max_vfs=7 module_blacklist=xe"];
+    kernelParams = ["intel_iommu=on" "i915.xelp_enable_ccs=1" "i915.enable_guc=3" "i915.max_vfs=7" "module_blacklist=xe"];
 
     kernelPackages = pkgs.linuxPackages;
     

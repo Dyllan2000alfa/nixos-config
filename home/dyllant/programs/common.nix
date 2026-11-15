@@ -39,7 +39,7 @@
     proton-vpn
     freetype
     prismlauncher
-    intiface-central
+    #intiface-central
     flashgbx
     #ciscoPacketTracer9
     piper
