@@ -10,6 +10,10 @@
     ./hardware-configuration.nix
   ];
 
+  systemd.tmpfiles.rules = [
+    "w /sys/devices/pci0000:00/0000:00:02.0/sriov_numvfs -    -    -    -   7"
+  ];
+
   # Bootloader.
   boot = {
 
