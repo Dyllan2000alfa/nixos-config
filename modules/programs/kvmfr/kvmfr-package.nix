@@ -14,7 +14,7 @@ stdenv.mkDerivation rec {
 
   src = looking-glass-client.src;
   sourceRoot = "source/module";
-  hardeningDisable = ["pic" "format"];
+  hardeningDisable = [ "pic" "format" ];
   nativeBuildInputs = kernel.moduleBuildDependencies;
 
   makeFlags = [
@@ -30,7 +30,8 @@ stdenv.mkDerivation rec {
     description = "This kernel module implements a basic interface to the IVSHMEM device for LookingGlass";
     homepage = "https://github.com/gnif/LookingGlass";
     license = licenses.gpl2Only;
-    maintainers = with maintainers; [j-brn];
-    platforms = ["x86_64-linux"];
+    maintainers = with maintainers; [ j-brn ];
+    platforms = [ "x86_64-linux" ];
   };
 }
+
