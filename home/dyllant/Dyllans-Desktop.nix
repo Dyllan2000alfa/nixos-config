@@ -11,7 +11,7 @@
     inputs.flatpaks.homeManagerModules.nix-flatpak
     inputs.idrac-6.homeManagerModule
     inputs.sops-nix.homeManagerModules.sops
-    inputs.nvf.homeManagerModules.default
+    inputs.nvf.homeModules.default
   ];
 
   services.flatpak.update.auto = {
