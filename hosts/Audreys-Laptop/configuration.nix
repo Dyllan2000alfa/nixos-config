@@ -11,7 +11,7 @@
   ];
 
   systemd.tmpfiles.rules = [
-    "w /sys/devices/pci0000\:00/0000\:00\:02.0/sriov_numvfs -    -    -    -   7"
+    "w /sys/devices/pci0000:00/0000:00:02.0/sriov_numvfs -    -    -    -   7"
   ];
 
   # Bootloader.
@@ -42,7 +42,7 @@
       };
     };
 
-    kernelParams = ["intel_iommu=on" "i915.xelp_enable_ccs=1" "i915.enable_guc=3" "i915.max_vfs=7" "module_blacklist=xe"];
+    kernelParams = ["intel_iommu=on" "xe.xelp_enable_ccs=1""xe.max_vfs=7" "xe.force_probe=0x46a6" "module_blacklist=i915"];
 
     kernelPackages = pkgs.linuxPackages;
     

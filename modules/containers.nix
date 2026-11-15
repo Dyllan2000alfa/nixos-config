@@ -21,8 +21,10 @@
         storage = {
           driver = "zfs";
           runroot = "/run/containers/storage";
-          graphroot = "/var/lib/containers/storage";
           rootless_storage_path = "/tmp/containers-$USER";
+          rootful = {
+            graphroot = "/var/lib/containers/storage";
+          };
         };
       };
 
